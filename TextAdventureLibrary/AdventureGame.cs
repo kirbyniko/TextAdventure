@@ -62,13 +62,16 @@
 
         }
 
+        //public AdventureGame(string name, Room room)
+        //{
+        //    string name = Name;
+
+        //    CurrentRoom = room = CurrentRoom;
+        //}
         public AdventureGame()
         {
-            string name = Name;
 
-            Room room = CurrentRoom;
         }
-
 
 
         public List<Item> InitItems()
