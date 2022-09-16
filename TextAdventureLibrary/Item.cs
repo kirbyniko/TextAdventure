@@ -9,10 +9,13 @@ namespace TextAdventureLibrary
 
         public string Description { get; set; }
 
+        public string Location { get; set; }
+
         public int Weight { get; set; }
 
         public int Value { get; set; }
 
+        public Word Word { get; set; } = new Word();
         public List<string> Verbs { get; set; } = new List<string>();
         public List<string> Keywords { get; set; } = new List<string>();
 
@@ -27,7 +30,7 @@ namespace TextAdventureLibrary
 
         public Item()
         {
-
+                
         }
     }
 

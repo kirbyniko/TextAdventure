@@ -9,12 +9,15 @@ namespace TextAdventureLibrary
 {
     public class Command
     {
+        public List<Statement> Statements { get; set; } = new List<Statement>();
+        public List<Word> Words { get; set; } = new List<Word>();
 
         public List<string> Verbs { get; set; } = new List<string>();
 
         public List<string> Places { get; set; } = new List<string>();
 
         public List<Item> Objects { get; set; } = new List<Item>();
+        public List<Player> Players { get; set; } = new List<Player>();
 
         public Item Item { get; set; } = new Item();
 
@@ -23,82 +26,24 @@ namespace TextAdventureLibrary
             Objects.Clear();
             Places.Clear();
             Verbs.Clear();
+            Words.Clear();
+            Statements.Clear();
         }
 
-        public void GetItem(AdventureGame game)
-        {
-            if ((Verbs[0] == "get" | Verbs[0] == "obtain" | Verbs[0] == "pickup") & Objects[0].Verbs.Contains("get"))
-            {
-                game.Players.First().Inventory.Add(Objects[0]);
-                game.CurrentRoom.Items.Remove(Objects[0]);
-                Console.WriteLine("You pick up the " + Objects[0].Name);
-            }
-        }
 
         public void LookAround(AdventureGame game)
         {
             if (Verbs[0] == "look")
             {
-
-            }
-        }
-
-        public List<string> GetVerb(AdventureGame game, List<string> words)
-        {
-            foreach (var word in words)
-            {
-                if (game.Verbs.Contains(word))
+                foreach(Player player in game.Command.Players)
                 {
-                    game.Command.Verbs.Add(word);
+                    Console.WriteLine("You see " + player.Description);
+                }
+                foreach(Item item in game.Command.Objects)
+                {
+                    Console.WriteLine("You see " + item.Description);
                 }
             }
-
-            return game.Command.Verbs;
-    
-        }
-
-        public List<string> GetPlace(AdventureGame game, List<string> words)
-        {
-            foreach (var word in words)
-            {
-                if (game.Places.Contains(word))
-                {
-                    game.Command.Places.Add(word);
-                }
-            }
-
-            return game.Command.Places;
-        }
-
-        public List<Item> GetObject(AdventureGame game, List<string> words)
-        {
-            foreach (var word in words)
-            {
-                if (game.ObjectKeywords.Contains(word))
-                {
-                    foreach(var c in game.Objects)
-                    {
-                        if (c.Keywords.Contains(word))
-                        {
-                            game.Command.Objects.Add(c);
-                        }
-                    }
-                    
-
-                }
-            }
-
-            return game.Command.Objects;
-        }
-
-        public void isPerson()
-        {
-
-        }
-
-        public void isAdverb()
-        {
-
         }
     }
 

@@ -9,7 +9,11 @@
 
         public int Health { get; set; }
 
+        public Word Word { get; set; } = new Word();
+
         public List<Item> Inventory { get; set; } = new List<Item>();
+
+        public List<string> Keywords { get; set; } = new List<string>();
 
         public int Strength { get; set; }
 

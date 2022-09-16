@@ -11,6 +11,8 @@
 
         public int Verbosity { get; set; }
 
+        public Word Word { get; set; }
+
         public Room DefaultExit { get; set; }
 
         public List<AdjacentRoom> AdjacentRooms { get; set; } = new List<AdjacentRoom>();
