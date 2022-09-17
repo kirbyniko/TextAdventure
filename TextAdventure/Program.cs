@@ -219,14 +219,22 @@ void RunStatements()
             {
                 foreach (var o in c.Players)
                 {
-                    switch (c.Verbs[0].WordString)
+                    if (game.CurrentRoom.Players.Contains(o.Player))
                     {
-                        case "attack":
-                            int damage = game.Players.First().Strength;
-                            o.Player.Health = o.Player.Health - damage;
-                            Console.WriteLine("You did " + damage + " damage to the " + o.WordString);
-                            break;
+                        switch (c.Verbs[0].WordString)
+                        {
+                            case "attack":
+                                int damage = game.Players.First().Strength;
+                                o.Player.Health = o.Player.Health - damage;
+                                Console.WriteLine("You did " + damage + " damage to the " + o.WordString);
+                                break;
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("You do not see " + o.Player.Name + "!");
+                    }
+                   
                 }
             }
 
@@ -247,6 +255,7 @@ void RunStatements()
 
                             }
                     }
+                    Console.WriteLine("You cannot enter " + c.Places[0].WordString);
                 }
 
                 else
