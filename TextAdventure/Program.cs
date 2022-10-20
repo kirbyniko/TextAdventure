@@ -1,12 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Linq;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using TextAdventureLibrary;
 
-
 string Input;
+string fileName = "god.json";
+string jsonString = File.ReadAllText(fileName);
+AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString)!;
 
-AdventureGame game = InitGame();
 DisplayRoom(game);
 
 while (true)

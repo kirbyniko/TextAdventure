@@ -23,5 +23,10 @@
             Description = description;
             Health = health;
         }
+
+        public Player()
+        {
+           
+        }
     }
 }
