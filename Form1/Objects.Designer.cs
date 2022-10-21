@@ -46,6 +46,7 @@
             this.tboxobjectname.Name = "tboxobjectname";
             this.tboxobjectname.Size = new System.Drawing.Size(100, 23);
             this.tboxobjectname.TabIndex = 0;
+            this.tboxobjectname.TextChanged += new System.EventHandler(this.tboxobjectname_TextChanged);
             // 
             // lblname
             // 
@@ -55,6 +56,7 @@
             this.lblname.Size = new System.Drawing.Size(39, 15);
             this.lblname.TabIndex = 1;
             this.lblname.Text = "Name";
+            this.lblname.Click += new System.EventHandler(this.lblname_Click);
             // 
             // lblweight
             // 
@@ -64,6 +66,7 @@
             this.lblweight.Size = new System.Drawing.Size(45, 15);
             this.lblweight.TabIndex = 3;
             this.lblweight.Text = "Weight";
+            this.lblweight.Click += new System.EventHandler(this.lblweight_Click);
             // 
             // tboxobjectweight
             // 
@@ -71,6 +74,7 @@
             this.tboxobjectweight.Name = "tboxobjectweight";
             this.tboxobjectweight.Size = new System.Drawing.Size(100, 23);
             this.tboxobjectweight.TabIndex = 2;
+            this.tboxobjectweight.TextChanged += new System.EventHandler(this.tboxobjectweight_TextChanged);
             // 
             // lblvalue
             // 
@@ -80,6 +84,7 @@
             this.lblvalue.Size = new System.Drawing.Size(35, 15);
             this.lblvalue.TabIndex = 5;
             this.lblvalue.Text = "Value";
+            this.lblvalue.Click += new System.EventHandler(this.lblvalue_Click);
             // 
             // tboxobjectvalue
             // 
@@ -87,6 +92,7 @@
             this.tboxobjectvalue.Name = "tboxobjectvalue";
             this.tboxobjectvalue.Size = new System.Drawing.Size(100, 23);
             this.tboxobjectvalue.TabIndex = 4;
+            this.tboxobjectvalue.TextChanged += new System.EventHandler(this.tboxobjectvalue_TextChanged);
             // 
             // lblobjectsummary
             // 
@@ -96,6 +102,7 @@
             this.lblobjectsummary.Size = new System.Drawing.Size(96, 15);
             this.lblobjectsummary.TabIndex = 6;
             this.lblobjectsummary.Text = "Object Summary";
+            this.lblobjectsummary.Click += new System.EventHandler(this.lblobjectsummary_Click);
             // 
             // rtboxobjectsummary
             // 
@@ -104,6 +111,7 @@
             this.rtboxobjectsummary.Size = new System.Drawing.Size(228, 96);
             this.rtboxobjectsummary.TabIndex = 8;
             this.rtboxobjectsummary.Text = "";
+            this.rtboxobjectsummary.TextChanged += new System.EventHandler(this.rtboxobjectsummary_TextChanged);
             // 
             // btncreateobject
             // 
@@ -123,6 +131,7 @@
             this.lblobjectfields.Size = new System.Drawing.Size(68, 15);
             this.lblobjectfields.TabIndex = 10;
             this.lblobjectfields.Text = "Fill all fields";
+            this.lblobjectfields.Click += new System.EventHandler(this.lblobjectfields_Click);
             // 
             // Objects
             // 

@@ -56,5 +56,50 @@ namespace Form1
             
            
         }
+
+        private void lblobjectfields_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtboxobjectsummary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblobjectsummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblvalue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tboxobjectvalue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblweight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tboxobjectweight_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tboxobjectname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
