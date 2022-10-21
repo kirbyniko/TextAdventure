@@ -44,14 +44,15 @@
             // 
             this.tboxobjectname.Location = new System.Drawing.Point(12, 12);
             this.tboxobjectname.Name = "tboxobjectname";
-            this.tboxobjectname.Size = new System.Drawing.Size(100, 23);
+            this.tboxobjectname.PlaceholderText = "Type Name Here...";
+            this.tboxobjectname.Size = new System.Drawing.Size(114, 23);
             this.tboxobjectname.TabIndex = 0;
             this.tboxobjectname.TextChanged += new System.EventHandler(this.tboxobjectname_TextChanged);
             // 
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(118, 15);
+            this.lblname.Location = new System.Drawing.Point(132, 15);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(39, 15);
             this.lblname.TabIndex = 1;
@@ -61,7 +62,7 @@
             // lblweight
             // 
             this.lblweight.AutoSize = true;
-            this.lblweight.Location = new System.Drawing.Point(118, 44);
+            this.lblweight.Location = new System.Drawing.Point(132, 44);
             this.lblweight.Name = "lblweight";
             this.lblweight.Size = new System.Drawing.Size(45, 15);
             this.lblweight.TabIndex = 3;
@@ -72,14 +73,15 @@
             // 
             this.tboxobjectweight.Location = new System.Drawing.Point(12, 41);
             this.tboxobjectweight.Name = "tboxobjectweight";
-            this.tboxobjectweight.Size = new System.Drawing.Size(100, 23);
+            this.tboxobjectweight.PlaceholderText = "Type Weight Here...";
+            this.tboxobjectweight.Size = new System.Drawing.Size(114, 23);
             this.tboxobjectweight.TabIndex = 2;
             this.tboxobjectweight.TextChanged += new System.EventHandler(this.tboxobjectweight_TextChanged);
             // 
             // lblvalue
             // 
             this.lblvalue.AutoSize = true;
-            this.lblvalue.Location = new System.Drawing.Point(118, 73);
+            this.lblvalue.Location = new System.Drawing.Point(132, 73);
             this.lblvalue.Name = "lblvalue";
             this.lblvalue.Size = new System.Drawing.Size(35, 15);
             this.lblvalue.TabIndex = 5;
@@ -90,7 +92,8 @@
             // 
             this.tboxobjectvalue.Location = new System.Drawing.Point(12, 70);
             this.tboxobjectvalue.Name = "tboxobjectvalue";
-            this.tboxobjectvalue.Size = new System.Drawing.Size(100, 23);
+            this.tboxobjectvalue.PlaceholderText = "Type Value Here...";
+            this.tboxobjectvalue.Size = new System.Drawing.Size(114, 23);
             this.tboxobjectvalue.TabIndex = 4;
             this.tboxobjectvalue.TextChanged += new System.EventHandler(this.tboxobjectvalue_TextChanged);
             // 
