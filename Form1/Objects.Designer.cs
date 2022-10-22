@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnleditobjects = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // pnleditobjects
+            // panel1
             // 
-            this.pnleditobjects.Location = new System.Drawing.Point(21, 12);
-            this.pnleditobjects.Name = "pnleditobjects";
-            this.pnleditobjects.Size = new System.Drawing.Size(550, 278);
-            this.pnleditobjects.TabIndex = 0;
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(371, 217);
+            this.panel1.TabIndex = 0;
+            this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Objects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 388);
-            this.Controls.Add(this.pnleditobjects);
+            this.ClientSize = new System.Drawing.Size(400, 247);
+            this.Controls.Add(this.panel1);
             this.Name = "Objects";
-            this.Text = "Objects";
             this.ResumeLayout(false);
 
         }
@@ -53,6 +54,6 @@
         #endregion
 
         private TabControl tabControl1;
-        private Panel pnleditobjects;
+        private Panel panel1;
     }
 }

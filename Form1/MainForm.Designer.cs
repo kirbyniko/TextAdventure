@@ -48,6 +48,10 @@
             this.tboxgamename = new System.Windows.Forms.TextBox();
             this.btnsavename = new System.Windows.Forms.Button();
             this.btnsavegame = new System.Windows.Forms.Button();
+            this.btneditobjects = new System.Windows.Forms.Button();
+            this.btneditrooms = new System.Windows.Forms.Button();
+            this.btneditplayers = new System.Windows.Forms.Button();
+            this.btneditverbs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lboxobjects
@@ -236,11 +240,53 @@
             this.btnsavegame.UseVisualStyleBackColor = true;
             this.btnsavegame.Click += new System.EventHandler(this.btnsavegame_Click);
             // 
+            // btneditobjects
+            // 
+            this.btneditobjects.Location = new System.Drawing.Point(69, 313);
+            this.btneditobjects.Name = "btneditobjects";
+            this.btneditobjects.Size = new System.Drawing.Size(75, 23);
+            this.btneditobjects.TabIndex = 20;
+            this.btneditobjects.Text = "Edit";
+            this.btneditobjects.UseVisualStyleBackColor = true;
+            this.btneditobjects.Click += new System.EventHandler(this.btneditobjects_Click);
+            // 
+            // btneditrooms
+            // 
+            this.btneditrooms.Location = new System.Drawing.Point(223, 313);
+            this.btneditrooms.Name = "btneditrooms";
+            this.btneditrooms.Size = new System.Drawing.Size(75, 23);
+            this.btneditrooms.TabIndex = 21;
+            this.btneditrooms.Text = "Edit";
+            this.btneditrooms.UseVisualStyleBackColor = true;
+            // 
+            // btneditplayers
+            // 
+            this.btneditplayers.Location = new System.Drawing.Point(370, 313);
+            this.btneditplayers.Name = "btneditplayers";
+            this.btneditplayers.Size = new System.Drawing.Size(75, 23);
+            this.btneditplayers.TabIndex = 22;
+            this.btneditplayers.Text = "Edit";
+            this.btneditplayers.UseVisualStyleBackColor = true;
+            this.btneditplayers.Click += new System.EventHandler(this.btneditplayers_Click);
+            // 
+            // btneditverbs
+            // 
+            this.btneditverbs.Location = new System.Drawing.Point(518, 313);
+            this.btneditverbs.Name = "btneditverbs";
+            this.btneditverbs.Size = new System.Drawing.Size(75, 23);
+            this.btneditverbs.TabIndex = 23;
+            this.btneditverbs.Text = "Edit";
+            this.btneditverbs.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btneditverbs);
+            this.Controls.Add(this.btneditplayers);
+            this.Controls.Add(this.btneditrooms);
+            this.Controls.Add(this.btneditobjects);
             this.Controls.Add(this.btnsavegame);
             this.Controls.Add(this.btnsavename);
             this.Controls.Add(this.tboxgamename);
@@ -292,5 +338,9 @@
         private Label lblverbs;
         private ListBox lboxverbs;
         private Button btnsavegame;
+        private Button btneditobjects;
+        private Button btneditrooms;
+        private Button btneditplayers;
+        private Button btneditverbs;
     }
 }

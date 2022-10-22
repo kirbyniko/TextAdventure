@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using TextAdventureLibrary;
 
 string Input;
+
 string fileName = "god.json";
 string jsonString = File.ReadAllText(fileName);
 AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString)!;

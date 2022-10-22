@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,50 @@ namespace AdventureMaker
 
         private AdventureGame adventureGame;
 
-        private List<String> synonyms { get; set; }
+        private List<String> synonyms { get; set; } = new List<string>();
+
+        private Item item = new Item();
+
+        private Player player = new Player();
+
+        private string objecttype;
+
+
+
+        public EditObject()
+        {
+            InitializeComponent();
+        }
+
+        public EditObject(AdventureGame Game, Item obj, Player _player)
+        {
+            player = _player;
+            adventureGame = Game;
+            item = obj;
+            objecttype = "player";
+
+            InitSynonyms();
+
+            InitializeComponent();
+        }
+
+        public EditObject(AdventureGame Game, Item obj)
+        {
+            adventureGame = Game;
+            item = obj;
+            objecttype = "edit";
+            InitSynonyms();
+            InitializeComponent();
+        }
+
+        private void InitSynonyms()
+        {
+            synonyms.Clear();
+            foreach (var c in item.Keywords)
+            {
+                synonyms.Add(c);
+            }
+        }
         public EditObject(AdventureGame game)
         {
             adventureGame = game;
@@ -27,11 +71,33 @@ namespace AdventureMaker
         private void button1_Click(object sender, EventArgs e)
         {
             synonyms.Add(tboxsynonyms.Text);
+            InitListbox();
         }
 
-        private void btncreateobject_Click(object sender, EventArgs e)
+        public void InitListbox()
         {
+            lboxsynonyms.Items.Clear();
+            foreach(var c in synonyms)
+            {
+                lboxsynonyms.Items.Add(c);
+            }
+            
+        }
 
+        public void LoadItem()
+        {
+            tboxobjectname.Text = item.Name;
+            tboxobjectvalue.Text = item.Value.ToString();
+            tboxobjectweight.Text = item.Weight.ToString();
+            rtboxobjectsummary.Text = item.Description;
+            foreach(var c in synonyms)
+            {
+                lboxsynonyms.Items.Add(c);
+            }
+        }
+
+        private void SaveItem()
+        {
             int weight;
             int value;
 
@@ -40,13 +106,38 @@ namespace AdventureMaker
                 if (int.TryParse(tboxobjectweight.Text, out weight))
                 {
                     if (int.TryParse(tboxobjectvalue.Text, out value))
-                    {
-                        adventureGame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
-                        MainForm mainForm = new(adventureGame);
-                        mainForm.Show();
-                       // this.Close();
+                    { 
+                        
+                        switch (objecttype)
+                        {
+                            case "player":
+                                player.Inventory.Remove(item);
+                                item = new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms);
+                                player.Inventory.Add(item);
+                                MakePlayer makeplayer = new(adventureGame, player);
+                                makeplayer.Show();
+                                ((Objects)this.TopLevelControl).Close();
+                                break;
+                            case "edit":
+                                adventureGame.Objects.Remove(item);
+                                adventureGame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
+                                MainForm mainForm = new(adventureGame);
+                                mainForm.Show();
+                                ((Objects)this.TopLevelControl).Close();
+                                break;
+                            default:
+                                item = new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms);
+                                adventureGame.Objects.Add(item);
+                                MainForm mainForm1 = new(adventureGame);
+                                mainForm1.Show();
+                                ((Objects)this.TopLevelControl).Close();
+                                break;
+                        }
 
+
+                        
                     }
+
                     else
                     {
                         lblobjectfields.Text = "Fix Value!";
@@ -61,8 +152,18 @@ namespace AdventureMaker
             {
                 lblobjectfields.Text = "Fix empty fields!";
             }
+        }
+        private void btncreateobject_Click(object sender, EventArgs e)
+        {
+            SaveItem();
+            
+               
+        }
 
-
+        private void btnremovesynonym_Click(object sender, EventArgs e)
+        {
+            synonyms.Remove((String)lboxsynonyms.SelectedItem);
+            InitListbox();
         }
     }
 }

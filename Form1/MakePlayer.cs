@@ -16,41 +16,28 @@ namespace AdventureMaker
     {
         private AdventureGame game = new();
 
-        private Player player = new();
+        private EditPlayer editplayer;
         public MakePlayer(AdventureGame adventuregame)
         {
             game = adventuregame;
+            editplayer = new EditPlayer(game);
             InitializeComponent();
-            InitCheckListbox();
-            InitListbox();
+     
+        }
+
+      
+        public MakePlayer(AdventureGame adventuregame, Player _player)
+        {
+            game = adventuregame;
+            editplayer = new EditPlayer(game, _player);
+            InitializeComponent();
         }
 
         private void btnaddinventory_Click(object sender, EventArgs e)
         {
-            foreach(var c in clboxaddobjects.Items)
-            {
-                player.Inventory.Add(game.Objects.Find(x => x.Name == c.ToString()));
-            }
-            InitListbox();
         }
 
-        private void InitListbox()
-        {
-            lboxplayerinventory.Items.Clear();  
-            foreach(var c in player.Inventory)
-            {
-                lboxplayerinventory.Items.Add(c.Name);
-            }
-        }
-
-        private void InitCheckListbox()
-        {
-            clboxaddobjects.Items.Clear();
-            foreach (var c in game.Objects)
-            {
-                clboxaddobjects.Items.Add(c.Name);
-            }
-        }
+      
         private void lboxplayerinventory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -58,24 +45,25 @@ namespace AdventureMaker
 
         private void btnremoveinventory_Click(object sender, EventArgs e)
         {
-            foreach(var c in lboxplayerinventory.SelectedItems)
-            {
-                player.Inventory.Remove(player.Inventory.Find(x => x.Name == c.ToString()));
-            }
-            InitListbox();
+           
         }
 
         private void btncreateplayer_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btneditinventory_Click(object sender, EventArgs e)
+        {
+           
             
-            player.Health = int.Parse(tboxplayerhealth.Text);
-            player.Name = tboxplayername.Text;
-            player.Description = rtboxsummary.Text;
-            player.Strength = int.Parse(tboxplayerstrength.Text);
-            game.Players.Add(player);
-            MainForm form = new MainForm(game);
-            form.Show();
-            this.Close();
+        }
+
+        private void MakePlayer_Load(object sender, EventArgs e)
+        {
+            panel1.Controls.Add(editplayer);
+            panel1.Size = editplayer.Size;
+            this.Size = panel1.Size + new Size(60, 60);
         }
     }
 }

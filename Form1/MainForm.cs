@@ -119,6 +119,22 @@ namespace Form1
             {
                 AdventureGame.Players.Remove(AdventureGame.Players.Find(x => x.Name == c));
             }
+            InitPlayers();
+        }
+
+        private void btneditobjects_Click(object sender, EventArgs e)
+        {
+            Objects objects = new(AdventureGame, AdventureGame.Objects.Find(x => x.Name == lboxobjects.SelectedItem));
+            objects.Show();
+            this.Close();
+            
+        }
+
+        private void btneditplayers_Click(object sender, EventArgs e)
+        {
+            MakePlayer makePlayer = new(AdventureGame, AdventureGame.Players.Find(x => x.Name == lboxplayers.SelectedItem));
+            makePlayer.Show();
+            this.Close();
         }
     }
 }

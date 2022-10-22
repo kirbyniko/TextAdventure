@@ -15,18 +15,59 @@ namespace Form1
 {
     public partial class Objects : Form
     {
+        private EditObject editobject;
+
         private AdventureGame adventureGame;
 
-        
-        public Objects(AdventureGame _adventureGame)
+        private string objecttype;
+
+        public Objects(AdventureGame _adventureGame, Item item, Player player)
         {
             adventureGame = _adventureGame;
-            EditObject editobject = new(adventureGame);
-            pnleditobjects.Controls.Add(editobject);
-
-            
+            objecttype = "player";
+            editobject = new(adventureGame, item, player);
             InitializeComponent();
         }
 
+        public Objects(AdventureGame _adventureGame, Item item)
+        {
+            adventureGame = _adventureGame;
+            objecttype = "edit";
+            editobject = new(adventureGame, item);
+            InitializeComponent();
+        }
+
+        public Objects(AdventureGame _adventureGame)
+        {
+            adventureGame = _adventureGame;
+
+            editobject = new(adventureGame);
+
+            InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_VisibleChanged(object sender, EventArgs e)
+        {
+            switch (objecttype)
+            {
+                case "player":
+                    editobject.LoadItem();
+                    editobject.InitListbox();
+                    break;
+                case "edit":
+                    editobject.LoadItem();
+                    editobject.InitListbox();
+                    break;
+
+            }
+            panel1.Controls.Add(editobject);
+            panel1.Size = editobject.Size;
+            this.Size = panel1.Size + new Size(60, 60);
+        }
     }
 }
