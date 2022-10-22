@@ -18,6 +18,8 @@ namespace AdventureMaker
 
         private Item item { get; set; }
 
+       // private List<String> Keywords { get; set; }
+
         private AdventureGame adventuregame { get; set; }
         public InventoryEditor(AdventureGame Game, Item obj, Player _player)
         {
@@ -41,7 +43,7 @@ namespace AdventureMaker
             {
                 if (int.TryParse(tboxobjectvalue.Text, out value))
                 {
-                    adventuregame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value));
+                   // adventuregame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value));
                     MainForm mainForm = new(adventuregame);
                     mainForm.Show();
                     this.Close();

@@ -29,7 +29,7 @@ namespace AdventureMaker
         {
             foreach(var c in clboxaddobjects.Items)
             {
-                player.Inventory.Add(game.Objects.Find(x => x.Name == c));
+                player.Inventory.Add(game.Objects.Find(x => x.Name == c.ToString()));
             }
             InitListbox();
         }
@@ -60,7 +60,7 @@ namespace AdventureMaker
         {
             foreach(var c in lboxplayerinventory.SelectedItems)
             {
-                player.Inventory.Remove(player.Inventory.Find(x => x.Name == c));
+                player.Inventory.Remove(player.Inventory.Find(x => x.Name == c.ToString()));
             }
             InitListbox();
         }

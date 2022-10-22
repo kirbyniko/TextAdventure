@@ -28,6 +28,15 @@ namespace TextAdventureLibrary
             Value = value;
 
         }
+        public Item(string name, string description, int weight, int value, List<String> keywords)
+        {
+            Name = name;
+            Description = description;
+            Weight = weight;
+            Value = value;
+            Keywords = keywords;
+
+        }
 
         public Item()
         {
