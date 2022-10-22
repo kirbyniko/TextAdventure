@@ -37,6 +37,14 @@ namespace Form1
             InitializeComponent();
         }
 
+        public Objects(AdventureGame _adventureGame, Item item, Room room)
+        {
+            adventureGame = _adventureGame;
+            objecttype = "room";
+            editobject = new(adventureGame, item, room);
+            InitializeComponent();
+        }
+
         public Objects(AdventureGame _adventureGame)
         {
             adventureGame = _adventureGame;
@@ -53,21 +61,11 @@ namespace Form1
 
         private void panel1_VisibleChanged(object sender, EventArgs e)
         {
-            switch (objecttype)
-            {
-                case "player":
-                    editobject.LoadItem();
-                    editobject.InitListbox();
-                    break;
-                case "edit":
-                    editobject.LoadItem();
-                    editobject.InitListbox();
-                    break;
-
-            }
-            panel1.Controls.Add(editobject);
-            panel1.Size = editobject.Size;
-            this.Size = panel1.Size + new Size(60, 60);
+             editobject.LoadItem();
+             editobject.InitListbox();
+             panel1.Controls.Add(editobject);
+             panel1.Size = editobject.Size;
+             this.Size = panel1.Size + new Size(60, 60);
         }
     }
 }

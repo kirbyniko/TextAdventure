@@ -109,6 +109,7 @@
             this.btnaddrooms.TabIndex = 6;
             this.btnaddrooms.Text = "Add";
             this.btnaddrooms.UseVisualStyleBackColor = true;
+            this.btnaddrooms.Click += new System.EventHandler(this.btnaddrooms_Click);
             // 
             // lblverbs
             // 

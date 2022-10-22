@@ -24,12 +24,16 @@ namespace AdventureMaker
             InitializeComponent();
      
         }
-
-      
         public MakePlayer(AdventureGame adventuregame, Player _player)
         {
             game = adventuregame;
             editplayer = new EditPlayer(game, _player);
+            InitializeComponent();
+        }
+        public MakePlayer(AdventureGame adventuregame, Player _player, Room room)
+        {
+            game = adventuregame;
+            editplayer = new EditPlayer(game, _player, room);
             InitializeComponent();
         }
 

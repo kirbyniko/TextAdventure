@@ -15,11 +15,13 @@
 
         public Room DefaultExit { get; set; }
 
-        public List<AdjacentRoom> AdjacentRooms { get; set; } = new List<AdjacentRoom>();
+        public List<Room> AdjacentRooms { get; set; } = new List<Room>();
 
         public List<Player> Players { get; set; } = new List<Player>();
 
         public List<Item> Items { get; set; } = new List<Item>();
+
+        public List<string> Keywords = new List<string>();
 
   
 
@@ -29,8 +31,11 @@
             Description = description;
             ShortDescription = shortdescription;
             Verbosity = 1;
+        }
 
-
+        public Room()
+        {
+            Verbosity = 1;
         }
 
 

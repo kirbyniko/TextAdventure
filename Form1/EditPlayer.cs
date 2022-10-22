@@ -19,6 +19,10 @@ namespace AdventureMaker
 
         private Player player = new();
 
+        private Room room = new();
+
+        private bool isroom;
+
         public EditPlayer(AdventureGame adventuregame)
         {
             game = adventuregame;
@@ -28,12 +32,23 @@ namespace AdventureMaker
 
         }
 
+
         public EditPlayer(AdventureGame adventuregame, Player _player)
         {
             game = adventuregame;
             player = _player;
             InitializeComponent();
 
+
+        }
+
+        public EditPlayer(AdventureGame adventuregame, Player _player, Room _room)
+        {
+            game = adventuregame;
+            player = _player;
+            room = _room;
+            isroom = true;
+            InitializeComponent();
 
         }
 
@@ -76,8 +91,7 @@ namespace AdventureMaker
 
         private void btnaddinventory_Click(object sender, EventArgs e)
         {
-
-            foreach (var c in clboxaddobjects.Items)
+            foreach (var c in clboxaddobjects.CheckedItems)
             {
                 player.Inventory.Add(game.Objects.Find(x => x.Name == c.ToString()));;
                
@@ -119,6 +133,13 @@ namespace AdventureMaker
         private void btncreateplayer_Click(object sender, EventArgs e)
         {
             SavePlayer();
+            if (isroom == true)
+            {
+                room.Players.Add(player);
+                RoomMaker roommaker = new(game, room);
+                roommaker.Show();
+                ((MakePlayer)this.TopLevelControl).Close();
+            }
             game.Players.Add(player);
             MainForm form = new MainForm(game);
             form.Show();

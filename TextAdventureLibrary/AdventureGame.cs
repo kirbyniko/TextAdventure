@@ -119,7 +119,7 @@ namespace TextAdventureLibrary
 
         }
 
-        public List<Room> InitRooms()
+      /*  public List<Room> InitRooms()
         {
 
             Room cell = new Room("cell", "You find yourself in a decrepit prison cell, among  a hallway full of other inmates. Dressed in rags and equipped with nothing, by miracle the door to the hallway in front of you opens.", "You enter your old prison cell.");
@@ -128,13 +128,13 @@ namespace TextAdventureLibrary
 
             hallway.Players.Add(Players[1]);
 
-            AdjacentRoom acell = new AdjacentRoom(cell.Name, cell);
-            AdjacentRoom ahallway = new AdjacentRoom(hallway.Name, hallway);
-            AdjacentRoom anorthblock = new AdjacentRoom(northblock.Name, northblock);
+            //Room acell = new Room(cell.Name, cell);
+           // AdjacentRoom ahallway = new AdjacentRoom(hallway.Name, hallway);
+           // AdjacentRoom anorthblock = new AdjacentRoom(northblock.Name, northblock);
 
-            AdjacentRooms.Add(acell);
-            AdjacentRooms.Add(ahallway);
-            AdjacentRooms.Add(anorthblock);
+           // AdjacentRooms.Add(acell);
+           // AdjacentRooms.Add(ahallway);
+           // AdjacentRooms.Add(anorthblock);
 
             //Cell Adjacent Rooms
 
@@ -214,8 +214,9 @@ namespace TextAdventureLibrary
             Words.Add(new Word("door", westsynonyms, "place"));
 
             return rooms;
+      */
 
-        }
+      //  }
 
         public List<Player> InitPlayers()
         {

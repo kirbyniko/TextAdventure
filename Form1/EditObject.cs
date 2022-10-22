@@ -24,6 +24,8 @@ namespace AdventureMaker
 
         private Player player = new Player();
 
+        private Room room = new();
+
         private string objecttype;
 
 
@@ -44,6 +46,19 @@ namespace AdventureMaker
 
             InitializeComponent();
         }
+
+        public EditObject(AdventureGame Game, Item obj, Room _room)
+        {
+            room = _room;
+            adventureGame = Game;
+            item = obj;
+            objecttype = "room";
+
+            InitSynonyms();
+
+            InitializeComponent();
+        }
+
 
         public EditObject(AdventureGame Game, Item obj)
         {
@@ -123,6 +138,13 @@ namespace AdventureMaker
                                 adventureGame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
                                 MainForm mainForm = new(adventureGame);
                                 mainForm.Show();
+                                ((Objects)this.TopLevelControl).Close();
+                                break;
+                            case "room":
+                                room.Items.Remove(item);
+                                room.Items.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
+                                RoomMaker roomMaker = new(adventureGame, room);
+                                roomMaker.Show();
                                 ((Objects)this.TopLevelControl).Close();
                                 break;
                             default:

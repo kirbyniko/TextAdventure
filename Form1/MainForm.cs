@@ -136,5 +136,12 @@ namespace Form1
             makePlayer.Show();
             this.Close();
         }
+
+        private void btnaddrooms_Click(object sender, EventArgs e)
+        {
+            RoomMaker room = new(AdventureGame);
+            room.Show();
+            this.Close();
+        }
     }
 }
