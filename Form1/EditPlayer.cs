@@ -132,18 +132,25 @@ namespace AdventureMaker
 
         private void btncreateplayer_Click(object sender, EventArgs e)
         {
-            SavePlayer();
+            
             if (isroom == true)
             {
+                room.Players.Remove(room.Players.Find(x => x.Name == player.Name));
+                SavePlayer();
                 room.Players.Add(player);
                 RoomMaker roommaker = new(game, room);
                 roommaker.Show();
                 ((MakePlayer)this.TopLevelControl).Close();
             }
-            game.Players.Add(player);
-            MainForm form = new MainForm(game);
-            form.Show();
-            ((MakePlayer)this.TopLevelControl).Close();
+            else
+            {
+                SavePlayer();
+                game.Players.Add(player);
+                MainForm form = new MainForm(game);
+                form.Show();
+                ((MakePlayer)this.TopLevelControl).Close();
+            }
+           
         }
 
         private void btneditinventory_Click(object sender, EventArgs e)

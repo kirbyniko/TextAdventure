@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Form1
 {
     public partial class StartForm : Form
     {
+        OpenFileDialog o;
         public StartForm()
         {
             InitializeComponent();
@@ -22,12 +24,9 @@ namespace Form1
 
         private void btncreategame_Click(object sender, EventArgs e)
         {
-            if(tboxinputgamename.Text != "")
-            {
-                AdventureGame game = new AdventureGame();
-                game.Name = tboxinputgamename.Text;
-                MainForm form = new(game);
-                form.Show();
+            { 
+              //  MainForm form = new();
+               // form.Show();
                 this.Hide();
                 
             }
@@ -36,11 +35,9 @@ namespace Form1
 
         private void btneditgame_Click(object sender, EventArgs e)
         {
-            
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*\"";
-            openFileDialog.ShowDialog();
-            string filePath = openFileDialog.FileName;
+
+            o = ChooseFile();
+            string filePath = o.FileName;
             string jsonString = File.ReadAllText(filePath);
             AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString);
             MainForm form = new(game);
@@ -50,12 +47,32 @@ namespace Form1
 
         private void btnplaygame_Click(object sender, EventArgs e)
         {
-            string filename = tboxinputgamename.Text + ".json";
-            string jsonString = File.ReadAllText(filename);
-            //AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString);
-        //
-        
+            o.Title = "Please select the Cmd.exe for your game!";
+            o.ShowDialog();
+            ProcessStartInfo psi = new ProcessStartInfo();
+            Process.Start(o.FileName);
+            
 
+
+        }
+
+        private void UpdatePage()
+        {
+            label2.Text = o.FileName.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            o = ChooseFile();
+            UpdatePage();
+        }
+
+        private OpenFileDialog ChooseFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            openFileDialog.ShowDialog();
+           return openFileDialog;
         }
     }
 }

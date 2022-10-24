@@ -26,24 +26,24 @@ while (true)
 
 }
 
-AdventureGame InitGame()
-{
-    AdventureGame adventureGame = new AdventureGame();
-    adventureGame.Name = "God's Fist";
+//AdventureGame InitGame()
+//{
+//    AdventureGame adventureGame = new AdventureGame();
+//    adventureGame.Name = "God's Fist";
 
-    adventureGame.Objects = adventureGame.InitItems();
-    adventureGame.Players = adventureGame.InitPlayers();
-    adventureGame.Rooms = adventureGame.InitRooms();
+//    adventureGame.Objects = adventureGame.InitItems();
+//    adventureGame.Players = adventureGame.InitPlayers();
+//    adventureGame.Rooms = adventureGame.InitRooms();
 
-    adventureGame.InitLists();
-    adventureGame.CurrentRoom = adventureGame.Rooms[0];
-    adventureGame.CurrentRoom.Players.Add(adventureGame.Players[0]);
+//    adventureGame.InitLists();
+//    adventureGame.CurrentRoom = adventureGame.Rooms[0];
+//    adventureGame.CurrentRoom.Players.Add(adventureGame.Players[0]);
 
-    Console.WriteLine("You are playing " + adventureGame.Name + " Press any key to continue");
-    Console.ReadLine();
+//    Console.WriteLine("You are playing " + adventureGame.Name + " Press any key to continue");
+//    Console.ReadLine();
 
-    return adventureGame;
-}
+//    return adventureGame;
+//}
 
 void DisplayRoom(AdventureGame adventureGame)
 {
@@ -251,7 +251,7 @@ void RunStatements()
                             if (c.Places[0].Synonyms.Contains(b))
                             {
                                 game.CurrentRoom.Players.Remove(game.Players[0]);
-                                game.CurrentRoom = a.Room;
+                            
                                 game.CurrentRoom.Players.Add(game.Players[0]);
                                 DisplayRoom(game);
                                 return;

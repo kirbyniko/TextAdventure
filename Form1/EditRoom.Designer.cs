@@ -60,6 +60,7 @@
             this.btnremoverooms = new System.Windows.Forms.Button();
             this.btnaddrooms = new System.Windows.Forms.Button();
             this.lboxadjacentrooms = new System.Windows.Forms.ListBox();
+            this.btncreateroom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tboxsynonyms
@@ -260,6 +261,7 @@
             this.btnremoveroomplayers.TabIndex = 63;
             this.btnremoveroomplayers.Text = "Remove";
             this.btnremoveroomplayers.UseVisualStyleBackColor = true;
+            this.btnremoveroomplayers.Click += new System.EventHandler(this.btnremoveroomplayers_Click);
             // 
             // btnaddplayers
             // 
@@ -352,10 +354,22 @@
             this.lboxadjacentrooms.Size = new System.Drawing.Size(167, 259);
             this.lboxadjacentrooms.TabIndex = 71;
             // 
+            // btncreateroom
+            // 
+            this.btncreateroom.BackColor = System.Drawing.Color.Yellow;
+            this.btncreateroom.Location = new System.Drawing.Point(52, 555);
+            this.btncreateroom.Name = "btncreateroom";
+            this.btncreateroom.Size = new System.Drawing.Size(270, 92);
+            this.btncreateroom.TabIndex = 78;
+            this.btncreateroom.Text = "Create Room!";
+            this.btncreateroom.UseVisualStyleBackColor = false;
+            this.btncreateroom.Click += new System.EventHandler(this.btncreateroom_Click);
+            // 
             // EditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btncreateroom);
             this.Controls.Add(this.lbladdrooms);
             this.Controls.Add(this.clboxaddrooms);
             this.Controls.Add(this.lbladjacentrooms);
@@ -437,5 +451,6 @@
         private Button btnremoveroomplayers;
         private Button btneditrooms;
         private Button btnremoverooms;
+        private Button btncreateroom;
     }
 }

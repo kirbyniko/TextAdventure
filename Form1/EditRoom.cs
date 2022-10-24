@@ -178,9 +178,28 @@ namespace AdventureMaker
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SaveRoom();
             MakePlayer make = new(adventureGame, adventureGame.Players.Find(x => x.Name == lboxroomplayers.SelectedItem), room);
             make.Show();
-            
+            ((RoomMaker)this.TopLevelControl).Close();
+
+        }
+
+        private void btncreateroom_Click(object sender, EventArgs e)
+        {
+            SaveRoom();
+            adventureGame.Rooms.Add(room);
+            MainForm mainForm = new(adventureGame);
+            ((RoomMaker)this.TopLevelControl).Close();
+        }
+
+        private void btnremoveroomplayers_Click(object sender, EventArgs e)
+        {
+            foreach (var c in lboxroomplayers.SelectedItems)
+            {
+                room.Players.Remove(room.Players.Find(x => x.Name == c.ToString()));
+            }
+            InitListbox();
         }
     }
 }

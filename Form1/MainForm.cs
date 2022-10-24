@@ -11,6 +11,7 @@ using TextAdventureLibrary;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using AdventureMaker;
+using System.Runtime.CompilerServices;
 
 namespace Form1
 {
@@ -99,11 +100,23 @@ namespace Form1
 
         private void btnsavegame_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folder = new FolderBrowserDialog();
+            SaveFileDialog sfd = new();
+            DialogResult dr = sfd.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                string jsonString = JsonSerializer.Serialize(AdventureGame);
+                File.WriteAllText(sfd.FileName, jsonString);
+
+            }
+
+
+
+
+            /*FolderBrowserDialog folder = new FolderBrowserDialog();
             folder.ShowDialog();
-            string jsonString = JsonSerializer.Serialize(AdventureGame);
-            string fileName = (folder.SelectedPath);
-            File.WriteAllText(fileName, jsonString);
+            
+            string fileName = (folder.SelectedPath + "\\" + tboxgamename.Text + ".txt");
+            File.WriteAllText(fileName, jsonString); */
         }
 
         private void btnaddroom_Click(object sender, EventArgs e)
