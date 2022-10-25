@@ -17,14 +17,20 @@ namespace Form1
 {
     public partial class MainForm : Form
     {
-        public AdventureGame AdventureGame { get; set; }
+        public AdventureGame AdventureGame { get; set; } = new AdventureGame();
         public MainForm(AdventureGame game)
         {
             AdventureGame = game;
             InitializeComponent();
-            tboxgamename.Text = AdventureGame.Name;
             InitObjects();
             InitPlayers();
+            InitRooms();
+            tboxgamename.Text = game.Name; 
+        }
+
+        public MainForm()
+        {
+            InitializeComponent();
         }
 
         private void btnaddobject_Click(object sender, EventArgs e)
@@ -47,29 +53,44 @@ namespace Form1
         private void InitObjects()
         {
             lboxobjects.Items.Clear();
-            foreach (var c in AdventureGame.Objects)
+            if(AdventureGame.Objects.Count > 0)
             {
-                lboxobjects.Items.Add(c.Name);
+                foreach (var c in AdventureGame.Objects)
+                {
+                    lboxobjects.Items.Add(c.Name);
+                }
             }
+           
         }
 
         private void InitRooms()
         {
-            lboxplayers.Items.Clear();
-            foreach (var c in AdventureGame.Rooms)
+            lboxrooms.Items.Clear();
+            if (AdventureGame.Rooms.Count > 0)
             {
-                lboxrooms.Items.Add(c.Name);
+                foreach (var c in AdventureGame.Rooms)
+                {
+                    lboxrooms.Items.Add(c.Name);
+                }
             }
+            
+           
         }
 
         private void InitPlayers()
         {
-            lboxplayers.Items.Clear();
-            foreach (var c in AdventureGame.Players)
+            if (AdventureGame.Players.Count > 0)
             {
-                lboxplayers.Items.Add(c.Name);
+                lboxplayers.Items.Clear();
+                foreach (var c in AdventureGame.Players)
+                {
+                    lboxplayers.Items.Add(c.Name);
+                }
             }
+
         }
+           
+            
 
         private void InitVerbs()
         {
@@ -152,7 +173,18 @@ namespace Form1
 
         private void btnaddrooms_Click(object sender, EventArgs e)
         {
-            RoomMaker room = new(AdventureGame);
+           RoomMaker room = new(AdventureGame);
+           room.Show();
+           this.Close();
+            
+          
+    
+            
+        }
+
+        private void btneditrooms_Click(object sender, EventArgs e)
+        {
+            RoomMaker room = new(AdventureGame, AdventureGame.Rooms.Find(x => x.Name == lboxrooms.SelectedItem.ToString()));
             room.Show();
             this.Close();
         }

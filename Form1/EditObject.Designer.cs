@@ -42,6 +42,7 @@
             this.btnaddsynonym = new System.Windows.Forms.Button();
             this.btnremovesynonym = new System.Windows.Forms.Button();
             this.tboxsynonyms = new System.Windows.Forms.TextBox();
+            this.tboxdropchance = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblobjectfields
@@ -168,10 +169,19 @@
             this.tboxsynonyms.Size = new System.Drawing.Size(120, 23);
             this.tboxsynonyms.TabIndex = 25;
             // 
+            // tboxdropchance
+            // 
+            this.tboxdropchance.Location = new System.Drawing.Point(3, 223);
+            this.tboxdropchance.Name = "tboxdropchance";
+            this.tboxdropchance.PlaceholderText = "Type Drop Chance Here...";
+            this.tboxdropchance.Size = new System.Drawing.Size(115, 23);
+            this.tboxdropchance.TabIndex = 26;
+            // 
             // EditObject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tboxdropchance);
             this.Controls.Add(this.tboxsynonyms);
             this.Controls.Add(this.btnremovesynonym);
             this.Controls.Add(this.btnaddsynonym);
@@ -187,7 +197,7 @@
             this.Controls.Add(this.lblname);
             this.Controls.Add(this.tboxobjectname);
             this.Name = "EditObject";
-            this.Size = new System.Drawing.Size(409, 225);
+            this.Size = new System.Drawing.Size(415, 279);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +219,6 @@
         private Button btnaddsynonym;
         private Button btnremovesynonym;
         private TextBox tboxsynonyms;
+        private TextBox tboxdropchance;
     }
 }

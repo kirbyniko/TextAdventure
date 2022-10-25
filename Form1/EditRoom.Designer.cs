@@ -61,6 +61,7 @@
             this.btnaddrooms = new System.Windows.Forms.Button();
             this.lboxadjacentrooms = new System.Windows.Forms.ListBox();
             this.btncreateroom = new System.Windows.Forms.Button();
+            this.cboxdefaultroom = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tboxsynonyms
@@ -365,10 +366,21 @@
             this.btncreateroom.UseVisualStyleBackColor = false;
             this.btncreateroom.Click += new System.EventHandler(this.btncreateroom_Click);
             // 
+            // cboxdefaultroom
+            // 
+            this.cboxdefaultroom.AutoSize = true;
+            this.cboxdefaultroom.Location = new System.Drawing.Point(52, 528);
+            this.cboxdefaultroom.Name = "cboxdefaultroom";
+            this.cboxdefaultroom.Size = new System.Drawing.Size(107, 19);
+            this.cboxdefaultroom.TabIndex = 79;
+            this.cboxdefaultroom.Text = "Starting Room?";
+            this.cboxdefaultroom.UseVisualStyleBackColor = true;
+            // 
             // EditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboxdefaultroom);
             this.Controls.Add(this.btncreateroom);
             this.Controls.Add(this.lbladdrooms);
             this.Controls.Add(this.clboxaddrooms);
@@ -452,5 +464,6 @@
         private Button btneditrooms;
         private Button btnremoverooms;
         private Button btncreateroom;
+        private CheckBox cboxdefaultroom;
     }
 }

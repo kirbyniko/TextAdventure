@@ -25,8 +25,8 @@ namespace Form1
         private void btncreategame_Click(object sender, EventArgs e)
         {
             { 
-              //  MainForm form = new();
-               // form.Show();
+                MainForm form = new();
+                form.Show();
                 this.Hide();
                 
             }
@@ -47,12 +47,15 @@ namespace Form1
 
         private void btnplaygame_Click(object sender, EventArgs e)
         {
-            o.Title = "Please select the Cmd.exe for your game!";
-            o.ShowDialog();
-            ProcessStartInfo psi = new ProcessStartInfo();
-            Process.Start(o.FileName);
-            
+            OpenFileDialog ol = new OpenFileDialog();
+            ol.Title = "Please select the file for your game!";
+            ol.ShowDialog();
+            string filePath = ol.FileName;
 
+
+            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventure\\bin\\Release\\net6.0\\TextAdventure.exe", filePath.ToString());
+
+            
 
         }
 
@@ -70,7 +73,6 @@ namespace Form1
         private OpenFileDialog ChooseFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*\"";
             openFileDialog.ShowDialog();
            return openFileDialog;
         }

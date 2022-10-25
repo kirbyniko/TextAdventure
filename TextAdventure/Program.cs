@@ -4,12 +4,27 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using TextAdventureLibrary;
 
+
+
 string Input;
 
-string fileName = "god.json";
-string jsonString = File.ReadAllText(fileName);
-AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString)!;
+AdventureGame game = new AdventureGame();
 
+if (args.Length > 0)
+{
+    string Filename = args[0];
+    string jsonstring = File.ReadAllText(Filename);
+    AdventureGame agame = JsonSerializer.Deserialize<AdventureGame>(jsonstring);
+    game = agame;
+}
+else
+{
+    Console.WriteLine("Not enough args! Arg!");
+    Console.ReadLine();
+}
+
+
+Console.WriteLine("You are playing " + game.Name);
 DisplayRoom(game);
 
 while (true)

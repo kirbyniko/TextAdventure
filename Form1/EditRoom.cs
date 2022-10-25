@@ -18,6 +18,8 @@ namespace AdventureMaker
         private AdventureGame adventureGame = new();
 
         private Room room = new();
+
+        private Room referenceroom;
         public EditRoom()
         {
             InitializeComponent();
@@ -79,20 +81,32 @@ namespace AdventureMaker
             clboxaddplayers.Items.Clear();
             clboxaddrooms.Items.Clear();
 
-            foreach (var c in adventureGame.Objects)
+            if(adventureGame.Objects != null)
             {
-                clboxaddobjects.Items.Add(c.Name);
+                foreach (var c in adventureGame.Objects)
+                {
+                    clboxaddobjects.Items.Add(c.Name);
+                }
             }
 
-            foreach (var c in adventureGame.Players)
+            if (adventureGame.Players != null)
             {
-                clboxaddplayers.Items.Add(c.Name);
+                foreach (var c in adventureGame.Players)
+                {
+                    clboxaddplayers.Items.Add(c.Name);
+                }
             }
 
-            foreach (var c in adventureGame.Rooms)
+            if (adventureGame.Rooms != null)
             {
-                clboxaddrooms.Items.Add(c.Name);
+                foreach (var c in adventureGame.Rooms)
+                {
+                    clboxaddrooms.Items.Add(c.Name);
+                }
             }
+
+
+           
         }
 
         private void lblplayersummary_Click(object sender, EventArgs e)
@@ -188,8 +202,34 @@ namespace AdventureMaker
         private void btncreateroom_Click(object sender, EventArgs e)
         {
             SaveRoom();
+
+            if (adventureGame.Rooms.Contains(adventureGame.Rooms.Find(x => x.Name == room.Name)))
+            {
+                referenceroom = adventureGame.Rooms.Find(x => x.Name == room.Name);
+                referenceroom = room;
+                if (cboxdefaultroom.Checked)
+                {
+                    adventureGame.CurrentRoom = room;
+                }
+                MainForm main = new MainForm(adventureGame);
+                main.Show();
+                ((RoomMaker)this.TopLevelControl).Close();
+
+            }
+            else
+            {
+
+            }
+            
             adventureGame.Rooms.Add(room);
-            MainForm mainForm = new(adventureGame);
+            
+            room.Verbosity = 1;
+            if (cboxdefaultroom.Checked)
+            {
+                adventureGame.CurrentRoom = room;
+            }
+            MainForm mainForm = new MainForm(adventureGame);
+            mainForm.Show();
             ((RoomMaker)this.TopLevelControl).Close();
         }
 

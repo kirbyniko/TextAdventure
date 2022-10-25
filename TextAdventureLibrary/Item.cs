@@ -16,6 +16,8 @@ namespace TextAdventureLibrary
 
         public int Value { get; set; }
 
+        public int DropChance { get; set; }
+
         public Word Word { get; set; } = new Word();
         public List<string> Verbs { get; set; } = new List<string>();
         public List<string> Keywords { get; set; } = new List<string>();

@@ -259,6 +259,7 @@
             this.btneditrooms.TabIndex = 21;
             this.btneditrooms.Text = "Edit";
             this.btneditrooms.UseVisualStyleBackColor = true;
+            this.btneditrooms.Click += new System.EventHandler(this.btneditrooms_Click);
             // 
             // btneditplayers
             // 

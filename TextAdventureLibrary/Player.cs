@@ -15,6 +15,8 @@
 
         public List<string> Keywords { get; set; } = new List<string>();
 
+        public Room room { get; set; } = new Room();
+
         public int Strength { get; set; }
 
         public Player(string name, string description, int health)
