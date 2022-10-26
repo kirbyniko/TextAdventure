@@ -138,6 +138,7 @@
             this.btnremoveverbs.TabIndex = 15;
             this.btnremoveverbs.Text = "Remove";
             this.btnremoveverbs.UseVisualStyleBackColor = true;
+            this.btnremoveverbs.Click += new System.EventHandler(this.btnremoveverbs_Click);
             // 
             // btnaddverbs
             // 
@@ -147,6 +148,7 @@
             this.btnaddverbs.TabIndex = 14;
             this.btnaddverbs.Text = "Add";
             this.btnaddverbs.UseVisualStyleBackColor = true;
+            this.btnaddverbs.Click += new System.EventHandler(this.btnaddverbs_Click);
             // 
             // lblplayers
             // 
@@ -279,6 +281,7 @@
             this.btneditverbs.TabIndex = 23;
             this.btneditverbs.Text = "Edit";
             this.btneditverbs.UseVisualStyleBackColor = true;
+            this.btneditverbs.Click += new System.EventHandler(this.btneditverbs_Click);
             // 
             // MainForm
             // 

@@ -25,6 +25,7 @@ namespace Form1
             InitObjects();
             InitPlayers();
             InitRooms();
+            InitVerbs();
             tboxgamename.Text = game.Name; 
         }
 
@@ -186,6 +187,28 @@ namespace Form1
         {
             RoomMaker room = new(AdventureGame, AdventureGame.Rooms.Find(x => x.Name == lboxrooms.SelectedItem.ToString()));
             room.Show();
+            this.Close();
+        }
+
+        private void btnaddverbs_Click(object sender, EventArgs e)
+        {
+            VerbForm verbform = new(AdventureGame);
+            verbform.Show();
+            this.Close();
+           
+        }
+
+        private void btnremoveverbs_Click(object sender, EventArgs e)
+        {
+            AdventureGame.Verbs.Remove(AdventureGame.Verbs.Find(x => x.WordString == lboxverbs.SelectedItem.ToString()));
+            InitVerbs();
+
+        }
+
+        private void btneditverbs_Click(object sender, EventArgs e)
+        {
+            VerbForm verbform1 = new VerbForm(AdventureGame, AdventureGame.Verbs.Find(x => x.WordString == lboxverbs.SelectedItem.ToString()));
+            verbform1.Show();
             this.Close();
         }
     }

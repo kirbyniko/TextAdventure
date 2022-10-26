@@ -104,10 +104,23 @@ namespace AdventureMaker
             tboxobjectname.Text = item.Name;
             tboxobjectvalue.Text = item.Value.ToString();
             tboxobjectweight.Text = item.Weight.ToString();
+            tboxdropchance.Text = item.DropChance.ToString();
             rtboxobjectsummary.Text = item.Description;
             foreach(var c in synonyms)
             {
                 lboxsynonyms.Items.Add(c);
+            }
+        }
+
+        private void SaveDropchance()
+        {
+            if(tboxdropchance.Text != "")
+            {
+                item.DropChance = Convert.ToInt32(tboxdropchance.Text);
+            }
+            else
+            {
+                item.DropChance = 0;
             }
         }
 
@@ -122,6 +135,7 @@ namespace AdventureMaker
                 {
                     if (int.TryParse(tboxobjectvalue.Text, out value))
                     { 
+                        SaveDropchance();
                         
                         switch (objecttype)
                         {

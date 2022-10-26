@@ -18,6 +18,8 @@ namespace AdventureMaker
         private AdventureGame adventureGame = new();
 
         private EditRoom editroom = new();
+
+        private Room referenceroom = new();
         public RoomMaker(AdventureGame game)
         {
             adventureGame = game;
@@ -27,7 +29,8 @@ namespace AdventureMaker
         public RoomMaker(AdventureGame game, Room room)
         {
             adventureGame = game;
-            editroom = new(adventureGame, room);
+            referenceroom = room;
+            editroom = new(adventureGame, referenceroom);
             InitializeComponent();
         }
 

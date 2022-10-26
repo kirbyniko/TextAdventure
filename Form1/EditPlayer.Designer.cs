@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnsaveplayer = new System.Windows.Forms.Button();
             this.btncreateplayer = new System.Windows.Forms.Button();
             this.lbladdobjects = new System.Windows.Forms.Label();
             this.clboxaddobjects = new System.Windows.Forms.CheckedListBox();
@@ -49,22 +48,15 @@
             this.btnremovesynonym = new System.Windows.Forms.Button();
             this.btnaddsynonym = new System.Windows.Forms.Button();
             this.lboxsynonyms = new System.Windows.Forms.ListBox();
+            this.comboxcurrentroom = new System.Windows.Forms.ComboBox();
+            this.lblcurrentroom = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnsaveplayer
-            // 
-            this.btnsaveplayer.Location = new System.Drawing.Point(532, 302);
-            this.btnsaveplayer.Name = "btnsaveplayer";
-            this.btnsaveplayer.Size = new System.Drawing.Size(66, 39);
-            this.btnsaveplayer.TabIndex = 33;
-            this.btnsaveplayer.Text = "Save Player!";
-            this.btnsaveplayer.UseVisualStyleBackColor = true;
             // 
             // btncreateplayer
             // 
-            this.btncreateplayer.Location = new System.Drawing.Point(443, 302);
+            this.btncreateplayer.Location = new System.Drawing.Point(622, 310);
             this.btncreateplayer.Name = "btncreateplayer";
-            this.btncreateplayer.Size = new System.Drawing.Size(66, 39);
+            this.btncreateplayer.Size = new System.Drawing.Size(163, 76);
             this.btncreateplayer.TabIndex = 32;
             this.btncreateplayer.Text = "Create Player!";
             this.btncreateplayer.UseVisualStyleBackColor = true;
@@ -237,15 +229,33 @@
             this.lboxsynonyms.Size = new System.Drawing.Size(120, 154);
             this.lboxsynonyms.TabIndex = 34;
             // 
+            // comboxcurrentroom
+            // 
+            this.comboxcurrentroom.FormattingEnabled = true;
+            this.comboxcurrentroom.Location = new System.Drawing.Point(495, 311);
+            this.comboxcurrentroom.Name = "comboxcurrentroom";
+            this.comboxcurrentroom.Size = new System.Drawing.Size(121, 23);
+            this.comboxcurrentroom.TabIndex = 38;
+            // 
+            // lblcurrentroom
+            // 
+            this.lblcurrentroom.AutoSize = true;
+            this.lblcurrentroom.Location = new System.Drawing.Point(407, 314);
+            this.lblcurrentroom.Name = "lblcurrentroom";
+            this.lblcurrentroom.Size = new System.Drawing.Size(82, 15);
+            this.lblcurrentroom.TabIndex = 39;
+            this.lblcurrentroom.Text = "Current Room";
+            // 
             // EditPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblcurrentroom);
+            this.Controls.Add(this.comboxcurrentroom);
             this.Controls.Add(this.tboxsynonyms);
             this.Controls.Add(this.btnremovesynonym);
             this.Controls.Add(this.btnaddsynonym);
             this.Controls.Add(this.lboxsynonyms);
-            this.Controls.Add(this.btnsaveplayer);
             this.Controls.Add(this.btncreateplayer);
             this.Controls.Add(this.lbladdobjects);
             this.Controls.Add(this.clboxaddobjects);
@@ -271,8 +281,6 @@
         }
 
         #endregion
-
-        private Button btnsaveplayer;
         private Button btncreateplayer;
         private Label lbladdobjects;
         private CheckedListBox clboxaddobjects;
@@ -293,5 +301,7 @@
         private Button btnremovesynonym;
         private Button btnaddsynonym;
         private ListBox lboxsynonyms;
+        private ComboBox comboxcurrentroom;
+        private Label lblcurrentroom;
     }
 }

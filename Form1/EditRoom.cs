@@ -19,7 +19,7 @@ namespace AdventureMaker
 
         private Room room = new();
 
-        private Room referenceroom;
+        private Room referenceroom = new();
         public EditRoom()
         {
             InitializeComponent();
@@ -33,6 +33,10 @@ namespace AdventureMaker
         {
             adventureGame = adventure;
             room = _room;
+            if (adventureGame.CurrentRoom == room)
+            {
+                cboxdefaultroom.Checked = true;
+            }
             InitializeComponent();
         }
 
@@ -218,19 +222,19 @@ namespace AdventureMaker
             }
             else
             {
+                adventureGame.Rooms.Add(room);
 
+                room.Verbosity = 1;
+                if (cboxdefaultroom.Checked)
+                {
+                    adventureGame.CurrentRoom = room;
+                }
+                MainForm mainForm = new MainForm(adventureGame);
+                mainForm.ShowDialog();
+                ((RoomMaker)this.TopLevelControl).Close();
             }
             
-            adventureGame.Rooms.Add(room);
-            
-            room.Verbosity = 1;
-            if (cboxdefaultroom.Checked)
-            {
-                adventureGame.CurrentRoom = room;
-            }
-            MainForm mainForm = new MainForm(adventureGame);
-            mainForm.Show();
-            ((RoomMaker)this.TopLevelControl).Close();
+           
         }
 
         private void btnremoveroomplayers_Click(object sender, EventArgs e)

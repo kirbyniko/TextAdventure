@@ -29,6 +29,7 @@ namespace AdventureMaker
             InitializeComponent();
             InitCheckListbox();
             InitListbox();
+            
 
         }
 
@@ -38,6 +39,7 @@ namespace AdventureMaker
             game = adventuregame;
             player = _player;
             InitializeComponent();
+            
 
 
         }
@@ -76,6 +78,11 @@ namespace AdventureMaker
                 player.Health = health;
                 player.Strength = strength;
                 player.Description = rtboxsummary.Text;
+
+                if(comboxcurrentroom.SelectedItem != null)
+                {
+                    player.room = game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString());
+                }
             }
             
            
@@ -86,7 +93,8 @@ namespace AdventureMaker
             LoadPlayer();
             InitCheckListbox();
             InitListbox();
-            
+            InitComboBox();
+
         }
 
         private void btnaddinventory_Click(object sender, EventArgs e)
@@ -121,6 +129,17 @@ namespace AdventureMaker
             }
         }
 
+        private void InitComboBox()
+        {
+            comboxcurrentroom.Items.Clear();
+            foreach(var c in game.Rooms)
+            {
+               comboxcurrentroom.Items.Add(c.ToString());
+            }
+           
+        }
+
+
         private void btnremoveinventory_Click(object sender, EventArgs e)
         {
             foreach (var c in lboxplayerinventory.SelectedItems)
@@ -144,6 +163,7 @@ namespace AdventureMaker
             }
             else
             {
+                game.Players.Remove(game.Players.Find(x => x.Name == player.Name));
                 SavePlayer();
                 game.Players.Add(player);
                 MainForm form = new MainForm(game);
@@ -174,6 +194,11 @@ namespace AdventureMaker
         {
             player.Keywords.Remove((String)lboxsynonyms.SelectedItem);
             InitListbox();
+        }
+
+        private void btnsaveplayer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
