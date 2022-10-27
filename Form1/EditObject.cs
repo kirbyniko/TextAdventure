@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -25,6 +26,12 @@ namespace AdventureMaker
         private Player player = new Player();
 
         private Room room = new();
+
+        private List<TextBox> textBoxes = new();
+
+        private List<Label> labels = new();
+
+        private Point location;
 
         private string objecttype;
 
@@ -76,6 +83,32 @@ namespace AdventureMaker
             {
                 synonyms.Add(c);
             }
+        }
+
+        private void LoadStats()
+        {
+            location = tboxobjectweight.Location;
+            foreach (var c in item.Stats)
+            {
+                TextBox box = new TextBox();
+                Label label = new Label();
+                label.Text = c.Name;
+                box.PlaceholderText = "Type " + c.Name + " here...";
+                box.Location = location;
+                box.Location.Offset(0, 29);
+                label.Location = box.Location;
+                label.Location.Offset(120, 3);
+                labels.Add(label);
+                textBoxes.Add(box);
+            }
+        }
+
+        private void InitLocations()
+        {
+            lblobjectsummary.Location = textBoxes.Last().Location;
+            lblobjectsummary.Location.Offset(0,40);
+            rtboxobjectsummary.Location = lblobjectsummary.Location;
+            rtboxobjectsummary.Location.Offset(0, 18);
         }
         public EditObject(AdventureGame game)
         {
