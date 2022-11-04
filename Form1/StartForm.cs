@@ -54,7 +54,7 @@ namespace Form1
             string filePath = ol.FileName;
 
 
-            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventure\\bin\\Release\\net6.0\\TextAdventure.exe", filePath.ToString());
+            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventure\\bin\\Debug\\net6.0\\TextAdventure.exe", filePath.ToString());
 
             
 

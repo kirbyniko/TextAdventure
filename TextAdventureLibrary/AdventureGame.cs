@@ -26,51 +26,56 @@ namespace TextAdventureLibrary
         {
             //Verbs 
 
-            List<string> getsynonyms = new List<string>();
-            getsynonyms.Add("pickup");
-            getsynonyms.Add("pick");
-            getsynonyms.Add("obtain");
-            getsynonyms.Add("grab");
-            getsynonyms.Add("get");
+            if(Verbs.Count() == 0 || Verbs.Count() == null)
+            {
+                List<string> getsynonyms = new List<string>();
+                getsynonyms.Add("pickup");
+                getsynonyms.Add("pick");
+                getsynonyms.Add("obtain");
+                getsynonyms.Add("grab");
+                getsynonyms.Add("get");
 
-            Words.Add(new Word("get", getsynonyms, "verb"));
-            Verbs.Add(FindEquals("get"));
+                Words.Add(new Word("get", getsynonyms, "verb"));
+                Verbs.Add(FindEquals("get"));
 
-            List<string> attacksynonyms = new List<string>();
-            attacksynonyms.Add("punch");
-            attacksynonyms.Add("stab");
-            attacksynonyms.Add("hit");
-            attacksynonyms.Add("kill");
-            attacksynonyms.Add("slay");
-            attacksynonyms.Add("attack");
-            attacksynonyms.Add("shoot");
+                List<string> attacksynonyms = new List<string>();
+                attacksynonyms.Add("punch");
+                attacksynonyms.Add("stab");
+                attacksynonyms.Add("hit");
+                attacksynonyms.Add("kill");
+                attacksynonyms.Add("slay");
+                attacksynonyms.Add("attack");
+                attacksynonyms.Add("shoot");
 
-            Words.Add(new Word("attack", attacksynonyms, "verb"));
-            Verbs.Add(FindEquals("attack"));
+                Words.Add(new Word("attack", attacksynonyms, "verb"));
+                Verbs.Add(FindEquals("attack"));
 
-            List<string> dropsynonyms = new List<string>();
-            dropsynonyms.Add("remove");
-            dropsynonyms.Add("drop");
+                List<string> dropsynonyms = new List<string>();
+                dropsynonyms.Add("remove");
+                dropsynonyms.Add("drop");
 
-            Words.Add(new Word("drop", dropsynonyms, "verb"));
-            Verbs.Add(FindEquals("drop"));
+                Words.Add(new Word("drop", dropsynonyms, "verb"));
+                Verbs.Add(FindEquals("drop"));
 
-            List<string> exitsynonyms = new List<string>();
-            exitsynonyms.Add("exit");
-            exitsynonyms.Add("leave");
-      
-            Words.Add(new Word("exit", exitsynonyms, "verb"));
-            Verbs.Add(FindEquals("exit"));
+                List<string> exitsynonyms = new List<string>();
+                exitsynonyms.Add("exit");
+                exitsynonyms.Add("leave");
 
-            List<string> entersynonyms = new List<string>();
-            entersynonyms.Add("go");
-            entersynonyms.Add("enter");
+                Words.Add(new Word("exit", exitsynonyms, "verb"));
+                Verbs.Add(FindEquals("exit"));
 
-            Words.Add(new Word("enter", entersynonyms, "verb"));
-            Verbs.Add(FindEquals("enter"));
+                List<string> entersynonyms = new List<string>();
+                entersynonyms.Add("go");
+                entersynonyms.Add("enter");
+
+                Words.Add(new Word("enter", entersynonyms, "verb"));
+                Verbs.Add(FindEquals("enter"));
+
+            }
+
 
             //Places
-           
+
 
         }
 
@@ -116,13 +121,7 @@ namespace TextAdventureLibrary
             Items.Add(ratcarcass);
             Items.Add(key);
 
-            foreach (Item item in Items)
-            {
-                item.Word = new Word(item.Keywords[0], item.Keywords, "object", item);
-                Words.Add(item.Word);
-                ObjectKeywords.AddRange(item.Keywords);
-            }
-
+            
             return Items;
 
         }
@@ -131,9 +130,27 @@ namespace TextAdventureLibrary
         {
             foreach (Item item in Objects)
             {
+                item.Word = new Word(item.Keywords[0], item.Keywords, "object", item);
                 Words.Add(item.Word);
                 ObjectKeywords.AddRange(item.Keywords);
             }
+
+            foreach (var c in Players)
+            {
+                c.Word = new Word(c.Keywords[0], c.Keywords, "player", c);
+                Words.Add(c.Word);
+                PlayerKeywords.AddRange(c.Keywords);
+            }
+
+            foreach (var c in Rooms)
+            {
+                List<string> syn = new List<string>();
+                syn.Add(c.Name);
+                c.Word = new Word(c.Name, syn, "place", c);
+                Words.Add(c.Word);
+                Places.Add(c.Word.WordString);
+            }
+
         }
 
         public List<Room> InitRooms()
@@ -195,15 +212,6 @@ namespace TextAdventureLibrary
             rooms.Add(hallway);
             rooms.Add(northblock);
 
-            foreach (var c in rooms)
-            {
-                List<string> syn = new List<string>();
-                syn.Add(c.Name);
-                c.Word = new Word(c.Name, syn, "place", c);
-                Words.Add(c.Word);
-                Places.Add(c.Word.WordString);
-            }
-
             //Init basic direction words
             List<string> southsynonyms = new List<string>();
             southsynonyms.Add("south");
@@ -248,13 +256,6 @@ namespace TextAdventureLibrary
             players[1].Keywords.Add("guard");
 
             players[1].Inventory.Add(Objects.Find(x => x.Name == "sword"));
-
-            foreach (var c  in players)
-            {
-                c.Word = new Word(c.Keywords[0], c.Keywords, "player", c);
-                Words.Add(c.Word);
-                PlayerKeywords.AddRange(c.Keywords);
-            }
 
 
             return players;

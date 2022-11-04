@@ -134,7 +134,7 @@ namespace AdventureMaker
 
             foreach (var c in item.Verbs)
             {
-                lboxsynonyms.Items.Add(c);
+                lboxverbs.Items.Add(c);
             }
 
             clboxverbs.Items.Clear();
@@ -186,6 +186,7 @@ namespace AdventureMaker
                         item.Name = tboxobjectname.Text;
                         item.Description = rtboxobjectsummary.Text;
                         item.Keywords = synonyms;
+                       
                         player.Inventory.Add(item);
 
                         MakePlayer makeplayer = new(adventureGame, player);

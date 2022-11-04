@@ -34,6 +34,8 @@ namespace Form1
         public MainForm()
         {
             InitializeComponent();
+            AdventureGame.InitLists();
+            InitVerbs();
         }
 
         private void btnaddobject_Click(object sender, EventArgs e)

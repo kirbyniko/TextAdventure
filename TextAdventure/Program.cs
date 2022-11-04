@@ -20,19 +20,29 @@ if (args.Length > 0)
 }
 else
 {
+    string Filename = "C:\\Users\\filthymilkman\\Documents\\newfile\\BeeGame";
+    string jsonstring = File.ReadAllText(Filename);
+    AdventureGame agame = JsonSerializer.Deserialize<AdventureGame>(jsonstring);
+    game = agame;
+    game.AddKeywords();
+
+    /*
+
+
     Console.WriteLine("Not enough args! Arg!");
     game.Name = "God's Fist";
     Console.WriteLine("You are playing " + game.Name);
     game.Objects = game.InitItems();
     game.Players = game.InitPlayers();
     game.Rooms = game.InitRooms();
+    game.AddKeywords();
     game.InitLists();
     game.CurrentRoom = game.Rooms[0];
     
-    
-    
-    
-    
+    */
+
+
+
     Console.ReadLine();
 }
 
