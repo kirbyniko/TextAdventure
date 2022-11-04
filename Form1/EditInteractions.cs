@@ -22,6 +22,7 @@ namespace AdventureMaker
 
         private void InitCombobox()
         {
+            comboxverbs.Items.Clear();
             foreach(var c in game.Verbs)
             {
                 comboxverbs.Items.Add(c.WordString);
@@ -29,6 +30,25 @@ namespace AdventureMaker
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboxInteractions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboxSubjectType.SelectedItem.ToString())
+            {
+                case "Rooms":
+                    break;
+                case "Players":
+                    break;
+                case "Objects":
+                    break;
+            }
+
+        }
+
+        private void comboxSpecificObject_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

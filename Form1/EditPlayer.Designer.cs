@@ -50,11 +50,14 @@
             this.lboxsynonyms = new System.Windows.Forms.ListBox();
             this.comboxcurrentroom = new System.Windows.Forms.ComboBox();
             this.lblcurrentroom = new System.Windows.Forms.Label();
+            this.lblRandomizedInfo = new System.Windows.Forms.Label();
+            this.tboxminhealth = new System.Windows.Forms.TextBox();
+            this.tboxMaxHealth = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btncreateplayer
             // 
-            this.btncreateplayer.Location = new System.Drawing.Point(622, 310);
+            this.btncreateplayer.Location = new System.Drawing.Point(636, 310);
             this.btncreateplayer.Name = "btncreateplayer";
             this.btncreateplayer.Size = new System.Drawing.Size(163, 76);
             this.btncreateplayer.TabIndex = 32;
@@ -232,7 +235,7 @@
             // comboxcurrentroom
             // 
             this.comboxcurrentroom.FormattingEnabled = true;
-            this.comboxcurrentroom.Location = new System.Drawing.Point(495, 311);
+            this.comboxcurrentroom.Location = new System.Drawing.Point(512, 406);
             this.comboxcurrentroom.Name = "comboxcurrentroom";
             this.comboxcurrentroom.Size = new System.Drawing.Size(121, 23);
             this.comboxcurrentroom.TabIndex = 38;
@@ -240,16 +243,44 @@
             // lblcurrentroom
             // 
             this.lblcurrentroom.AutoSize = true;
-            this.lblcurrentroom.Location = new System.Drawing.Point(407, 314);
+            this.lblcurrentroom.Location = new System.Drawing.Point(424, 409);
             this.lblcurrentroom.Name = "lblcurrentroom";
             this.lblcurrentroom.Size = new System.Drawing.Size(82, 15);
             this.lblcurrentroom.TabIndex = 39;
             this.lblcurrentroom.Text = "Current Room";
             // 
+            // lblRandomizedInfo
+            // 
+            this.lblRandomizedInfo.AutoSize = true;
+            this.lblRandomizedInfo.Location = new System.Drawing.Point(879, 13);
+            this.lblRandomizedInfo.Name = "lblRandomizedInfo";
+            this.lblRandomizedInfo.Size = new System.Drawing.Size(149, 15);
+            this.lblRandomizedInfo.TabIndex = 40;
+            this.lblRandomizedInfo.Text = "Randomized Player Ranges";
+            // 
+            // tboxminhealth
+            // 
+            this.tboxminhealth.Location = new System.Drawing.Point(831, 48);
+            this.tboxminhealth.Name = "tboxminhealth";
+            this.tboxminhealth.PlaceholderText = "Min. Health Here...";
+            this.tboxminhealth.Size = new System.Drawing.Size(112, 23);
+            this.tboxminhealth.TabIndex = 41;
+            // 
+            // tboxMaxHealth
+            // 
+            this.tboxMaxHealth.Location = new System.Drawing.Point(964, 48);
+            this.tboxMaxHealth.Name = "tboxMaxHealth";
+            this.tboxMaxHealth.PlaceholderText = "Max Health Here...";
+            this.tboxMaxHealth.Size = new System.Drawing.Size(112, 23);
+            this.tboxMaxHealth.TabIndex = 42;
+            // 
             // EditPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tboxMaxHealth);
+            this.Controls.Add(this.tboxminhealth);
+            this.Controls.Add(this.lblRandomizedInfo);
             this.Controls.Add(this.lblcurrentroom);
             this.Controls.Add(this.comboxcurrentroom);
             this.Controls.Add(this.tboxsynonyms);
@@ -273,7 +304,7 @@
             this.Controls.Add(this.lblplayername);
             this.Controls.Add(this.tboxplayername);
             this.Name = "EditPlayer";
-            this.Size = new System.Drawing.Size(830, 431);
+            this.Size = new System.Drawing.Size(1120, 512);
             this.Load += new System.EventHandler(this.EditPlayer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -303,5 +334,8 @@
         private ListBox lboxsynonyms;
         private ComboBox comboxcurrentroom;
         private Label lblcurrentroom;
+        private Label lblRandomizedInfo;
+        private TextBox tboxminhealth;
+        private TextBox tboxMaxHealth;
     }
 }

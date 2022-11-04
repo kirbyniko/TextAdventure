@@ -12,6 +12,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using AdventureMaker;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace Form1
 {
@@ -26,7 +27,8 @@ namespace Form1
             InitPlayers();
             InitRooms();
             InitVerbs();
-            tboxgamename.Text = game.Name; 
+            InitStats();
+            tboxgamename.Text = game.Name;
         }
 
         public MainForm()
@@ -54,14 +56,14 @@ namespace Form1
         private void InitObjects()
         {
             lboxobjects.Items.Clear();
-            if(AdventureGame.Objects.Count > 0)
+            if (AdventureGame.Objects.Count > 0)
             {
                 foreach (var c in AdventureGame.Objects)
                 {
                     lboxobjects.Items.Add(c.Name);
                 }
             }
-           
+
         }
 
         private void InitRooms()
@@ -74,8 +76,8 @@ namespace Form1
                     lboxrooms.Items.Add(c.Name);
                 }
             }
-            
-           
+
+
         }
 
         private void InitPlayers()
@@ -90,8 +92,8 @@ namespace Form1
             }
 
         }
-           
-            
+
+
 
         private void InitVerbs()
         {
@@ -102,6 +104,15 @@ namespace Form1
             }
         }
 
+        private void InitStats()
+        {
+            lboxstats.Items.Clear();
+            foreach (var c in AdventureGame.Stats)
+            {
+                lboxstats.Items.Add(c.Name);
+            }
+        }
+
         private void lblitems_Click(object sender, EventArgs e)
         {
 
@@ -109,13 +120,13 @@ namespace Form1
 
         private void btnremoveobject_Click(object sender, EventArgs e)
         {
-            if(lboxobjects.SelectedItems.Count > 0)
+            if (lboxobjects.SelectedItems.Count > 0)
             {
-             foreach(var c in lboxobjects.SelectedItems)
+                foreach (var c in lboxobjects.SelectedItems)
                 {
                     AdventureGame.Objects.Remove(AdventureGame.Objects.Find(x => x.Name == c));
                 }
-               
+
             }
             InitObjects();
         }
@@ -150,7 +161,7 @@ namespace Form1
 
         private void btnremoveplayers_Click(object sender, EventArgs e)
         {
-            foreach( var c in lboxplayers.SelectedItems)
+            foreach (var c in lboxplayers.SelectedItems)
             {
                 AdventureGame.Players.Remove(AdventureGame.Players.Find(x => x.Name == c));
             }
@@ -162,7 +173,7 @@ namespace Form1
             Objects objects = new(AdventureGame, AdventureGame.Objects.Find(x => x.Name == lboxobjects.SelectedItem));
             objects.Show();
             this.Close();
-            
+
         }
 
         private void btneditplayers_Click(object sender, EventArgs e)
@@ -174,13 +185,13 @@ namespace Form1
 
         private void btnaddrooms_Click(object sender, EventArgs e)
         {
-           RoomMaker room = new(AdventureGame);
-           room.Show();
-           this.Close();
-            
-          
-    
-            
+            RoomMaker room = new(AdventureGame);
+            room.Show();
+            this.Close();
+
+
+
+
         }
 
         private void btneditrooms_Click(object sender, EventArgs e)
@@ -195,7 +206,7 @@ namespace Form1
             VerbForm verbform = new(AdventureGame);
             verbform.Show();
             this.Close();
-           
+
         }
 
         private void btnremoveverbs_Click(object sender, EventArgs e)
@@ -210,6 +221,48 @@ namespace Form1
             VerbForm verbform1 = new VerbForm(AdventureGame, AdventureGame.Verbs.Find(x => x.WordString == lboxverbs.SelectedItem.ToString()));
             verbform1.Show();
             this.Close();
+        }
+
+        private void btnaddstat_Click(object sender, EventArgs e)
+        {
+            EditStat editStat = new(AdventureGame);
+            editStat.Show();
+            this.Close();
+        }
+
+        private void btnremovestat_Click(object sender, EventArgs e)
+        {
+
+            foreach (var c in lboxstats.SelectedItems)
+            {
+                AdventureGame.Stats.Remove(AdventureGame.Stats.Find(x => x.Name == c));
+            }
+        }
+
+        private void btneditstat_Click(object sender, EventArgs e)
+        {
+            if (lboxstats.SelectedItems.Count > 0)
+            {
+                EditStat editStat = new(AdventureGame, AdventureGame.Stats.Find(x => x.Name == lboxstats.SelectedItem));
+                editStat.Show();
+                this.Close();
+            }
+
+        }
+
+        private void btnPlayGame_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog ol = new OpenFileDialog();
+            ol.Title = "Please select the file for your game!";
+            ol.ShowDialog();
+            string filePath = ol.FileName;
+
+
+            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventure\\bin\\Release\\net6.0\\TextAdventure.exe", filePath.ToString());
+
+
+
         }
     }
 }

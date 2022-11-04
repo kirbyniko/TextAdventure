@@ -27,8 +27,6 @@ namespace AdventureMaker
             adventuregame = Game;
             item = obj;
             tboxobjectname.Text = item.Name;
-            tboxobjectvalue.Text = item.Value.ToString();
-            tboxobjectweight.Text = item.Weight.ToString();
             rtboxobjectsummary.Text = item.Description;
 
             InitializeComponent();

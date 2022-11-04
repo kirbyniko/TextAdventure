@@ -52,13 +52,19 @@
             this.btneditrooms = new System.Windows.Forms.Button();
             this.btneditplayers = new System.Windows.Forms.Button();
             this.btneditverbs = new System.Windows.Forms.Button();
+            this.btneditstat = new System.Windows.Forms.Button();
+            this.btnremovestat = new System.Windows.Forms.Button();
+            this.btnaddstat = new System.Windows.Forms.Button();
+            this.lblStats = new System.Windows.Forms.Label();
+            this.lboxstats = new System.Windows.Forms.ListBox();
+            this.btnPlayGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lboxobjects
             // 
             this.lboxobjects.FormattingEnabled = true;
             this.lboxobjects.ItemHeight = 15;
-            this.lboxobjects.Location = new System.Drawing.Point(43, 79);
+            this.lboxobjects.Location = new System.Drawing.Point(10, 93);
             this.lboxobjects.Name = "lboxobjects";
             this.lboxobjects.Size = new System.Drawing.Size(134, 199);
             this.lboxobjects.TabIndex = 0;
@@ -66,7 +72,7 @@
             // lblobjects
             // 
             this.lblobjects.AutoSize = true;
-            this.lblobjects.Location = new System.Drawing.Point(86, 61);
+            this.lblobjects.Location = new System.Drawing.Point(53, 75);
             this.lblobjects.Name = "lblobjects";
             this.lblobjects.Size = new System.Drawing.Size(47, 15);
             this.lblobjects.TabIndex = 1;
@@ -74,7 +80,7 @@
             // 
             // btnaddobject
             // 
-            this.btnaddobject.Location = new System.Drawing.Point(43, 284);
+            this.btnaddobject.Location = new System.Drawing.Point(10, 298);
             this.btnaddobject.Name = "btnaddobject";
             this.btnaddobject.Size = new System.Drawing.Size(64, 23);
             this.btnaddobject.TabIndex = 2;
@@ -84,7 +90,7 @@
             // 
             // btnremoveobject
             // 
-            this.btnremoveobject.Location = new System.Drawing.Point(113, 284);
+            this.btnremoveobject.Location = new System.Drawing.Point(80, 298);
             this.btnremoveobject.Name = "btnremoveobject";
             this.btnremoveobject.Size = new System.Drawing.Size(64, 23);
             this.btnremoveobject.TabIndex = 3;
@@ -94,7 +100,7 @@
             // 
             // btnremoverooms
             // 
-            this.btnremoverooms.Location = new System.Drawing.Point(262, 284);
+            this.btnremoverooms.Location = new System.Drawing.Point(229, 298);
             this.btnremoverooms.Name = "btnremoverooms";
             this.btnremoverooms.Size = new System.Drawing.Size(64, 23);
             this.btnremoverooms.TabIndex = 7;
@@ -103,7 +109,7 @@
             // 
             // btnaddrooms
             // 
-            this.btnaddrooms.Location = new System.Drawing.Point(192, 284);
+            this.btnaddrooms.Location = new System.Drawing.Point(159, 298);
             this.btnaddrooms.Name = "btnaddrooms";
             this.btnaddrooms.Size = new System.Drawing.Size(64, 23);
             this.btnaddrooms.TabIndex = 6;
@@ -114,7 +120,7 @@
             // lblverbs
             // 
             this.lblverbs.AutoSize = true;
-            this.lblverbs.Location = new System.Drawing.Point(535, 61);
+            this.lblverbs.Location = new System.Drawing.Point(502, 75);
             this.lblverbs.Name = "lblverbs";
             this.lblverbs.Size = new System.Drawing.Size(35, 15);
             this.lblverbs.TabIndex = 5;
@@ -125,14 +131,14 @@
             // 
             this.lboxverbs.FormattingEnabled = true;
             this.lboxverbs.ItemHeight = 15;
-            this.lboxverbs.Location = new System.Drawing.Point(492, 79);
+            this.lboxverbs.Location = new System.Drawing.Point(459, 93);
             this.lboxverbs.Name = "lboxverbs";
             this.lboxverbs.Size = new System.Drawing.Size(134, 199);
             this.lboxverbs.TabIndex = 4;
             // 
             // btnremoveverbs
             // 
-            this.btnremoveverbs.Location = new System.Drawing.Point(562, 284);
+            this.btnremoveverbs.Location = new System.Drawing.Point(529, 298);
             this.btnremoveverbs.Name = "btnremoveverbs";
             this.btnremoveverbs.Size = new System.Drawing.Size(64, 23);
             this.btnremoveverbs.TabIndex = 15;
@@ -142,7 +148,7 @@
             // 
             // btnaddverbs
             // 
-            this.btnaddverbs.Location = new System.Drawing.Point(492, 284);
+            this.btnaddverbs.Location = new System.Drawing.Point(459, 298);
             this.btnaddverbs.Name = "btnaddverbs";
             this.btnaddverbs.Size = new System.Drawing.Size(64, 23);
             this.btnaddverbs.TabIndex = 14;
@@ -153,7 +159,7 @@
             // lblplayers
             // 
             this.lblplayers.AutoSize = true;
-            this.lblplayers.Location = new System.Drawing.Point(386, 61);
+            this.lblplayers.Location = new System.Drawing.Point(353, 75);
             this.lblplayers.Name = "lblplayers";
             this.lblplayers.Size = new System.Drawing.Size(44, 15);
             this.lblplayers.TabIndex = 13;
@@ -163,14 +169,14 @@
             // 
             this.lboxplayers.FormattingEnabled = true;
             this.lboxplayers.ItemHeight = 15;
-            this.lboxplayers.Location = new System.Drawing.Point(343, 79);
+            this.lboxplayers.Location = new System.Drawing.Point(310, 93);
             this.lboxplayers.Name = "lboxplayers";
             this.lboxplayers.Size = new System.Drawing.Size(134, 199);
             this.lboxplayers.TabIndex = 12;
             // 
             // btnremoveplayers
             // 
-            this.btnremoveplayers.Location = new System.Drawing.Point(413, 284);
+            this.btnremoveplayers.Location = new System.Drawing.Point(380, 298);
             this.btnremoveplayers.Name = "btnremoveplayers";
             this.btnremoveplayers.Size = new System.Drawing.Size(64, 23);
             this.btnremoveplayers.TabIndex = 11;
@@ -180,7 +186,7 @@
             // 
             // btnaddplayers
             // 
-            this.btnaddplayers.Location = new System.Drawing.Point(343, 284);
+            this.btnaddplayers.Location = new System.Drawing.Point(310, 298);
             this.btnaddplayers.Name = "btnaddplayers";
             this.btnaddplayers.Size = new System.Drawing.Size(64, 23);
             this.btnaddplayers.TabIndex = 10;
@@ -191,7 +197,7 @@
             // lblrooms
             // 
             this.lblrooms.AutoSize = true;
-            this.lblrooms.Location = new System.Drawing.Point(237, 61);
+            this.lblrooms.Location = new System.Drawing.Point(204, 75);
             this.lblrooms.Name = "lblrooms";
             this.lblrooms.Size = new System.Drawing.Size(44, 15);
             this.lblrooms.TabIndex = 9;
@@ -201,7 +207,7 @@
             // 
             this.lboxrooms.FormattingEnabled = true;
             this.lboxrooms.ItemHeight = 15;
-            this.lboxrooms.Location = new System.Drawing.Point(194, 79);
+            this.lboxrooms.Location = new System.Drawing.Point(161, 93);
             this.lboxrooms.Name = "lboxrooms";
             this.lboxrooms.Size = new System.Drawing.Size(134, 199);
             this.lboxrooms.TabIndex = 8;
@@ -245,7 +251,7 @@
             // 
             // btneditobjects
             // 
-            this.btneditobjects.Location = new System.Drawing.Point(69, 313);
+            this.btneditobjects.Location = new System.Drawing.Point(36, 327);
             this.btneditobjects.Name = "btneditobjects";
             this.btneditobjects.Size = new System.Drawing.Size(75, 23);
             this.btneditobjects.TabIndex = 20;
@@ -255,7 +261,7 @@
             // 
             // btneditrooms
             // 
-            this.btneditrooms.Location = new System.Drawing.Point(223, 313);
+            this.btneditrooms.Location = new System.Drawing.Point(190, 327);
             this.btneditrooms.Name = "btneditrooms";
             this.btneditrooms.Size = new System.Drawing.Size(75, 23);
             this.btneditrooms.TabIndex = 21;
@@ -265,7 +271,7 @@
             // 
             // btneditplayers
             // 
-            this.btneditplayers.Location = new System.Drawing.Point(370, 313);
+            this.btneditplayers.Location = new System.Drawing.Point(337, 327);
             this.btneditplayers.Name = "btneditplayers";
             this.btneditplayers.Size = new System.Drawing.Size(75, 23);
             this.btneditplayers.TabIndex = 22;
@@ -275,7 +281,7 @@
             // 
             // btneditverbs
             // 
-            this.btneditverbs.Location = new System.Drawing.Point(518, 313);
+            this.btneditverbs.Location = new System.Drawing.Point(485, 327);
             this.btneditverbs.Name = "btneditverbs";
             this.btneditverbs.Size = new System.Drawing.Size(75, 23);
             this.btneditverbs.TabIndex = 23;
@@ -283,11 +289,75 @@
             this.btneditverbs.UseVisualStyleBackColor = true;
             this.btneditverbs.Click += new System.EventHandler(this.btneditverbs_Click);
             // 
+            // btneditstat
+            // 
+            this.btneditstat.Location = new System.Drawing.Point(647, 327);
+            this.btneditstat.Name = "btneditstat";
+            this.btneditstat.Size = new System.Drawing.Size(75, 23);
+            this.btneditstat.TabIndex = 28;
+            this.btneditstat.Text = "Edit";
+            this.btneditstat.UseVisualStyleBackColor = true;
+            this.btneditstat.Click += new System.EventHandler(this.btneditstat_Click);
+            // 
+            // btnremovestat
+            // 
+            this.btnremovestat.Location = new System.Drawing.Point(691, 298);
+            this.btnremovestat.Name = "btnremovestat";
+            this.btnremovestat.Size = new System.Drawing.Size(64, 23);
+            this.btnremovestat.TabIndex = 27;
+            this.btnremovestat.Text = "Remove";
+            this.btnremovestat.UseVisualStyleBackColor = true;
+            this.btnremovestat.Click += new System.EventHandler(this.btnremovestat_Click);
+            // 
+            // btnaddstat
+            // 
+            this.btnaddstat.Location = new System.Drawing.Point(621, 298);
+            this.btnaddstat.Name = "btnaddstat";
+            this.btnaddstat.Size = new System.Drawing.Size(64, 23);
+            this.btnaddstat.TabIndex = 26;
+            this.btnaddstat.Text = "Add";
+            this.btnaddstat.UseVisualStyleBackColor = true;
+            this.btnaddstat.Click += new System.EventHandler(this.btnaddstat_Click);
+            // 
+            // lblStats
+            // 
+            this.lblStats.AutoSize = true;
+            this.lblStats.Location = new System.Drawing.Point(664, 75);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(32, 15);
+            this.lblStats.TabIndex = 25;
+            this.lblStats.Text = "Stats";
+            // 
+            // lboxstats
+            // 
+            this.lboxstats.FormattingEnabled = true;
+            this.lboxstats.ItemHeight = 15;
+            this.lboxstats.Location = new System.Drawing.Point(621, 93);
+            this.lboxstats.Name = "lboxstats";
+            this.lboxstats.Size = new System.Drawing.Size(134, 199);
+            this.lboxstats.TabIndex = 24;
+            // 
+            // btnPlayGame
+            // 
+            this.btnPlayGame.Location = new System.Drawing.Point(502, 14);
+            this.btnPlayGame.Name = "btnPlayGame";
+            this.btnPlayGame.Size = new System.Drawing.Size(140, 51);
+            this.btnPlayGame.TabIndex = 29;
+            this.btnPlayGame.Text = "Play Game!";
+            this.btnPlayGame.UseVisualStyleBackColor = true;
+            this.btnPlayGame.Click += new System.EventHandler(this.btnPlayGame_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.btnPlayGame);
+            this.Controls.Add(this.btneditstat);
+            this.Controls.Add(this.btnremovestat);
+            this.Controls.Add(this.btnaddstat);
+            this.Controls.Add(this.lblStats);
+            this.Controls.Add(this.lboxstats);
             this.Controls.Add(this.btneditverbs);
             this.Controls.Add(this.btneditplayers);
             this.Controls.Add(this.btneditrooms);
@@ -347,5 +417,11 @@
         private Button btneditrooms;
         private Button btneditplayers;
         private Button btneditverbs;
+        private Button btneditstat;
+        private Button btnremovestat;
+        private Button btnaddstat;
+        private Label lblStats;
+        private ListBox lboxstats;
+        private Button btnPlayGame;
     }
 }

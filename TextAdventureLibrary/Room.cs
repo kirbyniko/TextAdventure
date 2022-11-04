@@ -15,7 +15,7 @@
 
         public Room DefaultExit { get; set; }
 
-        public List<Room> AdjacentRooms { get; set; } = new List<Room>();
+        public List<AdjacentRoom> AdjacentRooms { get; set; } = new List<AdjacentRoom>();
 
         public List<Player> Players { get; set; } = new List<Player>();
 

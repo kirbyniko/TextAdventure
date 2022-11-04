@@ -33,11 +33,11 @@
             this.tboxobjectname = new System.Windows.Forms.TextBox();
             this.rtboxobjectsummary = new System.Windows.Forms.RichTextBox();
             this.lblobjectsummary = new System.Windows.Forms.Label();
-            this.lblValu3 = new System.Windows.Forms.Label();
-            this.tboxvalue = new System.Windows.Forms.TextBox();
             this.comboxAddtoall = new System.Windows.Forms.ComboBox();
             this.lblAddtoAll = new System.Windows.Forms.Label();
             this.btnAddtoall = new System.Windows.Forms.Button();
+            this.lblwarning = new System.Windows.Forms.Label();
+            this.cboxInteger = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btncreatestat
@@ -84,23 +84,6 @@
             this.lblobjectsummary.TabIndex = 23;
             this.lblobjectsummary.Text = "Object Summary";
             // 
-            // lblValu3
-            // 
-            this.lblValu3.AutoSize = true;
-            this.lblValu3.Location = new System.Drawing.Point(123, 154);
-            this.lblValu3.Name = "lblValu3";
-            this.lblValu3.Size = new System.Drawing.Size(35, 15);
-            this.lblValu3.TabIndex = 26;
-            this.lblValu3.Text = "Value";
-            // 
-            // tboxvalue
-            // 
-            this.tboxvalue.Location = new System.Drawing.Point(3, 151);
-            this.tboxvalue.Name = "tboxvalue";
-            this.tboxvalue.PlaceholderText = "Type Value Here...";
-            this.tboxvalue.Size = new System.Drawing.Size(114, 23);
-            this.tboxvalue.TabIndex = 25;
-            // 
             // comboxAddtoall
             // 
             this.comboxAddtoall.FormattingEnabled = true;
@@ -126,16 +109,36 @@
             this.btnAddtoall.TabIndex = 29;
             this.btnAddtoall.Text = "Add to all";
             this.btnAddtoall.UseVisualStyleBackColor = true;
+            this.btnAddtoall.Click += new System.EventHandler(this.btnAddtoall_Click);
+            // 
+            // lblwarning
+            // 
+            this.lblwarning.AutoSize = true;
+            this.lblwarning.Location = new System.Drawing.Point(105, 199);
+            this.lblwarning.Name = "lblwarning";
+            this.lblwarning.Size = new System.Drawing.Size(0, 15);
+            this.lblwarning.TabIndex = 30;
+            this.lblwarning.VisibleChanged += new System.EventHandler(this.lblwarning_VisibleChanged);
+            // 
+            // cboxInteger
+            // 
+            this.cboxInteger.AutoSize = true;
+            this.cboxInteger.Location = new System.Drawing.Point(12, 155);
+            this.cboxInteger.Name = "cboxInteger";
+            this.cboxInteger.Size = new System.Drawing.Size(109, 19);
+            this.cboxInteger.TabIndex = 31;
+            this.cboxInteger.Text = "Numerical Stat?";
+            this.cboxInteger.UseVisualStyleBackColor = true;
             // 
             // EditStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboxInteger);
+            this.Controls.Add(this.lblwarning);
             this.Controls.Add(this.btnAddtoall);
             this.Controls.Add(this.lblAddtoAll);
             this.Controls.Add(this.comboxAddtoall);
-            this.Controls.Add(this.lblValu3);
-            this.Controls.Add(this.tboxvalue);
             this.Controls.Add(this.rtboxobjectsummary);
             this.Controls.Add(this.lblobjectsummary);
             this.Controls.Add(this.btncreatestat);
@@ -144,6 +147,7 @@
             this.Name = "EditStats";
             this.Size = new System.Drawing.Size(393, 262);
             this.Load += new System.EventHandler(this.EditStats_Load);
+            this.VisibleChanged += new System.EventHandler(this.EditStats_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,10 +160,10 @@
         private TextBox tboxobjectname;
         private RichTextBox rtboxobjectsummary;
         private Label lblobjectsummary;
-        private Label lblValu3;
-        private TextBox tboxvalue;
         private ComboBox comboxAddtoall;
         private Label lblAddtoAll;
         private Button btnAddtoall;
+        private Label lblwarning;
+        private CheckBox cboxInteger;
     }
 }

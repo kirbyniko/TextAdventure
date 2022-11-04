@@ -11,7 +11,7 @@ namespace TextAdventureLibrary
     {
         public List<Word> Words { get; set; } = new List<Word>();
 
-        public List<Word> Verbs { get; set; } = new List<Word>();
+        public Word Verb { get; set; } = new Word();
 
         public List<Word> Objects { get; set; } = new List<Word>();
 

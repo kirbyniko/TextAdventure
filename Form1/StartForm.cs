@@ -40,6 +40,7 @@ namespace Form1
             string filePath = o.FileName;
             string jsonString = File.ReadAllText(filePath);
             AdventureGame game = JsonSerializer.Deserialize<AdventureGame>(jsonString);
+            game.InitLists();
             MainForm form = new(game);
             form.Show();
             this.Hide();

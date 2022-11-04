@@ -59,8 +59,6 @@ namespace AdventureMaker
             if (player.Name != "")
             {
                 tboxplayername.Text = player.Name;
-                tboxplayerhealth.Text = player.Health.ToString();
-                tboxplayerstrength.Text = player.Strength.ToString();
                 rtboxsummary.Text = player.Description;
 
 
@@ -75,8 +73,6 @@ namespace AdventureMaker
             if (int.TryParse(tboxplayerhealth.Text, out health) && int.TryParse(tboxplayerstrength.Text, out strength))
             {
                 player.Name = tboxplayername.Text;
-                player.Health = health;
-                player.Strength = strength;
                 player.Description = rtboxsummary.Text;
 
                 if(comboxcurrentroom.SelectedItem != null)

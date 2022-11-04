@@ -32,10 +32,6 @@
             this.btncreateobject = new System.Windows.Forms.Button();
             this.rtboxobjectsummary = new System.Windows.Forms.RichTextBox();
             this.lblobjectsummary = new System.Windows.Forms.Label();
-            this.lblvalue = new System.Windows.Forms.Label();
-            this.tboxobjectvalue = new System.Windows.Forms.TextBox();
-            this.lblweight = new System.Windows.Forms.Label();
-            this.tboxobjectweight = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
             this.tboxobjectname = new System.Windows.Forms.TextBox();
             this.lboxsynonyms = new System.Windows.Forms.ListBox();
@@ -43,6 +39,11 @@
             this.btnremovesynonym = new System.Windows.Forms.Button();
             this.tboxsynonyms = new System.Windows.Forms.TextBox();
             this.tboxdropchance = new System.Windows.Forms.TextBox();
+            this.tboxVerbs = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lboxverbs = new System.Windows.Forms.ListBox();
+            this.clboxverbs = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // lblobjectfields
@@ -80,40 +81,6 @@
             this.lblobjectsummary.Size = new System.Drawing.Size(96, 15);
             this.lblobjectsummary.TabIndex = 17;
             this.lblobjectsummary.Text = "Object Summary";
-            // 
-            // lblvalue
-            // 
-            this.lblvalue.AutoSize = true;
-            this.lblvalue.Location = new System.Drawing.Point(123, 66);
-            this.lblvalue.Name = "lblvalue";
-            this.lblvalue.Size = new System.Drawing.Size(35, 15);
-            this.lblvalue.TabIndex = 16;
-            this.lblvalue.Text = "Value";
-            // 
-            // tboxobjectvalue
-            // 
-            this.tboxobjectvalue.Location = new System.Drawing.Point(3, 63);
-            this.tboxobjectvalue.Name = "tboxobjectvalue";
-            this.tboxobjectvalue.PlaceholderText = "Type Value Here...";
-            this.tboxobjectvalue.Size = new System.Drawing.Size(114, 23);
-            this.tboxobjectvalue.TabIndex = 15;
-            // 
-            // lblweight
-            // 
-            this.lblweight.AutoSize = true;
-            this.lblweight.Location = new System.Drawing.Point(123, 37);
-            this.lblweight.Name = "lblweight";
-            this.lblweight.Size = new System.Drawing.Size(45, 15);
-            this.lblweight.TabIndex = 14;
-            this.lblweight.Text = "Weight";
-            // 
-            // tboxobjectweight
-            // 
-            this.tboxobjectweight.Location = new System.Drawing.Point(3, 34);
-            this.tboxobjectweight.Name = "tboxobjectweight";
-            this.tboxobjectweight.PlaceholderText = "Type Weight Here...";
-            this.tboxobjectweight.Size = new System.Drawing.Size(114, 23);
-            this.tboxobjectweight.TabIndex = 13;
             // 
             // lblname
             // 
@@ -177,10 +144,59 @@
             this.tboxdropchance.Size = new System.Drawing.Size(115, 23);
             this.tboxdropchance.TabIndex = 26;
             // 
+            // tboxVerbs
+            // 
+            this.tboxVerbs.Location = new System.Drawing.Point(406, 8);
+            this.tboxVerbs.Name = "tboxVerbs";
+            this.tboxVerbs.PlaceholderText = "Type Verbs...";
+            this.tboxVerbs.Size = new System.Drawing.Size(120, 23);
+            this.tboxVerbs.TabIndex = 30;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(465, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(406, 37);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(53, 23);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lboxverbs
+            // 
+            this.lboxverbs.FormattingEnabled = true;
+            this.lboxverbs.ItemHeight = 15;
+            this.lboxverbs.Location = new System.Drawing.Point(406, 63);
+            this.lboxverbs.Name = "lboxverbs";
+            this.lboxverbs.Size = new System.Drawing.Size(120, 154);
+            this.lboxverbs.TabIndex = 27;
+            // 
+            // clboxverbs
+            // 
+            this.clboxverbs.FormattingEnabled = true;
+            this.clboxverbs.Location = new System.Drawing.Point(532, 5);
+            this.clboxverbs.Name = "clboxverbs";
+            this.clboxverbs.Size = new System.Drawing.Size(224, 220);
+            this.clboxverbs.TabIndex = 31;
+            // 
             // EditObject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clboxverbs);
+            this.Controls.Add(this.tboxVerbs);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lboxverbs);
             this.Controls.Add(this.tboxdropchance);
             this.Controls.Add(this.tboxsynonyms);
             this.Controls.Add(this.btnremovesynonym);
@@ -190,14 +206,10 @@
             this.Controls.Add(this.btncreateobject);
             this.Controls.Add(this.rtboxobjectsummary);
             this.Controls.Add(this.lblobjectsummary);
-            this.Controls.Add(this.lblvalue);
-            this.Controls.Add(this.tboxobjectvalue);
-            this.Controls.Add(this.lblweight);
-            this.Controls.Add(this.tboxobjectweight);
             this.Controls.Add(this.lblname);
             this.Controls.Add(this.tboxobjectname);
             this.Name = "EditObject";
-            this.Size = new System.Drawing.Size(415, 279);
+            this.Size = new System.Drawing.Size(769, 279);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +232,10 @@
         private Button btnremovesynonym;
         private TextBox tboxsynonyms;
         private TextBox tboxdropchance;
+        private TextBox tboxVerbs;
+        private Button button1;
+        private Button button2;
+        private ListBox lboxverbs;
+        private CheckedListBox clboxverbs;
     }
 }

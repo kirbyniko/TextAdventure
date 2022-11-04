@@ -14,5 +14,7 @@ namespace TextAdventureLibrary
         public string ValueString { get; set; }
 
         public int ValueInt { get; set; }
+
+        public bool boolInteger { get; set; }
     }
 }

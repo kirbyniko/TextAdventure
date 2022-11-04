@@ -7,12 +7,17 @@ namespace TextAdventureLibrary
     {
         public string Name { get; set; }
         public Room CurrentRoom { get; set; }
-        public List<Word> Verbs { get; set; } = new List<Word>();
+       
         public List<string> Places { get; set; } = new List<string>();
         public List<string> ObjectKeywords { get; set; } = new List<string>();
         public List<string> PlayerKeywords { get; set; } = new List<string>();
+        public List<Word> Verbs { get; set; } = new List<Word>();
         public List<Word> Words { get; set; } = new List<Word>();
         public List<Item> Objects { get; set; } = new List<Item>();
+        public List<Stat> Stats { get; set; } = new List<Stat>();
+        public List<Stat> PlayerStats { get; set; } = new List<Stat>();
+        public List<Stat> ObjectStats { get; set; } = new List<Stat>();
+        public List<Stat> RoomStats { get; set; } = new List<Stat>();
         public Command Command { get; set; } = new Command();
         public List<Room> Rooms { get; set; } = new List<Room>();
         public List<Player> Players { get; set; } = new List<Player>();
@@ -83,6 +88,8 @@ namespace TextAdventureLibrary
 
             return returnword;
         }
+
+
         public List<Item> InitItems()
         {
             Item sword = new Item("Sword", "A blade of sharp steel and a dull handle wrapped in tattered leather", 10, 200);
@@ -109,17 +116,27 @@ namespace TextAdventureLibrary
             Items.Add(ratcarcass);
             Items.Add(key);
 
-            foreach(Item item in Items)
+            foreach (Item item in Items)
             {
                 item.Word = new Word(item.Keywords[0], item.Keywords, "object", item);
                 Words.Add(item.Word);
                 ObjectKeywords.AddRange(item.Keywords);
-            }            
+            }
+
             return Items;
 
         }
 
-      /*  public List<Room> InitRooms()
+        public void AddKeywords()
+        {
+            foreach (Item item in Objects)
+            {
+                Words.Add(item.Word);
+                ObjectKeywords.AddRange(item.Keywords);
+            }
+        }
+
+        public List<Room> InitRooms()
         {
 
             Room cell = new Room("cell", "You find yourself in a decrepit prison cell, among  a hallway full of other inmates. Dressed in rags and equipped with nothing, by miracle the door to the hallway in front of you opens.", "You enter your old prison cell.");
@@ -128,13 +145,13 @@ namespace TextAdventureLibrary
 
             hallway.Players.Add(Players[1]);
 
-            //Room acell = new Room(cell.Name, cell);
-           // AdjacentRoom ahallway = new AdjacentRoom(hallway.Name, hallway);
-           // AdjacentRoom anorthblock = new AdjacentRoom(northblock.Name, northblock);
+            AdjacentRoom acell = new AdjacentRoom(cell.Name, cell);
+            AdjacentRoom ahallway = new AdjacentRoom(hallway.Name, hallway);
+            AdjacentRoom anorthblock = new AdjacentRoom(northblock.Name, northblock);
 
-           // AdjacentRooms.Add(acell);
-           // AdjacentRooms.Add(ahallway);
-           // AdjacentRooms.Add(anorthblock);
+           AdjacentRooms.Add(acell);
+           AdjacentRooms.Add(ahallway);
+           AdjacentRooms.Add(anorthblock);
 
             //Cell Adjacent Rooms
 
@@ -214,9 +231,9 @@ namespace TextAdventureLibrary
             Words.Add(new Word("door", westsynonyms, "place"));
 
             return rooms;
-      */
+  
 
-      //  }
+        }
 
         public List<Player> InitPlayers()
         {

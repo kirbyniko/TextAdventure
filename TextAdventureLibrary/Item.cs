@@ -11,11 +11,6 @@ namespace TextAdventureLibrary
         public string Description { get; set; }
 
         public string Location { get; set; }
-
-        public int Weight { get; set; }
-
-        public int Value { get; set; }
-
         public int DropChance { get; set; }
 
         public Word Word { get; set; } = new Word();
@@ -28,16 +23,16 @@ namespace TextAdventureLibrary
         {
             Name = name;
             Description = description;
-            Weight = weight;
-            Value = value;
+         //   Weight = weight;
+          //  Value = value;
 
         }
         public Item(string name, string description, int weight, int value, List<String> keywords)
         {
             Name = name;
             Description = description;
-            Weight = weight;
-            Value = value;
+          //  Weight = weight;
+           // Value = value;
             Keywords = keywords;
 
         }

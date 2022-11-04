@@ -16,24 +16,40 @@ if (args.Length > 0)
     string jsonstring = File.ReadAllText(Filename);
     AdventureGame agame = JsonSerializer.Deserialize<AdventureGame>(jsonstring);
     game = agame;
+    game.AddKeywords();
 }
 else
 {
     Console.WriteLine("Not enough args! Arg!");
+    game.Name = "God's Fist";
+    Console.WriteLine("You are playing " + game.Name);
+    game.Objects = game.InitItems();
+    game.Players = game.InitPlayers();
+    game.Rooms = game.InitRooms();
+    game.InitLists();
+    game.CurrentRoom = game.Rooms[0];
+    
+    
+    
+    
+    
     Console.ReadLine();
 }
 
 
-Console.WriteLine("You are playing " + game.Name);
-DisplayRoom(game);
+
+
+
 
 while (true)
 {
+    DisplayRoom(game);
     Input = GetInput();
     game.Command.Words = ParseInput(Input);
-    //GetWordType returns an AdventureGame, so it can alter differents lists, rather than just a Word type.
     game = GetWordTypes(game);
+    //Game.Command is the users command.
     game.Command.Statements = CreateStatements(game);
+
     RunStatements();
     game.Command.ClearLists();
 
@@ -41,24 +57,19 @@ while (true)
 
 }
 
-//AdventureGame InitGame()
-//{
-//    AdventureGame adventureGame = new AdventureGame();
-//    adventureGame.Name = "God's Fist";
+AdventureGame InitGame()
+{
+   AdventureGame adventureGame = new AdventureGame();
+   adventureGame.Name = "God's Fist";
 
-//    adventureGame.Objects = adventureGame.InitItems();
-//    adventureGame.Players = adventureGame.InitPlayers();
-//    adventureGame.Rooms = adventureGame.InitRooms();
+   adventureGame.Objects = adventureGame.InitItems();
+   adventureGame.Players = adventureGame.InitPlayers();
+   adventureGame.Rooms = adventureGame.InitRooms();
 
-//    adventureGame.InitLists();
-//    adventureGame.CurrentRoom = adventureGame.Rooms[0];
-//    adventureGame.CurrentRoom.Players.Add(adventureGame.Players[0]);
+   adventureGame.InitLists();
 
-//    Console.WriteLine("You are playing " + adventureGame.Name + " Press any key to continue");
-//    Console.ReadLine();
-
-//    return adventureGame;
-//}
+   return adventureGame;
+}
 
 void DisplayRoom(AdventureGame adventureGame)
 {
@@ -166,7 +177,7 @@ List<Statement> CreateStatements(AdventureGame game)
             case "verb":
                 if (verbs == 0)
                 {
-                    statements[index].Verbs.Add(word);
+                    statements[index].Verb = word;
                     verbs++;
                 }
                 else
@@ -174,7 +185,7 @@ List<Statement> CreateStatements(AdventureGame game)
                     index++;
                     verbs++;
                     statements.Add(new Statement());
-                    statements[index].Verbs.Add(word);
+                    statements[index].Verb = word;
 
                 }
                 break;
@@ -204,18 +215,29 @@ List<Statement> CreateStatements(AdventureGame game)
     return statements;
 }
 
+bool isEmptyorNull(string s)
+{
+    bool isEmpty = true;
+
+    if(s != "" && s != null)
+    {
+        isEmpty = false;
+    }
+    return isEmpty;
+}
 void RunStatements()
 {
     foreach (var c in game.Command.Statements)
     {
+        bool isempty = isEmptyorNull(c.Verb.WordString);
 
-        if (c.Verbs.Count > 0)
+        if (isempty != true)
         {
             foreach (var o in c.Objects)
             {
-                if (o.Item.Verbs.Contains(c.Verbs[0].WordString))
+                if (o.Item.Verbs.Contains(c.Verb.WordString))
                 {
-                    switch (c.Verbs[0].WordString)
+                    switch (c.Verb.WordString)
                     {
                         case "get":
                             c.GetItem(game);
@@ -228,7 +250,7 @@ void RunStatements()
                 }
                 else
                 {
-                    Console.WriteLine("You cannot " + c.Verbs[0].WordString + " a" + o.WordString + "!");
+                    Console.WriteLine("You cannot " + c.Verb.WordString + " a" + o.WordString + "!");
                 }
 
             }
@@ -239,12 +261,10 @@ void RunStatements()
                 {
                     if (game.CurrentRoom.Players.Contains(o.Player))
                     {
-                        switch (c.Verbs[0].WordString)
+                        switch (c.Verb.WordString)
                         {
                             case "attack":
-                                int damage = game.Players.First().Strength;
-                                o.Player.Health = o.Player.Health - damage;
-                                Console.WriteLine("You did " + damage + " damage to the " + o.WordString);
+                              //  Console.WriteLine("You did " + damage + " damage to the " + o.WordString);
                                 break;
                         }
                     }
@@ -258,7 +278,7 @@ void RunStatements()
 
             if (c.Places.Count > 0)
             {
-                if (c.Verbs[0].Synonyms.Contains("enter"))
+                if (c.Verb.Synonyms.Contains("enter"))
                 {
                     foreach (var a in game.CurrentRoom.AdjacentRooms)
                     {
@@ -278,17 +298,17 @@ void RunStatements()
 
                 else
                 {
-                    Console.WriteLine("You cannot " + c.Verbs[0].WordString + " a" + c.Places[0].WordString);
+                    Console.WriteLine("You cannot " + c.Verb.WordString + " a" + c.Places[0].WordString);
                 }
             }
 
         }
 
-        if (c.Verbs.Count() == 0 && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
+        if (isEmptyorNull(c.Verb.WordString)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
         {
             Console.WriteLine("I did not understand a word you said.");
         }
-        else if (c.Verbs.Count() > 0 && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
+        else if (isEmptyorNull(c.Verb.WordString)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
         {
             Console.WriteLine("I did not understand please try again!");
         }

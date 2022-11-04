@@ -106,7 +106,7 @@ namespace AdventureMaker
         private void InitLocations()
         {
             lblobjectsummary.Location = textBoxes.Last().Location;
-            lblobjectsummary.Location.Offset(0,40);
+            lblobjectsummary.Location.Offset(0, 40);
             rtboxobjectsummary.Location = lblobjectsummary.Location;
             rtboxobjectsummary.Location.Offset(0, 18);
         }
@@ -125,21 +125,33 @@ namespace AdventureMaker
         public void InitListbox()
         {
             lboxsynonyms.Items.Clear();
-            foreach(var c in synonyms)
+            foreach (var c in synonyms)
             {
                 lboxsynonyms.Items.Add(c);
             }
-            
+
+            lboxverbs.Items.Clear();
+
+            foreach (var c in item.Verbs)
+            {
+                lboxsynonyms.Items.Add(c);
+            }
+
+            clboxverbs.Items.Clear();
+
+            foreach (var c in adventureGame.Verbs)
+            {
+                clboxverbs.Items.Add(c.WordString);
+            }
+
         }
 
         public void LoadItem()
         {
             tboxobjectname.Text = item.Name;
-            tboxobjectvalue.Text = item.Value.ToString();
-            tboxobjectweight.Text = item.Weight.ToString();
             tboxdropchance.Text = item.DropChance.ToString();
             rtboxobjectsummary.Text = item.Description;
-            foreach(var c in synonyms)
+            foreach (var c in synonyms)
             {
                 lboxsynonyms.Items.Add(c);
             }
@@ -147,7 +159,7 @@ namespace AdventureMaker
 
         private void SaveDropchance()
         {
-            if(tboxdropchance.Text != "")
+            if (tboxdropchance.Text != "")
             {
                 item.DropChance = Convert.ToInt32(tboxdropchance.Text);
             }
@@ -159,62 +171,62 @@ namespace AdventureMaker
 
         private void SaveItem()
         {
-            int weight;
-            int value;
 
-            if (tboxobjectname.Text != "" && tboxobjectvalue.Text != "" && tboxobjectweight.Text != "" && rtboxobjectsummary.Text != "")
+
+            if (tboxobjectname.Text != "" && rtboxobjectsummary.Text != "")
             {
-                if (int.TryParse(tboxobjectweight.Text, out weight))
+
+                SaveDropchance();
+
+                switch (objecttype)
                 {
-                    if (int.TryParse(tboxobjectvalue.Text, out value))
-                    { 
-                        SaveDropchance();
-                        
-                        switch (objecttype)
-                        {
-                            case "player":
-                                player.Inventory.Remove(item);
-                                item = new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms);
-                                player.Inventory.Add(item);
-                                MakePlayer makeplayer = new(adventureGame, player);
-                                makeplayer.Show();
-                                ((Objects)this.TopLevelControl).Close();
-                                break;
-                            case "edit":
-                                adventureGame.Objects.Remove(item);
-                                adventureGame.Objects.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
-                                MainForm mainForm = new(adventureGame);
-                                mainForm.Show();
-                                ((Objects)this.TopLevelControl).Close();
-                                break;
-                            case "room":
-                                room.Items.Remove(item);
-                                room.Items.Add(new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms));
-                                RoomMaker roomMaker = new(adventureGame, room);
-                                roomMaker.Show();
-                                ((Objects)this.TopLevelControl).Close();
-                                break;
-                            default:
-                                item = new Item(tboxobjectname.Text, rtboxobjectsummary.Text, weight, value, synonyms);
-                                adventureGame.Objects.Add(item);
-                                MainForm mainForm1 = new(adventureGame);
-                                mainForm1.Show();
-                                ((Objects)this.TopLevelControl).Close();
-                                break;
-                        }
+                    case "player":
+                        player.Inventory.Remove(item);
+                        item = new Item();
+                        item.Name = tboxobjectname.Text;
+                        item.Description = rtboxobjectsummary.Text;
+                        item.Keywords = synonyms;
+                        player.Inventory.Add(item);
 
+                        MakePlayer makeplayer = new(adventureGame, player);
+                        makeplayer.Show();
+                        ((Objects)this.TopLevelControl).Close();
+                        break;
 
-                        
-                    }
+                    case "edit":
+                        adventureGame.Objects.Remove(item);
+                        item.Name = tboxobjectname.Text;
+                        item.Description = rtboxobjectsummary.Text;
+                        item.Keywords = synonyms;
+                        adventureGame.Objects.Add(item);
+                 
+                        MainForm mainForm = new(adventureGame);
+                        mainForm.Show();
+                        ((Objects)this.TopLevelControl).Close();
+                        break;
 
-                    else
-                    {
-                        lblobjectfields.Text = "Fix Value!";
-                    }
-                }
-                else
-                {
-                    lblobjectfields.Text = "Fix Weight";
+                    case "room":
+                        room.Items.Remove(item);
+                        item.Name = tboxobjectname.Text;
+                        item.Description = rtboxobjectsummary.Text;
+                        item.Keywords = synonyms;
+                        room.Items.Add(item);
+
+                        RoomMaker roomMaker = new(adventureGame, room);
+                        roomMaker.Show();
+                        ((Objects)this.TopLevelControl).Close();
+                        break;
+                    default:
+                        item = new Item();
+                        item.Name = tboxobjectname.Text;
+                        item.Description = rtboxobjectsummary.Text;
+                        item.Keywords = synonyms;
+                        adventureGame.Objects.Add(item);
+                        MainForm mainForm1 = new(adventureGame);
+                        mainForm1.Show();
+                        ((Objects)this.TopLevelControl).Close();
+                        break;
+
                 }
             }
             else
@@ -225,13 +237,22 @@ namespace AdventureMaker
         private void btncreateobject_Click(object sender, EventArgs e)
         {
             SaveItem();
-            
-               
+
+
         }
 
         private void btnremovesynonym_Click(object sender, EventArgs e)
         {
             synonyms.Remove((String)lboxsynonyms.SelectedItem);
+            InitListbox();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach(var c in clboxverbs.CheckedItems)
+            {
+                item.Verbs.Add(adventureGame.Verbs.Find(x => x.WordString == c).WordString);
+            }
             InitListbox();
         }
     }

@@ -148,7 +148,7 @@ namespace AdventureMaker
         {
             foreach (var c in clboxaddrooms.Items)
             {
-                room.AdjacentRooms.Add(adventureGame.Rooms.Find(x => x.Name == c.ToString()));
+                room.AdjacentRooms.Add(new AdjacentRoom(adventureGame.Rooms.Find(x => x.Name == c.ToString()).Name, adventureGame.Rooms.Find(x => x.Name == c.ToString())));
 
             }
             InitCheckListbox();
