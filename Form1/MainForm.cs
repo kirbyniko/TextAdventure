@@ -102,7 +102,7 @@ namespace Form1
             lboxverbs.Items.Clear();
             foreach (var c in AdventureGame.Verbs)
             {
-                lboxverbs.Items.Add(c.WordString);
+                lboxverbs.Items.Add(c.Name);
             }
         }
 
@@ -213,14 +213,14 @@ namespace Form1
 
         private void btnremoveverbs_Click(object sender, EventArgs e)
         {
-            AdventureGame.Verbs.Remove(AdventureGame.Verbs.Find(x => x.WordString == lboxverbs.SelectedItem.ToString()));
+            AdventureGame.Verbs.Remove(AdventureGame.Verbs.Find(x => x.Name == lboxverbs.SelectedItem.ToString()));
             InitVerbs();
 
         }
 
         private void btneditverbs_Click(object sender, EventArgs e)
         {
-            VerbForm verbform1 = new VerbForm(AdventureGame, AdventureGame.Verbs.Find(x => x.WordString == lboxverbs.SelectedItem.ToString()));
+            VerbForm verbform1 = new VerbForm(AdventureGame, AdventureGame.Verbs.Find(x => x.Name == lboxverbs.SelectedItem.ToString()));
             verbform1.Show();
             this.Close();
         }

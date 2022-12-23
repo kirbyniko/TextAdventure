@@ -19,7 +19,9 @@ namespace AdventureMaker
 
         private AdventureGame adventureGame;
 
-        private List<String> synonyms { get; set; } = new List<string>();
+        private List<string> synonyms { get; set; } = new List<string>();
+
+        private List<string> verbs = new List<string> ();
 
         private Item item = new Item();
 
@@ -76,6 +78,15 @@ namespace AdventureMaker
             InitializeComponent();
         }
 
+        private void WriteItem()
+        {
+            item.Name = tboxobjectname.Text;
+            item.Keywords.Clear();
+            item.Keywords.Add(item.Name);
+            item.Description = rtboxobjectsummary.Text;
+            item.Keywords.AddRange(synonyms);
+            item.Verbs = verbs;
+        }
         private void InitSynonyms()
         {
             synonyms.Clear();
@@ -141,7 +152,7 @@ namespace AdventureMaker
 
             foreach (var c in adventureGame.Verbs)
             {
-                clboxverbs.Items.Add(c.WordString);
+                clboxverbs.Items.Add(c.Name);
             }
 
         }
@@ -183,9 +194,7 @@ namespace AdventureMaker
                     case "player":
                         player.Inventory.Remove(item);
                         item = new Item();
-                        item.Name = tboxobjectname.Text;
-                        item.Description = rtboxobjectsummary.Text;
-                        item.Keywords = synonyms;
+                        WriteItem();
                        
                         player.Inventory.Add(item);
 
@@ -196,9 +205,7 @@ namespace AdventureMaker
 
                     case "edit":
                         adventureGame.Objects.Remove(item);
-                        item.Name = tboxobjectname.Text;
-                        item.Description = rtboxobjectsummary.Text;
-                        item.Keywords = synonyms;
+                        WriteItem();
                         adventureGame.Objects.Add(item);
                  
                         MainForm mainForm = new(adventureGame);
@@ -208,9 +215,7 @@ namespace AdventureMaker
 
                     case "room":
                         room.Items.Remove(item);
-                        item.Name = tboxobjectname.Text;
-                        item.Description = rtboxobjectsummary.Text;
-                        item.Keywords = synonyms;
+                        WriteItem();
                         room.Items.Add(item);
 
                         RoomMaker roomMaker = new(adventureGame, room);
@@ -219,9 +224,7 @@ namespace AdventureMaker
                         break;
                     default:
                         item = new Item();
-                        item.Name = tboxobjectname.Text;
-                        item.Description = rtboxobjectsummary.Text;
-                        item.Keywords = synonyms;
+                        WriteItem();
                         adventureGame.Objects.Add(item);
                         MainForm mainForm1 = new(adventureGame);
                         mainForm1.Show();
@@ -252,7 +255,7 @@ namespace AdventureMaker
         {
             foreach(var c in clboxverbs.CheckedItems)
             {
-                item.Verbs.Add(adventureGame.Verbs.Find(x => x.WordString == c).WordString);
+                verbs.Add(adventureGame.Verbs.Find(x => x.Name == c).Name);
             }
             InitListbox();
         }

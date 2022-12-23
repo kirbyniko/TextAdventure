@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,35 +20,51 @@ namespace TextAdventureLibrary
 
         public List<Word> Places { get; set; } = new List<Word>();
 
-        public void GetItem(AdventureGame game)
+        public void GetItem(AdventureGame game, Word o)
         {
-            if (game.CurrentRoom.Items.Contains(Objects[0].Item))
+            bool inroom = false;
+
+            foreach(var c in game.CurrentRoom.Items)
             {
-                game.Players.First().Inventory.Add(Objects[0].Item);
-                game.CurrentRoom.Items.Remove(Objects[0].Item);
-                Console.WriteLine("You pick up the " + Objects[0].Item.Name);
+                foreach(var s in o.Keywords)
+                {
+                    if (c.Keywords.Contains(s))
+                    {
+                        game.Players.First().Inventory.Add(c);
+                        game.CurrentRoom.Items.Remove(c);
+                        Console.WriteLine("You pick up the " + c.Name);
+                        inroom = true;
+                        break;
+                    }
+                }
+                
+              
             }
-            else
+
+            if(inroom == false)
             {
-                Console.WriteLine("You do not see a " + Objects[0].Item.Name + " in this room");
+                Console.WriteLine("You do not see a " + o.Name + " in this room");
             }
-           
+
+    
 
         }
 
         public void DropItem(AdventureGame game)
         {
-            if (game.Players[0].Inventory.Contains(Objects[0].Item))
+            foreach (var c in game.Objects)
             {
-                game.Players.First().Inventory.Remove(Objects[0].Item);
-                game.CurrentRoom.Items.Add(Objects[0].Item);
-                Console.WriteLine("You drop the " + Objects[0].Item.Name);
+                if (game.Players[0].Inventory.Contains(c))
+                {
+                    game.Players.First().Inventory.Remove(c);
+                    game.CurrentRoom.Items.Add(c);
+                    Console.WriteLine("You drop the " + c.Name);
+                }
+                else
+                {
+                    Console.WriteLine("You do have a " + c.Name + " in your inventory");
+                }
             }
-            else
-            {
-                Console.WriteLine("You do have a " + Objects[0].Item.Name + " in your inventory");
-            }
-
 
         }
 

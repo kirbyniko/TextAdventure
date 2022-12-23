@@ -42,7 +42,7 @@
             // 
             this.tboxsynonyms.Location = new System.Drawing.Point(3, 35);
             this.tboxsynonyms.Name = "tboxsynonyms";
-            this.tboxsynonyms.PlaceholderText = "Type Synonyms...";
+            this.tboxsynonyms.PlaceholderText = "Type Keywords...";
             this.tboxsynonyms.Size = new System.Drawing.Size(120, 23);
             this.tboxsynonyms.TabIndex = 29;
             // 

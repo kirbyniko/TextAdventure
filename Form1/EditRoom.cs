@@ -33,10 +33,7 @@ namespace AdventureMaker
         {
             adventureGame = adventure;
             room = _room;
-            if (adventureGame.CurrentRoom == room)
-            {
-                cboxdefaultroom.Checked = true;
-            }
+            
             InitializeComponent();
         }
 
@@ -45,6 +42,10 @@ namespace AdventureMaker
             tboxroomname.Text = room.Name;
             rtboxlongdescription.Text = room.Description;
             rtboxshortdescription.Text = room.ShortDescription;
+            if (adventureGame.CurrentRoom == room)
+            {
+                cboxdefaultroom.Checked = true;
+            }
         }
 
         private void SaveRoom()

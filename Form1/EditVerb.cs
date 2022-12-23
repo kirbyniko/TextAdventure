@@ -48,8 +48,8 @@ namespace AdventureMaker
 
         public void LoadWord()
         {
-            tboxverbname.Text = verb.WordString;
-            synonyms = verb.Synonyms;
+            tboxverbname.Text = verb.Name;
+            synonyms = verb.Keywords;
             
            
         }
@@ -66,8 +66,8 @@ namespace AdventureMaker
         {
             if(tboxverbname.Text.ToString() != "")
             {
-               verb.WordString = tboxverbname.Text;
-               verb.Synonyms = synonyms;
+               verb.Name = tboxverbname.Text;
+               verb.Keywords = synonyms;
             }
             else
             {
@@ -112,7 +112,7 @@ namespace AdventureMaker
         private void btncreateverb_Click(object sender, EventArgs e)
         {
             
-            if (verb.WordString != "")
+            if (verb.Name != "")
             {
                 if (edit)
                 {

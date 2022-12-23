@@ -8,8 +8,8 @@ namespace TextAdventureLibrary
 {
     public class Word
     {
-        public List<string> Synonyms { get; set; } = new List<string>();
-        public string WordString { get; set; }
+        public List<string> Keywords { get; set; } = new List<string>();
+        public string Name { get; set; }
 
         public string Type { get; set; }
 
@@ -28,22 +28,22 @@ namespace TextAdventureLibrary
         //For inputted words
         public Word(string word)
         {
-            WordString = word;
+            Name = word;
         }
 
         //For Verbs and Places without rooms
         public Word(string word, List<string> synonyms, string type)
         {
-            WordString = word;
-            Synonyms = synonyms;
+            Name = word;
+            Keywords = synonyms;
             Type = type;
         }
 
         //For Items
         public Word(string word, List<string> synonyms, string type, Item item)
         {
-            WordString = word;
-            Synonyms = synonyms;
+            Name = word;
+            Keywords = synonyms;
             Type = type;
             Item = item;
         }
@@ -51,8 +51,8 @@ namespace TextAdventureLibrary
         //For Players
         public Word(string word, List<string> synonyms, string type, Player player)
         {
-            WordString = word;
-            Synonyms = synonyms;
+            Name = word;
+            Keywords = synonyms;
             Type = type;
             Player = player;
         }
@@ -60,10 +60,10 @@ namespace TextAdventureLibrary
         //For Places
         public Word(string word, List<string> synonyms, string type, Room place)
         {
-            WordString = word;
+            Name = word;
             Type = type;
             Place = place;
-            Synonyms = synonyms;
+            Keywords = synonyms;
         }
     }
 }

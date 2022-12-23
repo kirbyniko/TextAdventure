@@ -10,6 +10,8 @@ string Input;
 
 AdventureGame game = new AdventureGame();
 
+Console.ReadLine();
+
 if (args.Length > 0)
 {
     string Filename = args[0];
@@ -158,15 +160,18 @@ AdventureGame GetWordTypes(AdventureGame game)
     {
         foreach (var c in game.Words)
         {
-            if (c.Synonyms.Contains(word.WordString))
+            if (c.Keywords.Contains(word.Name))
             {
                 words.Add(c);
+                break;
             }
 
         }
 
-        game.Command.Words = words;
+       
     }
+    
+    game.Command.Words = words;
 
     return game;
 
@@ -239,86 +244,98 @@ void RunStatements()
 {
     foreach (var c in game.Command.Statements)
     {
-        bool isempty = isEmptyorNull(c.Verb.WordString);
+        bool isempty = isEmptyorNull(c.Verb.Name);
 
         if (isempty != true)
         {
-            foreach (var o in c.Objects)
+            if (c.Verb.Name != null && c.Verb.Name != "")
             {
-                if (o.Item.Verbs.Contains(c.Verb.WordString))
+                if (c.Objects.Count > 0 || c.Places.Count > 0 || c.Players.Count > 0)
                 {
-                    switch (c.Verb.WordString)
+                    foreach (var o in c.Objects)
                     {
-                        case "get":
-                            c.GetItem(game);
-                            break;
-                        case "drop":
-                            c.DropItem(game);
-                            break;
-                    }
-                    //Run Get and what not, clearly they are using the verb on the object
-                }
-                else
-                {
-                    Console.WriteLine("You cannot " + c.Verb.WordString + " a" + o.WordString + "!");
-                }
-
-            }
-
-            if (c.Players.Count > 0)
-            {
-                foreach (var o in c.Players)
-                {
-                    if (game.CurrentRoom.Players.Contains(o.Player))
-                    {
-                        switch (c.Verb.WordString)
+                        if (o.Item.Verbs.Contains(c.Verb.Name))
                         {
-                            case "attack":
-                              //  Console.WriteLine("You did " + damage + " damage to the " + o.WordString);
-                                break;
+                            switch (c.Verb.Name)
+                            {
+                                case "get":
+                                    c.GetItem(game, o);
+                                    break;
+                                case "drop":
+                                    c.DropItem(game);
+                                    break;
+                            }
+                            //Run Get and what not, clearly they are using the verb on the object
+                        }
+                        else
+                        {
+                            Console.WriteLine("You cannot " + c.Verb.Name + " a " + o.Name + "!");
+                        }
+
+                    }
+
+                    if (c.Players.Count > 0)
+                    {
+                        foreach (var o in c.Players)
+                        {
+                            if (game.CurrentRoom.Players.Contains(o.Player))
+                            {
+                                switch (c.Verb.Name)
+                                {
+                                    case "attack":
+                                        //  Console.WriteLine("You did " + damage + " damage to the " + o.Name);
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You do not see " + o.Player.Name + "!");
+                            }
+
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("You do not see " + o.Player.Name + "!");
-                    }
-                   
-                }
-            }
 
-            if (c.Places.Count > 0)
-            {
-                if (c.Verb.Synonyms.Contains("enter"))
-                {
-                    foreach (var a in game.CurrentRoom.AdjacentRooms)
+                    if (c.Places.Count > 0)
                     {
-                        foreach (var b in a.Keywords)
-                            if (c.Places[0].Synonyms.Contains(b))
+                        if (c.Verb.Keywords.Contains("enter"))
+                        {
+                            foreach (var a in game.CurrentRoom.AdjacentRooms)
                             {
-                                game.CurrentRoom.Players.Remove(game.Players[0]);
-                            
-                                game.CurrentRoom.Players.Add(game.Players[0]);
-                                DisplayRoom(game);
-                                return;
+                                foreach (var b in a.Keywords)
+                                    if (c.Places[0].Keywords.Contains(b))
+                                    {
+                                        game.CurrentRoom.Players.Remove(game.Players[0]);
 
+                                        game.CurrentRoom.Players.Add(game.Players[0]);
+                                        DisplayRoom(game);
+                                        return;
+
+                                    }
                             }
-                    }
-                    Console.WriteLine("You cannot enter " + c.Places[0].WordString);
-                }
+                            Console.WriteLine("You cannot enter " + c.Places[0].Name);
+                        }
 
+                        else
+                        {
+                            Console.WriteLine("You cannot " + c.Verb.Name + " a" + c.Places[0].Name);
+                        }
+                    }
+
+                }
                 else
                 {
-                    Console.WriteLine("You cannot " + c.Verb.WordString + " a" + c.Places[0].WordString);
+                    Console.WriteLine("I recognize: " + c.Verb.Name + " but I do not recognize the rest.");
                 }
             }
+           
 
         }
 
-        if (isEmptyorNull(c.Verb.WordString)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
+        if (isEmptyorNull(c.Verb.Name)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
         {
             Console.WriteLine("I did not understand a word you said.");
         }
-        else if (isEmptyorNull(c.Verb.WordString)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
+        else if (isEmptyorNull(c.Verb.Name)! && c.Places.Count() == 0 && c.Objects.Count() == 0 && c.Players.Count() == 0)
         {
             Console.WriteLine("I did not understand please try again!");
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TextAdventureLibrary
 {
-    public class Command
+    public class UserCommand
     {
         public List<Statement> Statements { get; set; } = new List<Statement>();
         public List<Word> Words { get; set; } = new List<Word>();

@@ -25,7 +25,7 @@ namespace AdventureMaker
             comboxverbs.Items.Clear();
             foreach(var c in game.Verbs)
             {
-                comboxverbs.Items.Add(c.WordString);
+                comboxverbs.Items.Add(c.Name);
             }
         }
 

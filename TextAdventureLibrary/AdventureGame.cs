@@ -18,7 +18,7 @@ namespace TextAdventureLibrary
         public List<Stat> PlayerStats { get; set; } = new List<Stat>();
         public List<Stat> ObjectStats { get; set; } = new List<Stat>();
         public List<Stat> RoomStats { get; set; } = new List<Stat>();
-        public Command Command { get; set; } = new Command();
+        public UserCommand Command { get; set; } = new UserCommand();
         public List<Room> Rooms { get; set; } = new List<Room>();
         public List<Player> Players { get; set; } = new List<Player>();
         public List<AdjacentRoom> AdjacentRooms { get; set; } = new List<AdjacentRoom>();
@@ -85,7 +85,7 @@ namespace TextAdventureLibrary
 
             foreach(Word w in Words)
             {
-                if (w.Synonyms.Contains(word))
+                if (w.Keywords.Contains(word))
                 {
                     returnword = w;
                 }
@@ -139,7 +139,12 @@ namespace TextAdventureLibrary
             {
                 c.Word = new Word(c.Keywords[0], c.Keywords, "player", c);
                 Words.Add(c.Word);
-                PlayerKeywords.AddRange(c.Keywords);
+
+                if (c.Keywords.Count >= 1)
+                {
+                    PlayerKeywords.AddRange(c.Keywords);
+                }
+                
             }
 
             foreach (var c in Rooms)
@@ -148,7 +153,7 @@ namespace TextAdventureLibrary
                 syn.Add(c.Name);
                 c.Word = new Word(c.Name, syn, "place", c);
                 Words.Add(c.Word);
-                Places.Add(c.Word.WordString);
+                Places.Add(c.Word.Name);
             }
 
         }
