@@ -55,7 +55,7 @@ namespace Form1
             
 
 
-            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventureClone\\TextAdventure\\bin\\Release\\net6.0\\TextAdventure.exe", filePath.ToString());
+            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventureClone\\TextAdventure\\bin\\Debug\\net6.0\\TextAdventure.exe", filePath.ToString());
 
             
 

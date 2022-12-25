@@ -57,9 +57,10 @@
             // 
             // btncreateplayer
             // 
-            this.btncreateplayer.Location = new System.Drawing.Point(636, 310);
+            this.btncreateplayer.Location = new System.Drawing.Point(727, 413);
+            this.btncreateplayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btncreateplayer.Name = "btncreateplayer";
-            this.btncreateplayer.Size = new System.Drawing.Size(163, 76);
+            this.btncreateplayer.Size = new System.Drawing.Size(186, 101);
             this.btncreateplayer.TabIndex = 32;
             this.btncreateplayer.Text = "Create Player!";
             this.btncreateplayer.UseVisualStyleBackColor = true;
@@ -68,34 +69,36 @@
             // lbladdobjects
             // 
             this.lbladdobjects.AutoSize = true;
-            this.lbladdobjects.Location = new System.Drawing.Point(456, 8);
+            this.lbladdobjects.Location = new System.Drawing.Point(521, 11);
             this.lbladdobjects.Name = "lbladdobjects";
-            this.lbladdobjects.Size = new System.Drawing.Size(130, 15);
+            this.lbladdobjects.Size = new System.Drawing.Size(164, 20);
             this.lbladdobjects.TabIndex = 31;
             this.lbladdobjects.Text = "All objects you can add";
             // 
             // clboxaddobjects
             // 
             this.clboxaddobjects.FormattingEnabled = true;
-            this.clboxaddobjects.Location = new System.Drawing.Point(384, 34);
+            this.clboxaddobjects.Location = new System.Drawing.Point(439, 45);
+            this.clboxaddobjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clboxaddobjects.Name = "clboxaddobjects";
-            this.clboxaddobjects.Size = new System.Drawing.Size(268, 220);
+            this.clboxaddobjects.Size = new System.Drawing.Size(306, 290);
             this.clboxaddobjects.TabIndex = 30;
             // 
             // lblplayerinventory
             // 
             this.lblplayerinventory.AutoSize = true;
-            this.lblplayerinventory.Location = new System.Drawing.Point(231, 8);
+            this.lblplayerinventory.Location = new System.Drawing.Point(264, 11);
             this.lblplayerinventory.Name = "lblplayerinventory";
-            this.lblplayerinventory.Size = new System.Drawing.Size(92, 15);
+            this.lblplayerinventory.Size = new System.Drawing.Size(114, 20);
             this.lblplayerinventory.TabIndex = 29;
             this.lblplayerinventory.Text = "Player Inventory";
             // 
             // btneditinventory
             // 
-            this.btneditinventory.Location = new System.Drawing.Point(213, 310);
+            this.btneditinventory.Location = new System.Drawing.Point(243, 413);
+            this.btneditinventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btneditinventory.Name = "btneditinventory";
-            this.btneditinventory.Size = new System.Drawing.Size(57, 23);
+            this.btneditinventory.Size = new System.Drawing.Size(65, 31);
             this.btneditinventory.TabIndex = 28;
             this.btneditinventory.Text = "Edit Item";
             this.btneditinventory.UseVisualStyleBackColor = true;
@@ -103,9 +106,10 @@
             // 
             // btnremoveinventory
             // 
-            this.btnremoveinventory.Location = new System.Drawing.Point(286, 310);
+            this.btnremoveinventory.Location = new System.Drawing.Point(327, 413);
+            this.btnremoveinventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremoveinventory.Name = "btnremoveinventory";
-            this.btnremoveinventory.Size = new System.Drawing.Size(61, 23);
+            this.btnremoveinventory.Size = new System.Drawing.Size(70, 31);
             this.btnremoveinventory.TabIndex = 27;
             this.btnremoveinventory.Text = "Remove";
             this.btnremoveinventory.UseVisualStyleBackColor = true;
@@ -113,9 +117,10 @@
             // 
             // btnaddinventory
             // 
-            this.btnaddinventory.Location = new System.Drawing.Point(466, 260);
+            this.btnaddinventory.Location = new System.Drawing.Point(533, 347);
+            this.btnaddinventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddinventory.Name = "btnaddinventory";
-            this.btnaddinventory.Size = new System.Drawing.Size(104, 23);
+            this.btnaddinventory.Size = new System.Drawing.Size(119, 31);
             this.btnaddinventory.TabIndex = 26;
             this.btnaddinventory.Text = "Add Objects";
             this.btnaddinventory.UseVisualStyleBackColor = true;
@@ -124,90 +129,97 @@
             // lboxplayerinventory
             // 
             this.lboxplayerinventory.FormattingEnabled = true;
-            this.lboxplayerinventory.ItemHeight = 15;
-            this.lboxplayerinventory.Location = new System.Drawing.Point(200, 34);
+            this.lboxplayerinventory.ItemHeight = 20;
+            this.lboxplayerinventory.Location = new System.Drawing.Point(229, 45);
+            this.lboxplayerinventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxplayerinventory.Name = "lboxplayerinventory";
-            this.lboxplayerinventory.Size = new System.Drawing.Size(167, 259);
+            this.lboxplayerinventory.Size = new System.Drawing.Size(190, 344);
             this.lboxplayerinventory.TabIndex = 25;
             // 
             // lblplayersummary
             // 
             this.lblplayersummary.AutoSize = true;
-            this.lblplayersummary.Location = new System.Drawing.Point(4, 93);
+            this.lblplayersummary.Location = new System.Drawing.Point(5, 124);
             this.lblplayersummary.Name = "lblplayersummary";
-            this.lblplayersummary.Size = new System.Drawing.Size(58, 15);
+            this.lblplayersummary.Size = new System.Drawing.Size(71, 20);
             this.lblplayersummary.TabIndex = 24;
             this.lblplayersummary.Text = "Summary";
             // 
             // rtboxsummary
             // 
-            this.rtboxsummary.Location = new System.Drawing.Point(4, 111);
+            this.rtboxsummary.Location = new System.Drawing.Point(5, 148);
+            this.rtboxsummary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtboxsummary.Name = "rtboxsummary";
-            this.rtboxsummary.Size = new System.Drawing.Size(176, 222);
+            this.rtboxsummary.Size = new System.Drawing.Size(201, 295);
             this.rtboxsummary.TabIndex = 23;
             this.rtboxsummary.Text = "";
             // 
             // lblplayerstrength
             // 
             this.lblplayerstrength.AutoSize = true;
-            this.lblplayerstrength.Location = new System.Drawing.Point(110, 66);
+            this.lblplayerstrength.Location = new System.Drawing.Point(126, 88);
             this.lblplayerstrength.Name = "lblplayerstrength";
-            this.lblplayerstrength.Size = new System.Drawing.Size(52, 15);
+            this.lblplayerstrength.Size = new System.Drawing.Size(65, 20);
             this.lblplayerstrength.TabIndex = 22;
             this.lblplayerstrength.Text = "Strength";
             // 
             // tboxplayerstrength
             // 
-            this.tboxplayerstrength.Location = new System.Drawing.Point(4, 63);
+            this.tboxplayerstrength.Location = new System.Drawing.Point(5, 84);
+            this.tboxplayerstrength.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxplayerstrength.Name = "tboxplayerstrength";
-            this.tboxplayerstrength.Size = new System.Drawing.Size(100, 23);
+            this.tboxplayerstrength.Size = new System.Drawing.Size(114, 27);
             this.tboxplayerstrength.TabIndex = 21;
             // 
             // lblplayerhealth
             // 
             this.lblplayerhealth.AutoSize = true;
-            this.lblplayerhealth.Location = new System.Drawing.Point(110, 37);
+            this.lblplayerhealth.Location = new System.Drawing.Point(126, 49);
             this.lblplayerhealth.Name = "lblplayerhealth";
-            this.lblplayerhealth.Size = new System.Drawing.Size(42, 15);
+            this.lblplayerhealth.Size = new System.Drawing.Size(53, 20);
             this.lblplayerhealth.TabIndex = 20;
             this.lblplayerhealth.Text = "Health";
             // 
             // tboxplayerhealth
             // 
-            this.tboxplayerhealth.Location = new System.Drawing.Point(4, 34);
+            this.tboxplayerhealth.Location = new System.Drawing.Point(5, 45);
+            this.tboxplayerhealth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxplayerhealth.Name = "tboxplayerhealth";
-            this.tboxplayerhealth.Size = new System.Drawing.Size(100, 23);
+            this.tboxplayerhealth.Size = new System.Drawing.Size(114, 27);
             this.tboxplayerhealth.TabIndex = 19;
             // 
             // lblplayername
             // 
             this.lblplayername.AutoSize = true;
-            this.lblplayername.Location = new System.Drawing.Point(110, 8);
+            this.lblplayername.Location = new System.Drawing.Point(126, 11);
             this.lblplayername.Name = "lblplayername";
-            this.lblplayername.Size = new System.Drawing.Size(39, 15);
+            this.lblplayername.Size = new System.Drawing.Size(49, 20);
             this.lblplayername.TabIndex = 18;
             this.lblplayername.Text = "Name";
             // 
             // tboxplayername
             // 
-            this.tboxplayername.Location = new System.Drawing.Point(4, 5);
+            this.tboxplayername.Location = new System.Drawing.Point(5, 7);
+            this.tboxplayername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxplayername.Name = "tboxplayername";
-            this.tboxplayername.Size = new System.Drawing.Size(100, 23);
+            this.tboxplayername.Size = new System.Drawing.Size(114, 27);
             this.tboxplayername.TabIndex = 17;
             // 
             // tboxsynonyms
             // 
-            this.tboxsynonyms.Location = new System.Drawing.Point(679, 38);
+            this.tboxsynonyms.Location = new System.Drawing.Point(776, 51);
+            this.tboxsynonyms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxsynonyms.Name = "tboxsynonyms";
             this.tboxsynonyms.PlaceholderText = "Type Keywords...";
-            this.tboxsynonyms.Size = new System.Drawing.Size(120, 23);
+            this.tboxsynonyms.Size = new System.Drawing.Size(137, 27);
             this.tboxsynonyms.TabIndex = 37;
             // 
             // btnremovesynonym
             // 
-            this.btnremovesynonym.Location = new System.Drawing.Point(738, 67);
+            this.btnremovesynonym.Location = new System.Drawing.Point(843, 89);
+            this.btnremovesynonym.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremovesynonym.Name = "btnremovesynonym";
-            this.btnremovesynonym.Size = new System.Drawing.Size(61, 23);
+            this.btnremovesynonym.Size = new System.Drawing.Size(70, 31);
             this.btnremovesynonym.TabIndex = 36;
             this.btnremovesynonym.Text = "Remove";
             this.btnremovesynonym.UseVisualStyleBackColor = true;
@@ -215,9 +227,10 @@
             // 
             // btnaddsynonym
             // 
-            this.btnaddsynonym.Location = new System.Drawing.Point(679, 67);
+            this.btnaddsynonym.Location = new System.Drawing.Point(776, 89);
+            this.btnaddsynonym.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddsynonym.Name = "btnaddsynonym";
-            this.btnaddsynonym.Size = new System.Drawing.Size(53, 23);
+            this.btnaddsynonym.Size = new System.Drawing.Size(61, 31);
             this.btnaddsynonym.TabIndex = 35;
             this.btnaddsynonym.Text = "Add";
             this.btnaddsynonym.UseVisualStyleBackColor = true;
@@ -226,57 +239,61 @@
             // lboxsynonyms
             // 
             this.lboxsynonyms.FormattingEnabled = true;
-            this.lboxsynonyms.ItemHeight = 15;
-            this.lboxsynonyms.Location = new System.Drawing.Point(679, 93);
+            this.lboxsynonyms.ItemHeight = 20;
+            this.lboxsynonyms.Location = new System.Drawing.Point(776, 124);
+            this.lboxsynonyms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxsynonyms.Name = "lboxsynonyms";
-            this.lboxsynonyms.Size = new System.Drawing.Size(120, 154);
+            this.lboxsynonyms.Size = new System.Drawing.Size(137, 204);
             this.lboxsynonyms.TabIndex = 34;
             // 
             // comboxcurrentroom
             // 
             this.comboxcurrentroom.FormattingEnabled = true;
-            this.comboxcurrentroom.Location = new System.Drawing.Point(512, 406);
+            this.comboxcurrentroom.Location = new System.Drawing.Point(547, 432);
+            this.comboxcurrentroom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboxcurrentroom.Name = "comboxcurrentroom";
-            this.comboxcurrentroom.Size = new System.Drawing.Size(121, 23);
+            this.comboxcurrentroom.Size = new System.Drawing.Size(138, 28);
             this.comboxcurrentroom.TabIndex = 38;
             // 
             // lblcurrentroom
             // 
             this.lblcurrentroom.AutoSize = true;
-            this.lblcurrentroom.Location = new System.Drawing.Point(424, 409);
+            this.lblcurrentroom.Location = new System.Drawing.Point(447, 436);
             this.lblcurrentroom.Name = "lblcurrentroom";
-            this.lblcurrentroom.Size = new System.Drawing.Size(82, 15);
+            this.lblcurrentroom.Size = new System.Drawing.Size(101, 20);
             this.lblcurrentroom.TabIndex = 39;
             this.lblcurrentroom.Text = "Current Room";
             // 
             // lblRandomizedInfo
             // 
             this.lblRandomizedInfo.AutoSize = true;
-            this.lblRandomizedInfo.Location = new System.Drawing.Point(879, 13);
+            this.lblRandomizedInfo.Location = new System.Drawing.Point(1005, 17);
             this.lblRandomizedInfo.Name = "lblRandomizedInfo";
-            this.lblRandomizedInfo.Size = new System.Drawing.Size(149, 15);
+            this.lblRandomizedInfo.Size = new System.Drawing.Size(189, 20);
             this.lblRandomizedInfo.TabIndex = 40;
             this.lblRandomizedInfo.Text = "Randomized Player Ranges";
             // 
             // tboxminhealth
             // 
-            this.tboxminhealth.Location = new System.Drawing.Point(831, 48);
+            this.tboxminhealth.Location = new System.Drawing.Point(950, 64);
+            this.tboxminhealth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxminhealth.Name = "tboxminhealth";
             this.tboxminhealth.PlaceholderText = "Min. Health Here...";
-            this.tboxminhealth.Size = new System.Drawing.Size(112, 23);
+            this.tboxminhealth.Size = new System.Drawing.Size(127, 27);
             this.tboxminhealth.TabIndex = 41;
             // 
             // tboxMaxHealth
             // 
-            this.tboxMaxHealth.Location = new System.Drawing.Point(964, 48);
+            this.tboxMaxHealth.Location = new System.Drawing.Point(1102, 64);
+            this.tboxMaxHealth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxMaxHealth.Name = "tboxMaxHealth";
             this.tboxMaxHealth.PlaceholderText = "Max Health Here...";
-            this.tboxMaxHealth.Size = new System.Drawing.Size(112, 23);
+            this.tboxMaxHealth.Size = new System.Drawing.Size(127, 27);
             this.tboxMaxHealth.TabIndex = 42;
             // 
             // EditPlayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tboxMaxHealth);
             this.Controls.Add(this.tboxminhealth);
@@ -303,8 +320,9 @@
             this.Controls.Add(this.tboxplayerhealth);
             this.Controls.Add(this.lblplayername);
             this.Controls.Add(this.tboxplayername);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EditPlayer";
-            this.Size = new System.Drawing.Size(1120, 512);
+            this.Size = new System.Drawing.Size(1280, 683);
             this.Load += new System.EventHandler(this.EditPlayer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -24,29 +24,31 @@ namespace TextAdventureLibrary
         {
             bool inroom = false;
 
-            foreach(var c in game.CurrentRoom.Items)
+
+            if (game.Players.Count() > 0)
             {
-                foreach(var s in o.Keywords)
-                {
-                    if (c.Keywords.Contains(s))
-                    {
-                        game.Players.First().Inventory.Add(c);
-                        game.CurrentRoom.Items.Remove(c);
-                        Console.WriteLine("You pick up the " + c.Name);
-                        inroom = true;
-                        break;
-                    }
-                }
-                
-              
+                List<Item> items = (List<Item>)game.CurrentRoom.Items.Where(x => x.Name == o.Item.Name);
+
+                game.Players.First().Inventory.Add(o.Item);
+                game.CurrentRoom.Items.Remove((Item)game.CurrentRoom.Items.Where(x => x.Name == o.Item.Name));
+                Console.WriteLine("You pick up the " + o.Name);
+                inroom = true;
+
+            }
+            else
+            {
+                Console.WriteLine("There are no players, we must fix this exception.");
             }
 
-            if(inroom == false)
+
+
+
+            if (inroom == false)
             {
                 Console.WriteLine("You do not see a " + o.Name + " in this room");
             }
 
-    
+
 
         }
 

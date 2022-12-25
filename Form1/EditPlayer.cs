@@ -80,6 +80,12 @@ namespace AdventureMaker
                     player.room = game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString());
                 }
             }
+
+            if (player.Keywords.Contains(player.Name) != true)
+            {
+                player.Keywords.Add(player.Name);
+            }
+        
             
            
         }

@@ -26,7 +26,7 @@ namespace TextAdventureLibrary
         {
             //Verbs 
 
-            if(Verbs.Count() == 0 || Verbs.Count() == null)
+            if(Verbs.Count() == 0)
             {
                 List<string> getsynonyms = new List<string>();
                 getsynonyms.Add("pickup");

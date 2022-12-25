@@ -158,17 +158,11 @@ AdventureGame GetWordTypes(AdventureGame game)
 
     foreach (Word word in game.Command.Words)
     {
-        foreach (var c in game.Words)
+        foreach (var c in game.Words.Where(c => c.Keywords.Contains(word.Name)))
         {
-            if (c.Keywords.Contains(word.Name))
-            {
-                words.Add(c);
-                break;
-            }
-
+            words.Add(c);
+            break;
         }
-
-       
     }
     
     game.Command.Words = words;
@@ -178,7 +172,7 @@ AdventureGame GetWordTypes(AdventureGame game)
 }
 
 List<Statement> CreateStatements(AdventureGame game)
-{
+ {
     List<Statement> statements = new List<Statement>();
     Statement statement = new Statement();
     statements.Add(statement);

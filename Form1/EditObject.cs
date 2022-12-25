@@ -62,6 +62,7 @@ namespace AdventureMaker
             adventureGame = Game;
             item = obj;
             objecttype = "room";
+           
 
             InitSynonyms();
 
@@ -74,6 +75,7 @@ namespace AdventureMaker
             adventureGame = Game;
             item = obj;
             objecttype = "edit";
+            verbs = obj.Verbs;
             InitSynonyms();
             InitializeComponent();
         }
@@ -82,7 +84,7 @@ namespace AdventureMaker
         {
             item.Name = tboxobjectname.Text;
             item.Keywords.Clear();
-            item.Keywords.Add(item.Name);
+            item.Keywords.Add(item.Name.ToLower());
             item.Description = rtboxobjectsummary.Text;
             item.Keywords.AddRange(synonyms);
             item.Verbs = verbs;
@@ -143,7 +145,7 @@ namespace AdventureMaker
 
             lboxverbs.Items.Clear();
 
-            foreach (var c in item.Verbs)
+            foreach (var c in verbs)
             {
                 lboxverbs.Items.Add(c);
             }
@@ -258,6 +260,14 @@ namespace AdventureMaker
                 verbs.Add(adventureGame.Verbs.Find(x => x.Name == c).Name);
             }
             InitListbox();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            verbs.Remove((String)lboxverbs.SelectedItem);
+            InitListbox();
+
         }
     }
 }
