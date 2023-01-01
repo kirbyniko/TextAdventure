@@ -27,6 +27,7 @@ namespace AdventureMaker
         {
             game = adventuregame;
             InitializeComponent();
+            InitComboBox();
             InitCheckListbox();
             InitListbox();
             
@@ -78,6 +79,7 @@ namespace AdventureMaker
                 if(comboxcurrentroom.SelectedItem != null)
                 {
                     player.room = game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString());
+                    game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString()).Players.Add(player);
                 }
             }
 
@@ -85,6 +87,8 @@ namespace AdventureMaker
             {
                 player.Keywords.Add(player.Name);
             }
+
+            
         
             
            

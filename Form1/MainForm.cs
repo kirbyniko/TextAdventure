@@ -261,7 +261,7 @@ namespace Form1
             string filePath = ol.FileName;
 
 
-            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventureClone\\bin\\Debug\\net6.0\\TextAdventure.exe", filePath.ToString());
+            Process.Start("C:\\Users\\filthymilkman\\source\\repos\\TextAdventure\\TextAdventureClone\\TextAdventure\\bin\\Debug\\net6.0\\TextAdventure.exe", filePath.ToString());
 
 
 

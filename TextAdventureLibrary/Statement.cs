@@ -24,13 +24,13 @@ namespace TextAdventureLibrary
         {
             bool inroom = false;
 
-
             if (game.Players.Count() > 0)
             {
-                List<Item> items = (List<Item>)game.CurrentRoom.Items.Where(x => x.Name == o.Item.Name);
 
-                game.Players.First().Inventory.Add(o.Item);
-                game.CurrentRoom.Items.Remove((Item)game.CurrentRoom.Items.Where(x => x.Name == o.Item.Name));
+                game.Players.First().Inventory.Add(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
+                game.CurrentRoom.Items.Remove(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
+               
+          
                 Console.WriteLine("You pick up the " + o.Name);
                 inroom = true;
 
@@ -56,15 +56,24 @@ namespace TextAdventureLibrary
         {
             foreach (var c in game.Objects)
             {
-                if (game.Players[0].Inventory.Contains(c))
+                if (game.Players.Count() > 0)
                 {
-                    game.Players.First().Inventory.Remove(c);
-                    game.CurrentRoom.Items.Add(c);
-                    Console.WriteLine("You drop the " + c.Name);
+                    if (game.Players[0].Inventory.Contains(game.Players[0].Inventory.First(x => x.Name == c.Name)))
+                    {
+                        game.Players.First().Inventory.Remove((game.Players[0].Inventory.First(x => x.Name == c.Name)));
+                        game.CurrentRoom.Items.Add(c);
+                        Console.WriteLine("You drop the " + c.Name);
+                    }
+
+
+                    else
+                    {
+                        Console.WriteLine("You do have a " + c.Name + " in your inventory");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("You do have a " + c.Name + " in your inventory");
+                        Console.WriteLine("No Players in this game! Fix exception!");
                 }
             }
 
