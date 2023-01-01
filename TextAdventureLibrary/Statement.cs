@@ -24,26 +24,29 @@ namespace TextAdventureLibrary
         {
             bool inroom = false;
 
-            if (game.Players.Count() > 0)
+            if (game.CurrentRoom.Items.Contains(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name)))
             {
 
-                game.Players.First().Inventory.Add(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
-                game.CurrentRoom.Items.Remove(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
-               
-          
-                Console.WriteLine("You pick up the " + o.Name);
-                inroom = true;
+
+                if (game.Players.Count() > 0)
+                {
+
+                    game.Players.First().Inventory.Add(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
+                    game.CurrentRoom.Items.Remove(game.CurrentRoom.Items.FirstOrDefault(x => x.Name == o.Item.Name));
+
+
+                    Console.WriteLine("You pick up the " + o.Name);
+                    inroom = true;
+
+                }
+                else
+                {
+                    Console.WriteLine("There are no players, we must fix this exception.");
+                }
 
             }
+
             else
-            {
-                Console.WriteLine("There are no players, we must fix this exception.");
-            }
-
-
-
-
-            if (inroom == false)
             {
                 Console.WriteLine("You do not see a " + o.Name + " in this room");
             }
@@ -55,10 +58,12 @@ namespace TextAdventureLibrary
         public void DropItem(AdventureGame game)
         {
             foreach (var c in game.Objects)
+                // player count check should come before foreach loop
             {
                 if (game.Players.Count() > 0)
                 {
                     if (game.Players[0].Inventory.Contains(game.Players[0].Inventory.First(x => x.Name == c.Name)))
+                        // if there is nothing to drop this command does not work
                     {
                         game.Players.First().Inventory.Remove((game.Players[0].Inventory.First(x => x.Name == c.Name)));
                         game.CurrentRoom.Items.Add(c);
