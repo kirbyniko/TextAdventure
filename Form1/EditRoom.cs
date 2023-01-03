@@ -20,6 +20,8 @@ namespace AdventureMaker
         private Room room = new();
 
         private Room referenceroom = new();
+
+        private List<string> synonyms = new List<string>();
         public EditRoom()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace AdventureMaker
             tboxroomname.Text = room.Name;
             rtboxlongdescription.Text = room.Description;
             rtboxshortdescription.Text = room.ShortDescription;
+            synonyms = room.Keywords;
             if (adventureGame.CurrentRoom == room)
             {
                 cboxdefaultroom.Checked = true;
@@ -53,6 +56,7 @@ namespace AdventureMaker
             room.Name = tboxroomname.Text;
             room.Description = rtboxlongdescription.Text;
             room.ShortDescription = rtboxshortdescription.Text;
+        
 
         }
         public void InitListbox()
@@ -149,7 +153,7 @@ namespace AdventureMaker
 
         private void btnaddrooms_Click(object sender, EventArgs e)
         {
-            foreach (var c in clboxaddrooms.Items)
+            foreach (var c in clboxaddrooms.SelectedItems)
             {
                 room.AdjacentRooms.Add(c.ToString());
 
@@ -233,7 +237,7 @@ namespace AdventureMaker
                     adventureGame.CurrentRoom = room;
                 }
                 MainForm mainForm = new MainForm(adventureGame);
-                mainForm.ShowDialog();
+                mainForm.Show();
                 ((RoomMaker)this.TopLevelControl).Close();
             }
             

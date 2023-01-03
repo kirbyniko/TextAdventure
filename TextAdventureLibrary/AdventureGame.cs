@@ -149,9 +149,7 @@ namespace TextAdventureLibrary
 
             foreach (var c in Rooms)
             {
-                List<string> syn = new List<string>();
-                syn.Add(c.Name);
-                c.Word = new Word(c.Name, syn, "place", c);
+                c.Word = new Word(c.Name, c.Keywords, "place", c);
                 Words.Add(c.Word);
                 Places.Add(c.Word.Name);
             }

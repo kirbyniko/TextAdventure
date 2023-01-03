@@ -78,8 +78,8 @@ namespace AdventureMaker
 
                 if(comboxcurrentroom.SelectedItem != null)
                 {
-                    player.room = game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString());
-                    game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString()).Players.Add(player);
+                    //player.room = game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString());
+                    //game.Rooms.Find(x => x.Name == comboxcurrentroom.SelectedItem.ToString()).Players.Add(player);
                 }
             }
 
