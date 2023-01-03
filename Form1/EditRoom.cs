@@ -53,12 +53,14 @@ namespace AdventureMaker
             room.Name = tboxroomname.Text;
             room.Description = rtboxlongdescription.Text;
             room.ShortDescription = rtboxshortdescription.Text;
+
         }
         public void InitListbox()
         {
             lboxroomobjects.Items.Clear();
             lboxsynonyms.Items.Clear();
             lboxroomplayers.Items.Clear();
+            lboxadjacentrooms.Items.Clear();
 
             foreach (var c in room.Items)
             {
@@ -149,7 +151,7 @@ namespace AdventureMaker
         {
             foreach (var c in clboxaddrooms.Items)
             {
-                room.AdjacentRooms.Add(new AdjacentRoom(adventureGame.Rooms.Find(x => x.Name == c.ToString()).Name, adventureGame.Rooms.Find(x => x.Name == c.ToString())));
+                room.AdjacentRooms.Add(c.ToString());
 
             }
             InitCheckListbox();

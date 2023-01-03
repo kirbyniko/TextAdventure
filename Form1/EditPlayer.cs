@@ -140,7 +140,7 @@ namespace AdventureMaker
             comboxcurrentroom.Items.Clear();
             foreach(var c in game.Rooms)
             {
-               comboxcurrentroom.Items.Add(c.ToString());
+               comboxcurrentroom.Items.Add(c.Name.ToString());
             }
            
         }

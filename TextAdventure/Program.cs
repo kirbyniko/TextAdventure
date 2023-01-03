@@ -71,16 +71,16 @@ while (true)
 
 AdventureGame InitGame()
 {
-   AdventureGame adventureGame = new AdventureGame();
-   adventureGame.Name = "God's Fist";
+    AdventureGame adventureGame = new AdventureGame();
+    adventureGame.Name = "God's Fist";
 
-   adventureGame.Objects = adventureGame.InitItems();
-   adventureGame.Players = adventureGame.InitPlayers();
-   adventureGame.Rooms = adventureGame.InitRooms();
+    adventureGame.Objects = adventureGame.InitItems();
+    adventureGame.Players = adventureGame.InitPlayers();
+    adventureGame.Rooms = adventureGame.InitRooms();
 
-   adventureGame.InitLists();
+    adventureGame.InitLists();
 
-   return adventureGame;
+    return adventureGame;
 }
 
 void DisplayRoom(AdventureGame adventureGame)
@@ -164,7 +164,7 @@ AdventureGame GetWordTypes(AdventureGame game)
             break;
         }
     }
-    
+
     game.Command.Words = words;
 
     return game;
@@ -172,7 +172,7 @@ AdventureGame GetWordTypes(AdventureGame game)
 }
 
 List<Statement> CreateStatements(AdventureGame game)
- {
+{
     List<Statement> statements = new List<Statement>();
     Statement statement = new Statement();
     statements.Add(statement);
@@ -228,7 +228,7 @@ bool isEmptyorNull(string s)
 {
     bool isEmpty = true;
 
-    if(s != "" && s != null)
+    if (s != "" && s != null)
     {
         isEmpty = false;
     }
@@ -289,39 +289,43 @@ void RunStatements()
                         }
                     }
 
-                    if (c.Places.Count > 0)
+
+                    switch (c.Places.Count)
                     {
-                        if (c.Verb.Keywords.Contains("enter"))
-                        {
-                            foreach (var a in game.CurrentRoom.AdjacentRooms)
+
+                        case 0:
+                            break;
+                        case 1:
+                            if (c.Verb.Keywords.Contains("enter"))
                             {
-                                foreach (var b in a.Keywords)
-                                    if (c.Places[0].Keywords.Contains(b))
-                                    {
-                                        game.CurrentRoom.Players.Remove(game.Players[0]);
+                                if (game.CurrentRoom.AdjacentRooms.Contains(c.Places[0].Name))
+                                {
+                                    game.CurrentRoom.Players.Remove(game.Players[0]);
+                                    game.CurrentRoom = game.Rooms.First(x => x.Name == c.Places[0].Name);
 
-                                        game.CurrentRoom.Players.Add(game.Players[0]);
-                                        DisplayRoom(game);
-                                        return;
 
-                                    }
+                                    game.CurrentRoom.Players.Add(game.Players[0]);
+                                    DisplayRoom(game);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You cannot access " + c.Places[0].Name + " from here!");
+                                }
+
                             }
-                            Console.WriteLine("You cannot enter " + c.Places[0].Name);
-                        }
-
-                        else
-                        {
+                            break;
+                        default:
                             Console.WriteLine("You cannot " + c.Verb.Name + " a" + c.Places[0].Name);
-                        }
+                            break;
                     }
 
+
+
+
                 }
-                else
-                {
-                    Console.WriteLine("I recognize: " + c.Verb.Name + " but I do not recognize the rest.");
-                }
+
             }
-           
+
 
         }
 

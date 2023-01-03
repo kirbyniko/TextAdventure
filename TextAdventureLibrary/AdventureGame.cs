@@ -165,49 +165,18 @@ namespace TextAdventureLibrary
             Room hallway = new Room("hallway", "You walk out into the large hallway of cells, no guards in immediate sight. You notice a path to your North, labelled 'North block'' for the north block of the prison. There is a path to south, albeit unlabelled.", "You enter the hallway, North leads to Northblock, you can enter your cell, or move South.");
             Room northblock = new Room("north block", "You enter the North Block, four large walls of stacked cells. In the middle is the Control Center, a locked door.", "You enter the North Block, and are surrounded by cells. You see the Control Room.");
 
+            //Adding players
             hallway.Players.Add(Players[1]);
 
-            AdjacentRoom acell = new AdjacentRoom(cell.Name, cell);
-            AdjacentRoom ahallway = new AdjacentRoom(hallway.Name, hallway);
-            AdjacentRoom anorthblock = new AdjacentRoom(northblock.Name, northblock);
+            //Adding Adjacent Rooms
 
-           AdjacentRooms.Add(acell);
-           AdjacentRooms.Add(ahallway);
-           AdjacentRooms.Add(anorthblock);
+            hallway.AdjacentRooms.Add(cell.Name);
+            hallway.AdjacentRooms.Add(northblock.Name);
 
-            //Cell Adjacent Rooms
+            cell.AdjacentRooms.Add(hallway.Name);
 
-            AdjacentRoom cellhallway = new AdjacentRoom(ahallway.Name, ahallway.Room);
+            northblock.AdjacentRooms.Add(hallway.Name);
 
-            cellhallway.Keywords.Add("hallway");
-            cellhallway.Keywords.Add("door");
-
-            cell.AdjacentRooms.Add(cellhallway);
-
-            //Hallway Adjacent Rooms
-
-            AdjacentRoom hallwaycell = new AdjacentRoom(acell.Name, acell.Room);
-
-            hallwaycell.Keywords.Add("cell");
-
-            hallway.AdjacentRooms.Add(hallwaycell);
-
-            AdjacentRoom hallwaynorthblock = new AdjacentRoom(anorthblock.Name, anorthblock.Room);
-
-            hallwaynorthblock.Keywords.Add("north");
-            hallwaynorthblock.Keywords.Add("northblock");
-            hallwaynorthblock.Keywords.Add("north block");
-
-            hallway.AdjacentRooms.Add(hallwaynorthblock);
-
-            //Northblock Adjacent Rooms
-
-            AdjacentRoom northblockhallway = new AdjacentRoom(ahallway.Name, ahallway.Room);
-
-            northblockhallway.Keywords.Add("hallway");
-            northblockhallway.Keywords.Add("south");
-       
-            northblock.AdjacentRooms.Add(northblockhallway);
 
             cell.Items.Add(Objects[2]);
 
