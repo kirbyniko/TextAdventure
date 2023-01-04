@@ -114,15 +114,7 @@ namespace AdventureMaker
         {
             switch (comboxAddtoall.SelectedText)
             {
-                case "Rooms":
-                    game.RoomStats.Add(stat);
-                    break;
-                case "Players":
-                    game.PlayerStats.Add(stat);
-                    break;
-                case "Objects":
-                    game.ObjectStats.Add(stat);
-                    break;
+               
             }
         }
     }

@@ -7,21 +7,13 @@ namespace TextAdventureLibrary
     {
         public string Name { get; set; }
         public Room CurrentRoom { get; set; }
-       
-        public List<string> Places { get; set; } = new List<string>();
-        public List<string> ObjectKeywords { get; set; } = new List<string>();
-        public List<string> PlayerKeywords { get; set; } = new List<string>();
         public List<Word> Verbs { get; set; } = new List<Word>();
         public List<Word> Words { get; set; } = new List<Word>();
         public List<Item> Objects { get; set; } = new List<Item>();
         public List<Stat> Stats { get; set; } = new List<Stat>();
-        public List<Stat> PlayerStats { get; set; } = new List<Stat>();
-        public List<Stat> ObjectStats { get; set; } = new List<Stat>();
-        public List<Stat> RoomStats { get; set; } = new List<Stat>();
         public UserCommand Command { get; set; } = new UserCommand();
         public List<Room> Rooms { get; set; } = new List<Room>();
         public List<Player> Players { get; set; } = new List<Player>();
-        public List<AdjacentRoom> AdjacentRooms { get; set; } = new List<AdjacentRoom>();
         public void InitLists()
         {
             //Verbs 
@@ -132,18 +124,13 @@ namespace TextAdventureLibrary
             {
                 item.Word = new Word(item.Keywords[0], item.Keywords, "object", item);
                 Words.Add(item.Word);
-                ObjectKeywords.AddRange(item.Keywords);
+               
             }
 
             foreach (var c in Players)
             {
                 c.Word = new Word(c.Keywords[0], c.Keywords, "player", c);
                 Words.Add(c.Word);
-
-                if (c.Keywords.Count >= 1)
-                {
-                    PlayerKeywords.AddRange(c.Keywords);
-                }
                 
             }
 
@@ -151,7 +138,6 @@ namespace TextAdventureLibrary
             {
                 c.Word = new Word(c.Name, c.Keywords, "place", c);
                 Words.Add(c.Word);
-                Places.Add(c.Word.Name);
             }
 
         }

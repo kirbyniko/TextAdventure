@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TextAdventureLibrary\TextAdventureLibrary.csproj" />
+    <ProjectReference Include="..\TextAdventure\TextAdventure.csproj" />
   </ItemGroup>
 
 </Project>
