@@ -7,6 +7,10 @@
 
         public string Description { get; set; }
 
+        public int Strength { get; set; }
+
+        public int Health { get; set; }
+
         public List<Stat> Stats { get; set; }
         public Word Word { get; set; } = new Word();
 

@@ -61,6 +61,8 @@ namespace AdventureMaker
             {
                 tboxplayername.Text = player.Name;
                 rtboxsummary.Text = player.Description;
+                tboxplayerstrength.Text = player.Strength.ToString();
+                tboxplayerhealth.Text = player.Health.ToString();
 
 
             }
@@ -77,6 +79,8 @@ namespace AdventureMaker
             {
                 player.Name = tboxplayername.Text;
                 player.Description = rtboxsummary.Text;
+                player.Strength = strength;
+                player.Health = health;
 
                 if(comboxcurrentroom.SelectedItem != null)
                 {
@@ -94,8 +98,7 @@ namespace AdventureMaker
             {
                 game.MainCharacter = player;
             }
-            
-        
+          
             
            
         }
@@ -151,7 +154,7 @@ namespace AdventureMaker
                 }
                 else
                 {
-                    cboxmaincharacter.Checked = true;
+                    cboxmaincharacter.Checked = false;
                 }
             }
                        

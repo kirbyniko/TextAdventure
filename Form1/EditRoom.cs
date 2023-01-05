@@ -259,5 +259,15 @@ namespace AdventureMaker
             }
             InitListbox();
         }
+
+        private void btnremoverooms_Click(object sender, EventArgs e)
+        {
+            foreach (var c in lboxadjacentrooms.SelectedItems)
+            {
+                room.AdjacentRooms.Remove(c.ToString());
+            }
+
+            InitListbox();
+        }
     }
 }

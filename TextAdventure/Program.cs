@@ -110,7 +110,7 @@ void DisplayRoom(AdventureGame adventureGame)
 
             if (adventureGame.CurrentRoom.Items.Count != index)
             {
-                Console.Write("There is also a");
+                Console.Write("There is also a ");
             }
         }
 
@@ -277,7 +277,20 @@ void RunStatements()
                                 switch (c.Verb.Name)
                                 {
                                     case "attack":
-                                        int attackdamage;
+
+                                        o.Player.Health = o.Player.Health - game.MainCharacter.Strength;
+                                        Console.WriteLine("You did " + game.MainCharacter.Strength + " damage to the " + o.Player.Name + "!");
+
+                                        if (o.Player.Health <= 0)
+                                        {
+                                            Console.WriteLine("You killed the " + o.Player.Name + ", congratulations!");
+                                            foreach(Item i in o.Player.Inventory)
+                                            {
+                                                game.CurrentRoom.Items.Add(i);
+                                                Console.WriteLine("He dropped " + i.Name + "!");
+                                                game.CurrentRoom.Players.Remove(game.CurrentRoom.Players.First(x => x.Name == o.Name));
+                                            }
+                                        }
                                         break;
                                 }
                             }

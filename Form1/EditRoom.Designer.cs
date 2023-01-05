@@ -66,17 +66,19 @@
             // 
             // tboxsynonyms
             // 
-            this.tboxsynonyms.Location = new System.Drawing.Point(925, 384);
+            this.tboxsynonyms.Location = new System.Drawing.Point(1057, 512);
+            this.tboxsynonyms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxsynonyms.Name = "tboxsynonyms";
             this.tboxsynonyms.PlaceholderText = "Type Keywords...";
-            this.tboxsynonyms.Size = new System.Drawing.Size(120, 23);
+            this.tboxsynonyms.Size = new System.Drawing.Size(137, 27);
             this.tboxsynonyms.TabIndex = 58;
             // 
             // btnremovesynonym
             // 
-            this.btnremovesynonym.Location = new System.Drawing.Point(984, 413);
+            this.btnremovesynonym.Location = new System.Drawing.Point(1125, 551);
+            this.btnremovesynonym.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremovesynonym.Name = "btnremovesynonym";
-            this.btnremovesynonym.Size = new System.Drawing.Size(61, 23);
+            this.btnremovesynonym.Size = new System.Drawing.Size(70, 31);
             this.btnremovesynonym.TabIndex = 57;
             this.btnremovesynonym.Text = "Remove";
             this.btnremovesynonym.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@
             // 
             // btnaddsynonym
             // 
-            this.btnaddsynonym.Location = new System.Drawing.Point(925, 413);
+            this.btnaddsynonym.Location = new System.Drawing.Point(1057, 551);
+            this.btnaddsynonym.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddsynonym.Name = "btnaddsynonym";
-            this.btnaddsynonym.Size = new System.Drawing.Size(53, 23);
+            this.btnaddsynonym.Size = new System.Drawing.Size(61, 31);
             this.btnaddsynonym.TabIndex = 56;
             this.btnaddsynonym.Text = "Add";
             this.btnaddsynonym.UseVisualStyleBackColor = true;
@@ -95,43 +98,46 @@
             // lboxsynonyms
             // 
             this.lboxsynonyms.FormattingEnabled = true;
-            this.lboxsynonyms.ItemHeight = 15;
-            this.lboxsynonyms.Location = new System.Drawing.Point(925, 439);
+            this.lboxsynonyms.ItemHeight = 20;
+            this.lboxsynonyms.Location = new System.Drawing.Point(1057, 585);
+            this.lboxsynonyms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxsynonyms.Name = "lboxsynonyms";
-            this.lboxsynonyms.Size = new System.Drawing.Size(120, 154);
+            this.lboxsynonyms.Size = new System.Drawing.Size(137, 204);
             this.lboxsynonyms.TabIndex = 55;
             // 
             // lbladdobjects
             // 
             this.lbladdobjects.AutoSize = true;
-            this.lbladdobjects.Location = new System.Drawing.Point(465, 15);
+            this.lbladdobjects.Location = new System.Drawing.Point(531, 20);
             this.lbladdobjects.Name = "lbladdobjects";
-            this.lbladdobjects.Size = new System.Drawing.Size(130, 15);
+            this.lbladdobjects.Size = new System.Drawing.Size(164, 20);
             this.lbladdobjects.TabIndex = 52;
             this.lbladdobjects.Text = "All objects you can add";
             // 
             // clboxaddobjects
             // 
             this.clboxaddobjects.FormattingEnabled = true;
-            this.clboxaddobjects.Location = new System.Drawing.Point(393, 41);
+            this.clboxaddobjects.Location = new System.Drawing.Point(449, 55);
+            this.clboxaddobjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clboxaddobjects.Name = "clboxaddobjects";
-            this.clboxaddobjects.Size = new System.Drawing.Size(268, 220);
+            this.clboxaddobjects.Size = new System.Drawing.Size(306, 290);
             this.clboxaddobjects.TabIndex = 51;
             // 
             // lblroomobjects
             // 
             this.lblroomobjects.AutoSize = true;
-            this.lblroomobjects.Location = new System.Drawing.Point(240, 15);
+            this.lblroomobjects.Location = new System.Drawing.Point(274, 20);
             this.lblroomobjects.Name = "lblroomobjects";
-            this.lblroomobjects.Size = new System.Drawing.Size(82, 15);
+            this.lblroomobjects.Size = new System.Drawing.Size(103, 20);
             this.lblroomobjects.TabIndex = 50;
             this.lblroomobjects.Text = "Room Objects";
             // 
             // btneditroomobjects
             // 
-            this.btneditroomobjects.Location = new System.Drawing.Point(222, 317);
+            this.btneditroomobjects.Location = new System.Drawing.Point(254, 423);
+            this.btneditroomobjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btneditroomobjects.Name = "btneditroomobjects";
-            this.btneditroomobjects.Size = new System.Drawing.Size(57, 23);
+            this.btneditroomobjects.Size = new System.Drawing.Size(65, 31);
             this.btneditroomobjects.TabIndex = 49;
             this.btneditroomobjects.Text = "Edit Item";
             this.btneditroomobjects.UseVisualStyleBackColor = true;
@@ -139,9 +145,10 @@
             // 
             // btnremoveroomobject
             // 
-            this.btnremoveroomobject.Location = new System.Drawing.Point(295, 317);
+            this.btnremoveroomobject.Location = new System.Drawing.Point(337, 423);
+            this.btnremoveroomobject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremoveroomobject.Name = "btnremoveroomobject";
-            this.btnremoveroomobject.Size = new System.Drawing.Size(61, 23);
+            this.btnremoveroomobject.Size = new System.Drawing.Size(70, 31);
             this.btnremoveroomobject.TabIndex = 48;
             this.btnremoveroomobject.Text = "Remove";
             this.btnremoveroomobject.UseVisualStyleBackColor = true;
@@ -149,9 +156,10 @@
             // 
             // btnaddroomobjects
             // 
-            this.btnaddroomobjects.Location = new System.Drawing.Point(475, 267);
+            this.btnaddroomobjects.Location = new System.Drawing.Point(543, 356);
+            this.btnaddroomobjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddroomobjects.Name = "btnaddroomobjects";
-            this.btnaddroomobjects.Size = new System.Drawing.Size(104, 23);
+            this.btnaddroomobjects.Size = new System.Drawing.Size(119, 31);
             this.btnaddroomobjects.TabIndex = 47;
             this.btnaddroomobjects.Text = "Add Objects";
             this.btnaddroomobjects.UseVisualStyleBackColor = true;
@@ -160,27 +168,29 @@
             // lboxroomobjects
             // 
             this.lboxroomobjects.FormattingEnabled = true;
-            this.lboxroomobjects.ItemHeight = 15;
-            this.lboxroomobjects.Location = new System.Drawing.Point(209, 41);
+            this.lboxroomobjects.ItemHeight = 20;
+            this.lboxroomobjects.Location = new System.Drawing.Point(239, 55);
+            this.lboxroomobjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxroomobjects.Name = "lboxroomobjects";
-            this.lboxroomobjects.Size = new System.Drawing.Size(167, 259);
+            this.lboxroomobjects.Size = new System.Drawing.Size(190, 344);
             this.lboxroomobjects.TabIndex = 46;
             // 
             // lbllongdescription
             // 
             this.lbllongdescription.AutoSize = true;
-            this.lbllongdescription.Location = new System.Drawing.Point(13, 50);
+            this.lbllongdescription.Location = new System.Drawing.Point(15, 67);
             this.lbllongdescription.Name = "lbllongdescription";
-            this.lbllongdescription.Size = new System.Drawing.Size(97, 15);
+            this.lbllongdescription.Size = new System.Drawing.Size(122, 20);
             this.lbllongdescription.TabIndex = 45;
             this.lbllongdescription.Text = "Long Description";
             this.lbllongdescription.Click += new System.EventHandler(this.lblplayersummary_Click);
             // 
             // rtboxlongdescription
             // 
-            this.rtboxlongdescription.Location = new System.Drawing.Point(13, 68);
+            this.rtboxlongdescription.Location = new System.Drawing.Point(15, 91);
+            this.rtboxlongdescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtboxlongdescription.Name = "rtboxlongdescription";
-            this.rtboxlongdescription.Size = new System.Drawing.Size(176, 284);
+            this.rtboxlongdescription.Size = new System.Drawing.Size(201, 377);
             this.rtboxlongdescription.TabIndex = 44;
             this.rtboxlongdescription.Text = "";
             this.rtboxlongdescription.TextChanged += new System.EventHandler(this.rtboxsummary_TextChanged);
@@ -188,67 +198,71 @@
             // lblroomname
             // 
             this.lblroomname.AutoSize = true;
-            this.lblroomname.Location = new System.Drawing.Point(119, 15);
+            this.lblroomname.Location = new System.Drawing.Point(136, 20);
             this.lblroomname.Name = "lblroomname";
-            this.lblroomname.Size = new System.Drawing.Size(39, 15);
+            this.lblroomname.Size = new System.Drawing.Size(49, 20);
             this.lblroomname.TabIndex = 39;
             this.lblroomname.Text = "Name";
             // 
             // tboxroomname
             // 
-            this.tboxroomname.Location = new System.Drawing.Point(13, 12);
+            this.tboxroomname.Location = new System.Drawing.Point(15, 16);
+            this.tboxroomname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tboxroomname.Name = "tboxroomname";
-            this.tboxroomname.Size = new System.Drawing.Size(100, 23);
+            this.tboxroomname.Size = new System.Drawing.Size(114, 27);
             this.tboxroomname.TabIndex = 38;
             // 
             // lblshortdescription
             // 
             this.lblshortdescription.AutoSize = true;
-            this.lblshortdescription.Location = new System.Drawing.Point(13, 355);
+            this.lblshortdescription.Location = new System.Drawing.Point(15, 473);
             this.lblshortdescription.Name = "lblshortdescription";
-            this.lblshortdescription.Size = new System.Drawing.Size(98, 15);
+            this.lblshortdescription.Size = new System.Drawing.Size(124, 20);
             this.lblshortdescription.TabIndex = 59;
             this.lblshortdescription.Text = "Short Description";
             // 
             // rtboxshortdescription
             // 
-            this.rtboxshortdescription.Location = new System.Drawing.Point(13, 373);
+            this.rtboxshortdescription.Location = new System.Drawing.Point(15, 497);
+            this.rtboxshortdescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtboxshortdescription.Name = "rtboxshortdescription";
-            this.rtboxshortdescription.Size = new System.Drawing.Size(374, 149);
+            this.rtboxshortdescription.Size = new System.Drawing.Size(427, 197);
             this.rtboxshortdescription.TabIndex = 60;
             this.rtboxshortdescription.Text = "";
             // 
             // lbladdplayers
             // 
             this.lbladdplayers.AutoSize = true;
-            this.lbladdplayers.Location = new System.Drawing.Point(942, 15);
+            this.lbladdplayers.Location = new System.Drawing.Point(1077, 20);
             this.lbladdplayers.Name = "lbladdplayers";
-            this.lbladdplayers.Size = new System.Drawing.Size(129, 15);
+            this.lbladdplayers.Size = new System.Drawing.Size(163, 20);
             this.lbladdplayers.TabIndex = 67;
             this.lbladdplayers.Text = "All players you can add";
             // 
             // clboxaddplayers
             // 
             this.clboxaddplayers.FormattingEnabled = true;
-            this.clboxaddplayers.Location = new System.Drawing.Point(870, 41);
+            this.clboxaddplayers.Location = new System.Drawing.Point(994, 55);
+            this.clboxaddplayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clboxaddplayers.Name = "clboxaddplayers";
-            this.clboxaddplayers.Size = new System.Drawing.Size(268, 220);
+            this.clboxaddplayers.Size = new System.Drawing.Size(306, 290);
             this.clboxaddplayers.TabIndex = 66;
             // 
             // lblroomplayers
             // 
             this.lblroomplayers.AutoSize = true;
-            this.lblroomplayers.Location = new System.Drawing.Point(717, 15);
+            this.lblroomplayers.Location = new System.Drawing.Point(819, 20);
             this.lblroomplayers.Name = "lblroomplayers";
-            this.lblroomplayers.Size = new System.Drawing.Size(79, 15);
+            this.lblroomplayers.Size = new System.Drawing.Size(99, 20);
             this.lblroomplayers.TabIndex = 65;
             this.lblroomplayers.Text = "Room Players";
             // 
             // btneditroomplayers
             // 
-            this.btneditroomplayers.Location = new System.Drawing.Point(699, 317);
+            this.btneditroomplayers.Location = new System.Drawing.Point(799, 423);
+            this.btneditroomplayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btneditroomplayers.Name = "btneditroomplayers";
-            this.btneditroomplayers.Size = new System.Drawing.Size(57, 23);
+            this.btneditroomplayers.Size = new System.Drawing.Size(65, 31);
             this.btneditroomplayers.TabIndex = 64;
             this.btneditroomplayers.Text = "Edit Item";
             this.btneditroomplayers.UseVisualStyleBackColor = true;
@@ -256,9 +270,10 @@
             // 
             // btnremoveroomplayers
             // 
-            this.btnremoveroomplayers.Location = new System.Drawing.Point(772, 317);
+            this.btnremoveroomplayers.Location = new System.Drawing.Point(882, 423);
+            this.btnremoveroomplayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremoveroomplayers.Name = "btnremoveroomplayers";
-            this.btnremoveroomplayers.Size = new System.Drawing.Size(61, 23);
+            this.btnremoveroomplayers.Size = new System.Drawing.Size(70, 31);
             this.btnremoveroomplayers.TabIndex = 63;
             this.btnremoveroomplayers.Text = "Remove";
             this.btnremoveroomplayers.UseVisualStyleBackColor = true;
@@ -266,9 +281,10 @@
             // 
             // btnaddplayers
             // 
-            this.btnaddplayers.Location = new System.Drawing.Point(952, 267);
+            this.btnaddplayers.Location = new System.Drawing.Point(1088, 356);
+            this.btnaddplayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddplayers.Name = "btnaddplayers";
-            this.btnaddplayers.Size = new System.Drawing.Size(104, 23);
+            this.btnaddplayers.Size = new System.Drawing.Size(119, 31);
             this.btnaddplayers.TabIndex = 62;
             this.btnaddplayers.Text = "Add Players";
             this.btnaddplayers.UseVisualStyleBackColor = true;
@@ -277,70 +293,76 @@
             // lboxroomplayers
             // 
             this.lboxroomplayers.FormattingEnabled = true;
-            this.lboxroomplayers.ItemHeight = 15;
-            this.lboxroomplayers.Location = new System.Drawing.Point(686, 41);
+            this.lboxroomplayers.ItemHeight = 20;
+            this.lboxroomplayers.Location = new System.Drawing.Point(784, 55);
+            this.lboxroomplayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxroomplayers.Name = "lboxroomplayers";
-            this.lboxroomplayers.Size = new System.Drawing.Size(167, 259);
+            this.lboxroomplayers.Size = new System.Drawing.Size(190, 344);
             this.lboxroomplayers.TabIndex = 61;
             // 
             // lblroomkeywords
             // 
             this.lblroomkeywords.AutoSize = true;
-            this.lblroomkeywords.Location = new System.Drawing.Point(938, 361);
+            this.lblroomkeywords.Location = new System.Drawing.Point(1072, 481);
             this.lblroomkeywords.Name = "lblroomkeywords";
-            this.lblroomkeywords.Size = new System.Drawing.Size(93, 15);
+            this.lblroomkeywords.Size = new System.Drawing.Size(117, 20);
             this.lblroomkeywords.TabIndex = 70;
             this.lblroomkeywords.Text = "Room Keywords";
             // 
             // lbladdrooms
             // 
             this.lbladdrooms.AutoSize = true;
-            this.lbladdrooms.Location = new System.Drawing.Point(677, 350);
+            this.lbladdrooms.Location = new System.Drawing.Point(774, 467);
             this.lbladdrooms.Name = "lbladdrooms";
-            this.lbladdrooms.Size = new System.Drawing.Size(126, 15);
+            this.lbladdrooms.Size = new System.Drawing.Size(158, 20);
             this.lbladdrooms.TabIndex = 77;
             this.lbladdrooms.Text = "All rooms you can add";
             // 
             // clboxaddrooms
             // 
             this.clboxaddrooms.FormattingEnabled = true;
-            this.clboxaddrooms.Location = new System.Drawing.Point(606, 373);
+            this.clboxaddrooms.Location = new System.Drawing.Point(693, 497);
+            this.clboxaddrooms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clboxaddrooms.Name = "clboxaddrooms";
-            this.clboxaddrooms.Size = new System.Drawing.Size(268, 220);
+            this.clboxaddrooms.Size = new System.Drawing.Size(306, 290);
             this.clboxaddrooms.TabIndex = 76;
             // 
             // lbladjacentrooms
             // 
             this.lbladjacentrooms.AutoSize = true;
-            this.lbladjacentrooms.Location = new System.Drawing.Point(459, 350);
+            this.lbladjacentrooms.Location = new System.Drawing.Point(525, 467);
             this.lbladjacentrooms.Name = "lbladjacentrooms";
-            this.lbladjacentrooms.Size = new System.Drawing.Size(94, 15);
+            this.lbladjacentrooms.Size = new System.Drawing.Size(118, 20);
             this.lbladjacentrooms.TabIndex = 75;
             this.lbladjacentrooms.Text = "Adjacent Rooms";
             // 
             // btneditrooms
             // 
-            this.btneditrooms.Location = new System.Drawing.Point(436, 638);
+            this.btneditrooms.Location = new System.Drawing.Point(498, 851);
+            this.btneditrooms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btneditrooms.Name = "btneditrooms";
-            this.btneditrooms.Size = new System.Drawing.Size(57, 23);
+            this.btneditrooms.Size = new System.Drawing.Size(65, 31);
             this.btneditrooms.TabIndex = 74;
             this.btneditrooms.Text = "Edit Item";
             this.btneditrooms.UseVisualStyleBackColor = true;
             // 
             // btnremoverooms
             // 
-            this.btnremoverooms.Location = new System.Drawing.Point(509, 638);
+            this.btnremoverooms.Location = new System.Drawing.Point(582, 851);
+            this.btnremoverooms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnremoverooms.Name = "btnremoverooms";
-            this.btnremoverooms.Size = new System.Drawing.Size(61, 23);
+            this.btnremoverooms.Size = new System.Drawing.Size(70, 31);
             this.btnremoverooms.TabIndex = 73;
             this.btnremoverooms.Text = "Remove";
             this.btnremoverooms.UseVisualStyleBackColor = true;
+            this.btnremoverooms.Click += new System.EventHandler(this.btnremoverooms_Click);
             // 
             // btnaddrooms
             // 
-            this.btnaddrooms.Location = new System.Drawing.Point(688, 599);
+            this.btnaddrooms.Location = new System.Drawing.Point(786, 799);
+            this.btnaddrooms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnaddrooms.Name = "btnaddrooms";
-            this.btnaddrooms.Size = new System.Drawing.Size(104, 23);
+            this.btnaddrooms.Size = new System.Drawing.Size(119, 31);
             this.btnaddrooms.TabIndex = 72;
             this.btnaddrooms.Text = "Add Rooms";
             this.btnaddrooms.UseVisualStyleBackColor = true;
@@ -349,18 +371,20 @@
             // lboxadjacentrooms
             // 
             this.lboxadjacentrooms.FormattingEnabled = true;
-            this.lboxadjacentrooms.ItemHeight = 15;
-            this.lboxadjacentrooms.Location = new System.Drawing.Point(422, 373);
+            this.lboxadjacentrooms.ItemHeight = 20;
+            this.lboxadjacentrooms.Location = new System.Drawing.Point(482, 497);
+            this.lboxadjacentrooms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lboxadjacentrooms.Name = "lboxadjacentrooms";
-            this.lboxadjacentrooms.Size = new System.Drawing.Size(167, 259);
+            this.lboxadjacentrooms.Size = new System.Drawing.Size(190, 344);
             this.lboxadjacentrooms.TabIndex = 71;
             // 
             // btncreateroom
             // 
             this.btncreateroom.BackColor = System.Drawing.Color.Yellow;
-            this.btncreateroom.Location = new System.Drawing.Point(52, 555);
+            this.btncreateroom.Location = new System.Drawing.Point(59, 740);
+            this.btncreateroom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btncreateroom.Name = "btncreateroom";
-            this.btncreateroom.Size = new System.Drawing.Size(270, 92);
+            this.btncreateroom.Size = new System.Drawing.Size(309, 123);
             this.btncreateroom.TabIndex = 78;
             this.btncreateroom.Text = "Create Room!";
             this.btncreateroom.UseVisualStyleBackColor = false;
@@ -369,16 +393,17 @@
             // cboxdefaultroom
             // 
             this.cboxdefaultroom.AutoSize = true;
-            this.cboxdefaultroom.Location = new System.Drawing.Point(52, 528);
+            this.cboxdefaultroom.Location = new System.Drawing.Point(59, 704);
+            this.cboxdefaultroom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboxdefaultroom.Name = "cboxdefaultroom";
-            this.cboxdefaultroom.Size = new System.Drawing.Size(107, 19);
+            this.cboxdefaultroom.Size = new System.Drawing.Size(134, 24);
             this.cboxdefaultroom.TabIndex = 79;
             this.cboxdefaultroom.Text = "Starting Room?";
             this.cboxdefaultroom.UseVisualStyleBackColor = true;
             // 
             // EditRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cboxdefaultroom);
             this.Controls.Add(this.btncreateroom);
@@ -414,8 +439,9 @@
             this.Controls.Add(this.rtboxlongdescription);
             this.Controls.Add(this.lblroomname);
             this.Controls.Add(this.tboxroomname);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EditRoom";
-            this.Size = new System.Drawing.Size(1153, 692);
+            this.Size = new System.Drawing.Size(1318, 923);
             this.VisibleChanged += new System.EventHandler(this.EditRoom_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
