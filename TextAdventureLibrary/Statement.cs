@@ -57,34 +57,40 @@ namespace TextAdventureLibrary
 
         public void DropItem(AdventureGame game)
         {
-            foreach (var c in game.Objects)
-                // player count check should come before foreach loop
+            if (game.Players.Count() > 0)
             {
-                if (game.Players.Count() > 0)
+                foreach (var c in game.Objects)
+                // player count check should come before foreach loop
                 {
-                    if (game.Players[0].Inventory.Contains(game.Players[0].Inventory.First(x => x.Name == c.Name)))
-                        // if there is nothing to drop this command does not work
+
+                    if (game.Players[0].Inventory.Count() > 0)
                     {
-                        game.Players.First().Inventory.Remove((game.Players[0].Inventory.First(x => x.Name == c.Name)));
-                        game.CurrentRoom.Items.Add(c);
-                        Console.WriteLine("You drop the " + c.Name);
-                    }
+                        if (game.Players[0].Inventory.Contains(game.Players[0].Inventory.First(x => x.Name == c.Name)))
+
+                        {
+                            game.Players.First().Inventory.Remove((game.Players[0].Inventory.First(x => x.Name == c.Name)));
+                            game.CurrentRoom.Items.Add(c);
+                            Console.WriteLine("You drop the " + c.Name);
+                        }
 
 
-                    else
-                    {
-                        Console.WriteLine("You do have a " + c.Name + " in your inventory");
+                        else
+                        {
+                            Console.WriteLine("You do have a " + c.Name + " in your inventory");
+                        }
                     }
-                }
-                else
-                {
-                        Console.WriteLine("No Players in this game! Fix exception!");
+
                 }
             }
-
+            else
+            {
+                Console.WriteLine("No Players in this game! Fix exception!");
+            }
         }
 
     }
+
 }
+
 
 

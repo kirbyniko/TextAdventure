@@ -19,7 +19,7 @@ namespace AdventureMaker
 
         private Room room = new();
 
-        private Room referenceroom = new();
+        private bool editingroom = false;
 
         private List<string> synonyms = new List<string>();
         public EditRoom()
@@ -35,17 +35,23 @@ namespace AdventureMaker
         {
             adventureGame = adventure;
             room = _room;
+            editingroom = true;
             
             InitializeComponent();
         }
 
         public void LoadRoom()
         {
+            tboxroomname.Clear();
+            rtboxlongdescription.Clear();
+            rtboxshortdescription.Clear();
+
             tboxroomname.Text = room.Name;
             rtboxlongdescription.Text = room.Description;
             rtboxshortdescription.Text = room.ShortDescription;
             synonyms = room.Keywords;
-            if (adventureGame.CurrentRoom == room)
+
+            if (adventureGame.CurrentRoom.Name == room.Name)
             {
                 cboxdefaultroom.Checked = true;
             }
@@ -214,10 +220,11 @@ namespace AdventureMaker
         {
             SaveRoom();
 
-            if (adventureGame.Rooms.Contains(adventureGame.Rooms.Find(x => x.Name == room.Name)))
+            if (editingroom == true)
             {
-                referenceroom = adventureGame.Rooms.Find(x => x.Name == room.Name);
-                referenceroom = room;
+                adventureGame.Rooms.Remove(adventureGame.Rooms.First(x => x.Name == room.Name));
+                adventureGame.Rooms.Add(room);
+            
                 if (cboxdefaultroom.Checked)
                 {
                     adventureGame.CurrentRoom = room;

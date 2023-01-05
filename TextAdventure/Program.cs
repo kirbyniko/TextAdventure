@@ -272,12 +272,12 @@ void RunStatements()
                     {
                         foreach (var o in c.Players)
                         {
-                            if (game.CurrentRoom.Players.Contains(o.Player))
+                            if (game.CurrentRoom.Players.Contains(game.CurrentRoom.Players.First(x => x.Name == o.Player.Name)))
                             {
                                 switch (c.Verb.Name)
                                 {
                                     case "attack":
-                                        //  Console.WriteLine("You did " + damage + " damage to the " + o.Name);
+                                        int attackdamage;
                                         break;
                                 }
                             }
@@ -305,7 +305,7 @@ void RunStatements()
 
 
                                     game.CurrentRoom.Players.Add(game.Players[0]);
-                                    DisplayRoom(game);
+                                   
                                 }
                                 else
                                 {

@@ -18,7 +18,7 @@ namespace Form1
 {
     public partial class MainForm : Form
     {
-        public AdventureGame AdventureGame { get; set; } = new AdventureGame();
+        public AdventureGame AdventureGame { get; set; }
         public MainForm(AdventureGame game)
         {
             AdventureGame = game;
@@ -33,6 +33,7 @@ namespace Form1
 
         public MainForm()
         {
+            AdventureGame = new AdventureGame();
             InitializeComponent();
             AdventureGame.InitLists();
             InitVerbs();
@@ -198,7 +199,7 @@ namespace Form1
 
         private void btneditrooms_Click(object sender, EventArgs e)
         {
-            RoomMaker room = new(AdventureGame, AdventureGame.Rooms.Find(x => x.Name == lboxrooms.SelectedItem.ToString()));
+            RoomMaker room = new(AdventureGame, AdventureGame.Rooms.First(x => x.Name == lboxrooms.SelectedItem.ToString()));
             room.Show();
             this.Close();
         }

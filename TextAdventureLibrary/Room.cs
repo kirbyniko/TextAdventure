@@ -1,5 +1,6 @@
 ﻿namespace TextAdventureLibrary
 {
+    [Serializable]
     public class Room
     {
 
@@ -21,7 +22,7 @@
 
         public List<Item> Items { get; set; } = new List<Item>();
 
-        public List<string> Keywords = new List<string>();
+        public List<string> Keywords { get; set; } = new List<string>();
 
   
 
