@@ -63,12 +63,12 @@ namespace TextAdventureLibrary
                 // player count check should come before foreach loop
                 {
 
-                    if (game.Players[0].Inventory.Count() > 0)
+                    if (game.MainCharacter.Inventory.Count() > 0)
                     {
-                        if (game.Players[0].Inventory.Contains(game.Players[0].Inventory.First(x => x.Name == c.Name)))
+                        if (game.MainCharacter.Inventory.Contains(game.MainCharacter.Inventory.First(x => x.Name == c.Name)))
 
                         {
-                            game.Players.First().Inventory.Remove((game.Players[0].Inventory.First(x => x.Name == c.Name)));
+                            game.Players.First().Inventory.Remove((game.MainCharacter.Inventory.First(x => x.Name == c.Name)));
                             game.CurrentRoom.Items.Add(c);
                             Console.WriteLine("You drop the " + c.Name);
                         }

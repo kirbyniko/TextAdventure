@@ -6,8 +6,8 @@ namespace TextAdventureLibrary
     public class AdventureGame
     {
         public string Name { get; set; }
-        public Room CurrentRoom { get; set; }
-        public Player MainCharacter { get; set; }
+        public Room CurrentRoom { get; set; } = new Room();
+        public Player MainCharacter { get; set; } = new Player();
         public List<Word> Verbs { get; set; } = new List<Word>();
         public List<Word> Words { get; set; } = new List<Word>();
         public List<Item> Objects { get; set; } = new List<Item>();

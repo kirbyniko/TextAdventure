@@ -64,6 +64,8 @@ namespace AdventureMaker
 
 
             }
+
+            InitCheckBox();
         }
 
         public void SavePlayer()
@@ -88,6 +90,10 @@ namespace AdventureMaker
                 player.Keywords.Add(player.Name);
             }
 
+            if (cboxmaincharacter.Checked == true)
+            {
+                game.MainCharacter = player;
+            }
             
         
             
@@ -135,8 +141,24 @@ namespace AdventureMaker
             }
         }
 
+        private void InitCheckBox()
+        {
+            if (game.MainCharacter!= null)
+            {
+                if (game.MainCharacter.Name == player.Name)
+                {
+                    cboxmaincharacter.Checked = true;
+                }
+                else
+                {
+                    cboxmaincharacter.Checked = true;
+                }
+            }
+                       
+        }
         private void InitComboBox()
         {
+            
             comboxcurrentroom.Items.Clear();
             foreach(var c in game.Rooms)
             {

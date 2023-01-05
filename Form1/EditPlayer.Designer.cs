@@ -53,6 +53,7 @@
             this.lblRandomizedInfo = new System.Windows.Forms.Label();
             this.tboxminhealth = new System.Windows.Forms.TextBox();
             this.tboxMaxHealth = new System.Windows.Forms.TextBox();
+            this.cboxmaincharacter = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btncreateplayer
@@ -291,10 +292,21 @@
             this.tboxMaxHealth.Size = new System.Drawing.Size(127, 27);
             this.tboxMaxHealth.TabIndex = 42;
             // 
+            // cboxmaincharacter
+            // 
+            this.cboxmaincharacter.AutoSize = true;
+            this.cboxmaincharacter.Location = new System.Drawing.Point(14, 454);
+            this.cboxmaincharacter.Name = "cboxmaincharacter";
+            this.cboxmaincharacter.Size = new System.Drawing.Size(141, 24);
+            this.cboxmaincharacter.TabIndex = 43;
+            this.cboxmaincharacter.Text = "This is the player";
+            this.cboxmaincharacter.UseVisualStyleBackColor = true;
+            // 
             // EditPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboxmaincharacter);
             this.Controls.Add(this.tboxMaxHealth);
             this.Controls.Add(this.tboxminhealth);
             this.Controls.Add(this.lblRandomizedInfo);
@@ -355,5 +367,6 @@
         private Label lblRandomizedInfo;
         private TextBox tboxminhealth;
         private TextBox tboxMaxHealth;
+        private CheckBox cboxmaincharacter;
     }
 }

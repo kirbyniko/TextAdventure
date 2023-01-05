@@ -120,7 +120,7 @@ void DisplayRoom(AdventureGame adventureGame)
     if (adventureGame.CurrentRoom.Players != null && adventureGame.CurrentRoom.Players.Count() > 1)
     {
         foreach (Player player in adventureGame.CurrentRoom.Players)
-            if (player.Name != adventureGame.Players[0].Name)
+            if (player.Name != adventureGame.MainCharacter.Name)
             {
                 Console.WriteLine("There is " + player.Description + " in the room.");
             }
@@ -300,11 +300,11 @@ void RunStatements()
                             {
                                 if (game.CurrentRoom.AdjacentRooms.Contains(c.Places[0].Name))
                                 {
-                                    game.CurrentRoom.Players.Remove(game.Players[0]);
+                                    game.CurrentRoom.Players.Remove(game.MainCharacter);
                                     game.CurrentRoom = game.Rooms.First(x => x.Name == c.Places[0].Name);
 
 
-                                    game.CurrentRoom.Players.Add(game.Players[0]);
+                                    game.CurrentRoom.Players.Add(game.MainCharacter);
                                    
                                 }
                                 else
