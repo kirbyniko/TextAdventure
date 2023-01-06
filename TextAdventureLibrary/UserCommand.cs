@@ -21,6 +21,26 @@ namespace TextAdventureLibrary
 
         public Item Item { get; set; } = new Item();
 
+        public Player SelectFromMultiple(List<Player> list)
+        {
+            Console.WriteLine("It appears there are multiple " + list[0].Name + "s!");
+            int i = 1;
+            int inputint = -1;
+            foreach(var c in list)
+            {
+                Console.WriteLine(i++ + ". " + c.Name + ", " + c.Description);
+            }
+            Console.WriteLine("Please type the ID of the " + list[0].Name + " that you would like to select!");
+            string input = Console.ReadLine();
+            int.TryParse(input, out inputint);
+            while (inputint == -1 ^ inputint >= list.Count + 1)
+            {
+                Console.WriteLine("Please type a number corresponding to a choice!");
+                input = Console.ReadLine();
+                int.TryParse (input, out inputint);
+            }
+            return list[inputint - 1];
+        }
         public void ClearLists()
         {
             Objects.Clear();

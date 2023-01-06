@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using TextAdventureLibrary;
@@ -272,8 +273,25 @@ void RunStatements()
                     {
                         foreach (var o in c.Players)
                         {
-                            if (game.CurrentRoom.Players.Contains(game.CurrentRoom.Players.First(x => x.Name == o.Player.Name)))
+                            if (game.CurrentRoom.Players.FirstOrDefault(x => x.Name == o.Player.Name) != null)
                             {
+                                List<Player> selectlist = new List<Player>();
+                                Player targetplayer = new Player();
+
+                                foreach (var p in game.CurrentRoom.Players.Where(x => x.Name == o.Player.Name))
+                                {
+                                    selectlist.Add(p);
+                                }
+                                if (selectlist.Count() >= 1)
+                                {
+                                    targetplayer = game.Command.SelectFromMultiple(selectlist);
+                                }
+                                else
+                                {
+                                    targetplayer = selectlist[0];
+                                }
+
+
                                 switch (c.Verb.Name)
                                 {
                                     case "attack":
@@ -284,12 +302,13 @@ void RunStatements()
                                         if (o.Player.Health <= 0)
                                         {
                                             Console.WriteLine("You killed the " + o.Player.Name + ", congratulations!");
-                                            foreach(Item i in o.Player.Inventory)
+                                            foreach (Item i in o.Player.Inventory)
                                             {
                                                 game.CurrentRoom.Items.Add(i);
                                                 Console.WriteLine("He dropped " + i.Name + "!");
-                                                game.CurrentRoom.Players.Remove(game.CurrentRoom.Players.First(x => x.Name == o.Name));
+
                                             }
+                                            game.CurrentRoom.Players.Remove(game.CurrentRoom.Players.First(x => x.Name == o.Player.Name));
                                         }
                                         break;
                                 }
@@ -318,7 +337,7 @@ void RunStatements()
 
 
                                     game.CurrentRoom.Players.Add(game.MainCharacter);
-                                   
+
                                 }
                                 else
                                 {
